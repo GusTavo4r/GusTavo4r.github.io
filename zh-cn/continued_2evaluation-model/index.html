@@ -1,0 +1,664 @@
+<html><head><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fe151ab3944fff51c4da312eeac4eb09";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<script async="" src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
+<!DOCTYPE html>
+
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" onload="renderMathInElement(document.body);" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noodp" name="robots"/>
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
+<title>(续2)打分式评价(TOPSIS,ENTROPY) - ZonLin</title><meta content="关于作者" name="Description"/><meta content="(续2)打分式评价(TOPSIS,ENTROPY)" property="og:title"/>
+<meta content="这是一个提示 若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~ 任何疑问请致邮：E-mail 1.7 理" property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" property="og:url"/><meta content="https://orangesodahub.github.io/logo.png" property="og:image"/><meta content="posts" property="article:section"/>
+<meta content="2021-07-11T14:23:36+08:00" property="article:published_time"/>
+<meta content="2021-07-11T14:23:36+08:00" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://orangesodahub.github.io/logo.png" name="twitter:image"/>
+<meta content="(续2)打分式评价(TOPSIS,ENTROPY)" name="twitter:title"/>
+<meta content="这是一个提示 若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~ 任何疑问请致邮：E-mail 1.7 理" name="twitter:description"/>
+<meta content="ZonLin" name="application-name"/>
+<meta content="ZonLin" name="apple-mobile-web-app-title"/><meta content="#ffffff" name="theme-color"/><meta content="#da532c" name="msapplication-TileColor"/><link href="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" rel="canonical"/><link href="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" rel="prev"/><link href="https://orangesodahub.github.io/zh-cn/mcm2017c/" rel="next"/><link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet"/><link href="/css/style.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" rel="stylesheet"/><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "(续2)打分式评价(TOPSIS,ENTROPY)",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/orangesodahub.github.io\/zh-cn\/continued_2evaluation-model\/"
+        },"image": ["https:\/\/orangesodahub.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "数学建模, 评价模型, “打分式评价\u0022","wordcount":  5178 ,
+        "url": "https:\/\/orangesodahub.github.io\/zh-cn\/continued_2evaluation-model\/","datePublished": "2021-07-11T14:23:36+08:00","dateModified": "2021-07-11T14:23:36+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "ZonLin","logo": "https:\/\/orangesodahub.github.io\/images\/%E4%B8%8B%E8%BD%BD.jpg"},"author": {
+                "@type": "Person",
+                "name": "记录"
+            },"description": ""
+    }
+    </script>
+</head><body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<script>
+            
+            Array.from(document.getElementsByClassName('language-mermaid')).forEach(el => {
+                el.parentElement.outerHTML = `<div class="mermaid">${el.innerText}</div>`
+            })
+        </script>
+<style>
+         
+        .mermaid svg {
+            display: block;
+            margin: auto;
+        }
+        </style>
+<div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<div class="header-wrapper">
+<div class="header-title">
+<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
+</div>
+<div class="menu">
+<div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><a class="menu-item language" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option selected="" value="/zh-cn/continued_2evaluation-model/">简体中文</option></select>
+</a><span class="menu-item search" id="search-desktop">
+<input id="search-input-desktop" placeholder="在此键入" type="text"/>
+<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-desktop" title="搜索">
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-desktop" title="清空">
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id="search-loading-desktop">
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class="mobile" id="header-mobile">
+<div class="header-container">
+<div class="header-wrapper">
+<div class="header-title">
+<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
+</div>
+<div class="menu-toggle" id="menu-toggle-mobile">
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class="menu" id="menu-mobile"><div class="search-wrapper">
+<div class="search mobile" id="search-mobile">
+<input id="search-input-mobile" placeholder="在此键入" type="text"/>
+<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-mobile" title="搜索">
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-mobile" title="清空">
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id="search-loading-mobile">
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a class="search-cancel" href="javascript:void(0);" id="search-cancel-mobile">
+                        取消
+                    </a>
+</div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i></a><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a class="menu-item" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class="language-select" onchange="location = this.value;"><option selected="" value="/zh-cn/continued_2evaluation-model/">简体中文</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+<div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+<div class="container"><div class="toc" id="toc-auto">
+<h2 class="toc-title">目录</h2>
+<div class="toc-content" id="toc-content-auto"></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">(续2)打分式评价(TOPSIS,ENTROPY)</h1><div class="post-meta">
+<div class="post-meta-line"><span class="post-author"><a class="author" href="/zh-cn/" rel="author" title="Author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span> <span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a> <a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
+<div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i> <time datetime="2021-07-11">2021-07-11</time> <i class="fas fa-pencil-alt fa-fw"></i> 约 5178 字 
+                <i class="far fa-clock fa-fw"></i> 预计阅读 11 分钟 </div>
+</div><div class="details toc" id="toc-static" kept="">
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#17-理想解方法topsis">1.7 理想解方法（TOPSIS）</a>
+<ul>
+<li><a href="#171简述">1.7.1简述</a></li>
+<li><a href="#172评价步骤1">1.7.2评价步骤</a></li>
+<li><a href="#173程序实现">1.7.3程序实现</a></li>
+</ul>
+</li>
+<li><a href="#18-加权积weighted-average-method">1.8 加权积（Weighted Average Method）</a>
+<ul>
+<li><a href="#181简述">1.8.1简述</a></li>
+<li><a href="#182计算方法">1.8.2计算方法</a></li>
+</ul>
+</li>
+<li><a href="#19-熵权法ewm">1.9 熵权法（EWM）</a>
+<ul>
+<li><a href="#191简述">1.9.1简述</a></li>
+<li><a href="#192赋权步骤">1.9.2赋权步骤</a></li>
+<li><a href="#193实例及代码实现">1.9.3实例及代码实现</a></li>
+</ul>
+</li>
+<li><a href="#110-信息熵法">1.10 信息熵法</a>
+<ul>
+<li><a href="#1101简述">1.10.1简述</a></li>
+<li><a href="#1102描述过程">1.10.2描述过程</a></li>
+<li><a href="#1103应用">1.10.3应用</a>
+<ul>
+<li><a href="#11031熵权法">1.10.3.1熵权法</a></li>
+<li><a href="#11032霍夫曼编码">1.10.3.2霍夫曼编码</a></li>
+<li><a href="#11033条件熵与信息增益">1.10.3.3条件熵与信息增益</a></li>
+<li><a href="#11034交叉熵与相对熵">1.10.3.4交叉熵与相对熵</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div><div class="content" id="content"><div class="details admonition tip">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-lightbulb fa-fw"></i>这是一个提示<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class="details-content">
+<div class="admonition-content"><p>若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~</p>
+<p><a href="mailto:gzzyyxy@gmail.com">任何疑问请致邮：E-mail</a></p>
+</div>
+</div>
+</div>
+<h3 id="17-理想解方法topsis">1.7 理想解方法（TOPSIS）</h3>
+<h4 id="171简述">1.7.1简述</h4>
+<p>TOPSIS法是一种理想目标相似性的顺序选优技术，常在多目标决策分析中使用。它通过归一化后的数据规范化矩阵，找出多个目标中的最优目标（理想解和反理想解），分别计算各评价目标与理想解和反理想解的距离，得到各目标与理想解的贴近度，并按贴近度进行大小排序，其反应了优劣水平。评价最好的对象应当是与最优目标距离最近，与最劣目标距离最远，距离的计算可采用明考斯基距离，常用的欧氏距离是明考斯基距离的特殊情况。</p>
+<p>术语：</p>
+<ol>
+<li>理想解（positive ideal solution）：设想的最优解，其各个属性值为各备选方案中的最优值；</li>
+<li>负理想解（negative ideal solution）：和理想解相反。</li>
+</ol>
+<h4 id="172评价步骤1">1.7.2评价步骤<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" role="doc-noteref">1</a></sup></h4>
+<p>设有$$m$$个评价对象$$D_1,D_2,\cdots,D_m$$，每个对象有$$n$$项评价指标$$X_1,X_2,\cdots,X_n$$，将其表示为矩阵形式：（各项$$x$$的值来自客观测量如pH值或主观评价如专家打分）</p>
+<p>$$
+D=\left[\begin{matrix}D_1\\vdots\D_i\\vdots\D_m \end{matrix}\right]=\left[ \begin{matrix}x_{11}&amp;\cdots&amp;x_{1j}&amp;\cdots&amp;x_{1n}\\vdots&amp;&amp;\vdots&amp;&amp;\vdots\x_{i1}&amp;\cdots&amp;x_{ij}&amp;\cdots&amp;x_{in}\\vdots&amp;&amp;\vdots&amp;&amp;\vdots\x_{m1}&amp;\cdots&amp;x_{mj}&amp;\cdots&amp;x_{mn} \end{matrix} \right]=\left[\begin{matrix}X_1&amp;\cdots&amp;X_i&amp;\cdots&amp;X_n \end{matrix}\right]\tag{1}
+$$</p>
+<p><strong>（1）数据正向化处理</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">指标名称</th>
+<th style="text-align:center">指标特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">极大型(效益型)指标</td>
+<td style="text-align:center">越大越好</td>
+</tr>
+<tr>
+<td style="text-align:center">极小型(成本型)指标</td>
+<td style="text-align:center">越小越好</td>
+</tr>
+<tr>
+<td style="text-align:center">中间型指标</td>
+<td style="text-align:center">越接近某个值越好</td>
+</tr>
+<tr>
+<td style="text-align:center">区间型指标</td>
+<td style="text-align:center">落在某个区间最好</td>
+</tr>
+</tbody>
+</table>
+<p>a.极小型指标正向化</p>
+<p>$$\hat{x_i}=max-x_i$$ 或者 $$\hat{x_i}={1\over x_i}(x_i\gt0)$$</p>
+<p>b.中间型指标正向化</p>
+<p>设最佳值为$$x_m$$，取 $$M=max{|x_i-x_m|}$$，则 $$\hat{x_i}=1-{ {x_i-x_m}\over M}$$</p>
+<p>c.区间型指标正向化</p>
+<p>设最佳区间为$$[a,b]$$，取 $$M=max{a-min{x_i},max{x_i}-b}$$，则</p>
+<p>$$
+\hat{x_i}=\begin{aligned}\begin{cases}1-{ {a-x_i}\over M}&amp;x_i\lt a\1&amp;a\lt x_i\lt b\1-{ {x_i-b}\over M}&amp;x\gt b \end{cases}\end{aligned}
+$$</p>
+<p><strong>（2）数据标准化(规范化)处理</strong></p>
+<p>对（1）式矩阵中的列向量进行标准化处理：</p>
+<p>$$
+r_{ij}={x_{ij}\over \sqrt{\sum_{i=1}^mx_{ij}^2}}\tag{2}\quad \quad \quad i=1,2,\cdots,m;j=1,2,\cdots,n
+$$</p>
+<p>标准化处理后，各评价指标的值的平方和为1，适合TOPSIS法中计算欧氏距离的场合。</p>
+<p><strong>（3）构造权重标准化矩阵</strong></p>
+<p>设标准化矩阵为$$D$$，给定各个指标$$X_j$$的权重$$w_j$$构成权重向量$$W=(w_1,w_2,\cdots,w_n)$$，则</p>
+<p>$$
+v_{ij}=w_jr_{ij},i=1,2,\cdots m,j=1,2,\cdots n\tag{3}
+$$</p>
+<p>建立关于权重标准化值$$v_{ij}$$的权重标准化矩阵，记为$$D$$</p>
+<p><strong>（4）确定理想解与负理想解</strong></p>
+<p>经过了正向化和标准化处理的评分矩阵$$D$$，其数据均为极大型。取出每个指标（矩阵列向量）中的最大值，构成理想解向量，反之构成负理想解向量：</p>
+<p>$$
+\begin{aligned}
+&amp;A^+=\left[\begin{matrix}a_1^+,a_2^+,\cdots,a_n^+ \end{matrix}\right]=\left[\begin{matrix}max{v_{11},v_{21},\cdots,v_{m1} },max{v_{12},v_{22},\cdots,v_{m2} },\cdots,max{v_{1n},v_{2n},\cdots,v_{mn}} \end{matrix}\right]\&amp;A^-=\left[\begin{matrix}a_1^-,a_2^-,\cdots,a_n^- \end{matrix}\right]=\left[\begin{matrix}min{v_{11},v_{21},\cdots,v_{m1} },min{v_{12},v_{22},\cdots,v_{m2} },\cdots,min{v_{1n},v_{2n},\cdots,v_{mn}} \end{matrix}\right]
+\end{aligned}\tag{4}
+$$</p>
+<p><strong>（5）计算欧氏距离</strong></p>
+<p>计算每个评价对象的各指标值到理想解和负理想解的欧氏距离：</p>
+<p>$$
+S^+=\sqrt{\sum_{j=1}^n(v_{ij}-a_j^+)},S^-=\sqrt{\sum_{j=1}^n(v_{ij}-a_j^-)}\quad i=1,2,\cdots,m\tag{5}
+$$</p>
+<p><strong>（6）计算评价得分(理想解的贴近程度)</strong></p>
+<p>定义对象$$D_i$$的得分为$$C_i$$</p>
+<p>$$
+C_i={S^+_i\over S^+_i+S^-_i},i=1,2,\cdots,m\tag{6}
+$$</p>
+<p><strong>（6）排序比较得出评价结果</strong></p>
+<p>将上述所得得分进行从高到低排序，最后所得分数较高者，评价较好。若$$C_i=1$$，则其为最优目标，反之为最劣目标。</p>
+<h4 id="173程序实现">1.7.3程序实现</h4>
+<p><strong>（1）MATLAB实现</strong></p>
+<p>TOPSIS.m程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="n">clear</span> <span class="n">all</span>
+<span class="n">clc</span>
+<span class="c">%%  导入数据</span>
+<span class="c">% （1）在工作区右键，点击新建（Ctrl+N)，输入变量名称为X</span>
+<span class="c">% （2）双击进入X，输入或拷贝数据到X</span>
+<span class="c">% （3）关掉这个窗口，点击X变量，右键另存为，保存为mat文件</span>
+<span class="c">% （4）注意，代码和数据要放在同一个目录下哦，且Matlab的当前文件夹也要是这个目录。</span>
+<span class="n">load</span> <span class="n">data_water_quality</span><span class="p">.</span><span class="n">mat</span>
+
+<span class="c">%%  数据预处理_正向化</span>
+<span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s">'共有'</span> <span class="n">num2str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="s">'个评价对象, '</span> <span class="n">num2str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="s">'个评价指标'</span><span class="p">])</span> 
+<span class="n">Judge</span> <span class="p">=</span> <span class="n">input</span><span class="p">([</span><span class="s">'这'</span> <span class="n">num2str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="s">'个指标是否需要经过正向化处理，需要请输入1 ，不需要输入0：  '</span><span class="p">]);</span>
+
+<span class="k">if</span> <span class="n">Judge</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">Position</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'请输入需要正向化处理的指标所在的列，例如[2,3,6]： '</span><span class="p">);</span> <span class="c">%[2,3,4]</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">'请输入需要处理的这些列的指标类型（1：极小型， 2：中间型， 3：区间型） '</span><span class="p">)</span>
+    <span class="n">Type</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'例如[1,3,2]：  '</span><span class="p">);</span> <span class="c">%[2,1,3]</span>
+    <span class="c">% 注意，Position和Type是两个同维度的行向量</span>
+    <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="nb">size</span><span class="p">(</span><span class="n">Position</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="c">%对每一列进行正向化处理</span>
+        <span class="n">X</span><span class="p">(:,</span><span class="n">Position</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span> <span class="p">=</span> <span class="n">Positivization</span><span class="p">(</span><span class="n">X</span><span class="p">(:,</span><span class="n">Position</span><span class="p">(</span><span class="nb">i</span><span class="p">)),</span><span class="n">Type</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">Position</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+    <span class="c">% 第一个参数是要正向化处理的那一列向量 X(:,Position(i))</span>
+    <span class="c">% 第二个参数是对应的这一列的指标类型（1：极小型， 2：中间型， 3：区间型）</span>
+    <span class="c">% 第三个参数是告诉函数我们正在处理的是原始矩阵中的哪一列</span>
+    <span class="c">% 返回值返回正向化之后的指标</span>
+    <span class="k">end</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">'正向化后的矩阵 X =  '</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c">%% 数据预处理_标准化</span>
+<span class="n">Z</span> <span class="p">=</span> <span class="n">X</span> <span class="o">./</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">.*</span><span class="n">X</span><span class="p">)</span> <span class="o">.^</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">'标准化矩阵 Z = '</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+
+<span class="c">%% 指标权重赋值</span>
+<span class="nb">disp</span><span class="p">(</span>"请输入是否需要增加权重向量，需要输入<span class="mi">1</span>，不需要输入<span class="mi">0</span>"<span class="p">)</span>
+<span class="n">Judge</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'请输入是否需要增加权重： '</span><span class="p">);</span>
+<span class="k">if</span> <span class="n">Judge</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">'有多少个指标就输入多少个权重数(权重和为1)，如[0.25,0.25,0.5]'</span><span class="p">]);</span>
+    <span class="n">weigh</span> <span class="p">=</span> <span class="n">input</span><span class="p">([</span><span class="s">'请输入输入'</span> <span class="n">num2str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="s">'个权重: '</span><span class="p">]);</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">weigh</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.000001</span> <span class="o">&amp;&amp;</span> <span class="nb">size</span><span class="p">(</span><span class="n">weigh</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nb">size</span><span class="p">(</span><span class="n">weigh</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">m</span>   <span class="c">% 这里要注意浮点数的运算是不精准的。</span>
+        <span class="k">else</span>
+            <span class="n">weigh</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'你输入的有误，请重新输入权重行向量: '</span><span class="p">);</span>
+        <span class="k">end</span>
+<span class="k">else</span>
+    <span class="n">weigh</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="o">./</span> <span class="n">m</span> <span class="p">;</span> <span class="c">%如果不需要加权重就默认权重都相同，即都为1/m</span>
+<span class="k">end</span>
+
+<span class="c">%% 计算与最大值的距离和最小值的距离，并算出得分</span>
+<span class="n">D_P</span> <span class="p">=</span> <span class="n">sum</span><span class="p">([(</span><span class="n">Z</span> <span class="o">-</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">.^</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">.*</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">weigh</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">.^</span> <span class="mf">0.5</span><span class="p">;</span>   <span class="c">% D+ 与最大值的距离向量</span>
+<span class="n">D_N</span> <span class="p">=</span> <span class="n">sum</span><span class="p">([(</span><span class="n">Z</span> <span class="o">-</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">.^</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">.*</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">weigh</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">.^</span> <span class="mf">0.5</span><span class="p">;</span>   <span class="c">% D- 与最小值的距离向量</span>
+<span class="n">S</span> <span class="p">=</span> <span class="n">D_N</span> <span class="o">./</span> <span class="p">(</span><span class="n">D_P</span><span class="o">+</span><span class="n">D_N</span><span class="p">);</span>    <span class="c">% 未归一化的得分</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">'最后的得分为：'</span><span class="p">)</span>
+<span class="n">stand_S</span> <span class="p">=</span> <span class="n">S</span> <span class="o">/</span> <span class="n">sum</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="c">% 归一化的得分</span>
+<span class="p">[</span><span class="n">sorted_S</span><span class="p">,</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">stand_S</span> <span class="p">,</span><span class="s">'descend'</span><span class="p">)</span><span class="c">%对得分进行排序并返回原来的位置</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sorted_S</span><span class="p">,</span><span class="s">'r-o'</span><span class="p">)</span>
+<span class="n">xmin</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="n">xmax</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">sorted_S</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ymin</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">ymax</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">sorted_S</span><span class="p">)</span><span class="o">+</span><span class="n">min</span><span class="p">(</span><span class="n">sorted_S</span><span class="p">);</span>
+<span class="n">axis</span><span class="p">([</span><span class="n">xmin</span> <span class="n">xmax</span> <span class="n">ymin</span> <span class="n">ymax</span><span class="p">]);</span> <span class="c">% 设置坐标轴在指定的区间</span>
+<span class="n">grid</span> <span class="n">on</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">'方案'</span><span class="p">);</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'分数'</span><span class="p">);</span><span class="c">%坐标轴表示对bai象标签</span>
+<span class="n">title</span><span class="p">(</span><span class="s">'TOPSIS算法最终评分排序'</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Positivization.m程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[posit_x] <span class="p">=</span><span class="w"> </span><span class="nf">Positivization</span><span class="p">(</span>x,type,i<span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="c">% 输入变量有三个：</span>
+<span class="c">% x：需要正向化处理的指标对应的原始列向量</span>
+<span class="c">% type： 指标的类型（1：极小型， 2：中间型， 3：区间型）</span>
+<span class="c">% i: 正在处理的是原始矩阵中的哪一列</span>
+<span class="c">% 输出变量posit_x表示：正向化后的列向量</span>
+    <span class="k">if</span> <span class="n">type</span> <span class="o">==</span> <span class="mi">1</span>  <span class="c">%极小型</span>
+        <span class="nb">disp</span><span class="p">([</span><span class="s">'第'</span> <span class="n">num2str</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="s">'列是极小型，正在正向化'</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">posit_x</span> <span class="p">=</span> <span class="n">Min2Max</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>  <span class="c">%调用Min2Max函数来正向化</span>
+        <span class="nb">disp</span><span class="p">([</span><span class="s">'第'</span> <span class="n">num2str</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="s">'列极小型正向化处理完成'</span><span class="p">]</span> <span class="p">)</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="s">'~~~~~~~~~~~~~~~~~~~~分界线~~~~~~~~~~~~~~~~~~~~'</span><span class="p">)</span>
+    <span class="k">elseif</span> <span class="n">type</span> <span class="o">==</span> <span class="mi">2</span>  <span class="c">%中间型</span>
+        <span class="nb">disp</span><span class="p">([</span><span class="s">'第'</span> <span class="n">num2str</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="s">'列是中间型'</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">best</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'请输入最佳的那一个值(中间的那个值)： '</span><span class="p">);</span>
+        <span class="n">posit_x</span> <span class="p">=</span> <span class="n">Mid2Max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">best</span><span class="p">);</span>
+        <span class="nb">disp</span><span class="p">([</span><span class="s">'第'</span> <span class="n">num2str</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="s">'列中间型正向化处理完成'</span><span class="p">]</span> <span class="p">)</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="s">'~~~~~~~~~~~~~~~~~~~~分界线~~~~~~~~~~~~~~~~~~~~'</span><span class="p">)</span>
+    <span class="k">elseif</span> <span class="n">type</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c">%区间型</span>
+        <span class="nb">disp</span><span class="p">([</span><span class="s">'第'</span> <span class="n">num2str</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="s">'列是区间型'</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">a</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'请输入区间的下界： '</span><span class="p">);</span>
+        <span class="n">b</span> <span class="p">=</span> <span class="n">input</span><span class="p">(</span><span class="s">'请输入区间的上界： '</span><span class="p">);</span> 
+        <span class="n">posit_x</span> <span class="p">=</span> <span class="n">Inter2Max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+        <span class="nb">disp</span><span class="p">([</span><span class="s">'第'</span> <span class="n">num2str</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="s">'列区间型正向化处理完成'</span><span class="p">]</span> <span class="p">)</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="s">'~~~~~~~~~~~~~~~~~~~~分界线~~~~~~~~~~~~~~~~~~~~'</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="s">'没有这种类型的指标，请检查Type向量中是否有除了1、2、3之外的其他值'</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="18-加权积weighted-average-method">1.8 加权积（Weighted Average Method）</h3>
+<h4 id="181简述">1.8.1简述</h4>
+<p>加权平均法，利用过去若干个按照时间顺序排列起来的同一变量的观测值并以时间顺序变量出现的次数为权数，计算出观测值的加权算术平均数，以这一数字作为预测未来期间该变量预测值的一种趋势预测法。</p>
+<p>加权平均法可根据本期期初结存存货的数量和金额与本期存入存货的数量和金额，在期末以此计算本期存货的加权平均单价，作为本期发出存货和期末结存存货的价格，一次性计算本期发出存货的实际成本。</p>
+<h4 id="182计算方法">1.8.2计算方法</h4>
+<p>$$
+\widetilde{x}={x_1w_1+x_2w_2+\cdots+x_nw_n\over w_1+w_2+\cdots+w_n},\sum_{i=1}^nw_i=1\tag{7}
+$$</p>
+<h3 id="19-熵权法ewm">1.9 熵权法（EWM）</h3>
+<h4 id="191简述">1.9.1简述</h4>
+<p>熵权法的基本思路是根据指标变异性的大小来确定客观权重。一般来说，若某个指标的信息熵$E_j$越小，表明指标值得变异程度越大，提供的信息量越多，在综合评价中所能起到的作用也越大，其权重也就越大。相反，某个指标的信息熵$E_j$越大，表明指标值得变异程度越小，提供的信息量也越少，在综合评价中所起到的作用也越小，其权重也就越小。</p>
+<p>相对应的，由于该模型的本质是用有限个决策样本去“估计”指标的信息熵，在样本量过少的情况下，基于熵权法所计算得出的权重则有可能出现较大误差。一般来讲，样本决策数必须大于等于指标数。</p>
+<h4 id="192赋权步骤">1.9.2赋权步骤</h4>
+<p><strong>1.数据标准化</strong></p>
+<p>将各个指标的数据进行标准化处理。假设给定了$k$个指标$X_1,X_2,\cdots,X_k$，其中$X_i={x_1,x_2,…x_n}$。假设对各指标数据标准化后的值为$Y_1,Y_2,\cdots ,Y_k$，那么 ：</p>
+<p>$$
+Y_{ij}={X_{ij}-min{X_i}\over max{X_j}-minX_i}\tag{8}
+$$</p>
+<p><strong>2.求各指标的信息熵</strong></p>
+<p>一组数据的信息熵：</p>
+<p>$$
+E_j=-ln^{-1}(n)\sum_{i=1}^np_{ij}lnp_{ij}\tag{9}
+$$</p>
+<p>其中$P_{ij}={Y_{ij}\over \sum_{i=1}^nY_{ij} }$，若$P_{ij}=0$，则定义$\underset{P_{ij}\rightarrow 0 }{lim}P_{ij}lnP_{ij}=0$</p>
+<p><strong>3.确定指标权重</strong></p>
+<p>根据信息论中信息熵的计算公式，计算出各个指标的信息熵为$E_1,E_2,\cdots,E_k$。</p>
+<p>通过信息熵计算各指标的权重：</p>
+<p>$$
+W_i={1-E_i\over k-\sum E_i}\tag{10}
+$$</p>
+<h4 id="193实例及代码实现">1.9.3实例及代码实现</h4>
+<p>MATLAB实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>weights <span class="p">=</span><span class="w"> </span><span class="nf">EntropyWeight</span><span class="p">(</span>R<span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="c">%% 熵权法求指标权重,R为输入矩阵,返回权重向量weights</span>
+
+<span class="p">[</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">]=</span><span class="nb">size</span><span class="p">(</span><span class="n">R</span><span class="p">);</span>   <span class="c">% 输入矩阵的大小,rows为对象个数，cols为指标个数</span>
+<span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="o">/</span><span class="nb">log</span><span class="p">(</span><span class="n">rows</span><span class="p">);</span>         <span class="c">% 求k</span>
+
+<span class="n">f</span><span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">);</span>    <span class="c">% 初始化fij</span>
+<span class="n">sumBycols</span><span class="p">=</span><span class="n">sum</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>    <span class="c">% 输入矩阵的每一列之和(结果为一个1*cols的行向量)</span>
+<span class="c">% 计算fij</span>
+<span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">rows</span>
+    <span class="k">for</span> <span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">cols</span>
+        <span class="n">f</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)=</span><span class="n">R</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span><span class="o">./</span><span class="n">sumBycols</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">j</span><span class="p">);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">lnfij</span><span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">);</span>  <span class="c">% 初始化lnfij</span>
+<span class="c">% 计算lnfij</span>
+<span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">rows</span>
+    <span class="k">for</span> <span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">cols</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span>            <span class="n">lnfij</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">lnfij</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)=</span><span class="nb">log</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">));</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">Hj</span><span class="p">=</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="o">.*</span><span class="n">lnfij</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span> <span class="c">% 计算熵值Hj</span>
+<span class="n">weights</span><span class="p">=(</span><span class="mi">1</span><span class="o">-</span><span class="n">Hj</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">cols</span><span class="o">-</span><span class="n">sum</span><span class="p">(</span><span class="n">Hj</span><span class="p">));</span>
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="110-信息熵法">1.10 信息熵法</h3>
+<h4 id="1101简述">1.10.1简述</h4>
+<p>信息熵这个词是C.E.Shannon（香农）从热力学中借用过来的。热力学中的热熵是表示分子状态混乱程度的物理量，香农用信息熵的概念来描述信源的不确定度。 信息熵是一种用于衡量系统内部信息量的度量。在信息论中，信息是系统有序程度的一种度量。信息是确定性的增加，不确定性的减少（香农定义）。而信息熵是系统无序程度的一种度量，是「系统不确定性」的量度。两者绝对值相等，但符号相反。一个系统的信息熵越小，该系统所含的信息量越大。</p>
+<p>信息熵被广泛用于计算机编码，通信理论，博弈论等与“信息量”和 “不确定性”相关的理论模型中。</p>
+<p>熵权法就是一个通过信息熵理论确定系统中各指标权值的赋值方法，能够较为精确客观地判断系统中各指标对总评价的贡献大小，是信息熵理论在数学建模领域中最重要的应用之一。</p>
+<h4 id="1102描述过程">1.10.2描述过程</h4>
+<p>通常一个信源发出什么符号是不确定的，衡量它可以根据其出现的概率来度量。概率大，出现机会多，不确定性小；反之不确定性就大。 不确定性函数f是概率P的「减函数」；两个独立符号所产生的不确定性应等于各自不确定性之和，即 $$f(P_1,P_2)=f(P1_)+f(P_2)$$ ，这称为「可加性」。同时满足这两个条件的函数 $$f$$ 是对数函数，即</p>
+<p>$$
+f(P)=log{1\over P}=-logP\tag{11}
+$$
+在信源中，考虑的不是某一单个符号发生的不确定性，而是要考虑这个信源所有可能发生情况的平均不确定性。若信源符号有n种取值：$$U_1,U_2,\cdots,U_n$$ ，对应概率为：$$P_1,P_2,\cdots,P_n$$ ，且各种符号的出现彼此独立。这时，信源的平均不确定性应当为单个符号不确定性 $$-logP_i$$ 的统计平均值 $$E$$ ，称为「信息熵」<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" role="doc-noteref">2</a></sup>，即</p>
+<p>$$
+H(X)=E(-logP_i)\tag{12}
+$$</p>
+<p>一个离散型随机变量 $$X$$ 的信息熵 $$H(X)$$ 定义为：</p>
+<p>$$
+H(X)=-\sum P(x_i)\log P(x_i)\tag{13}
+$$</p>
+<p>式中对数一般取2为底，单位为比特。其特点：</p>
+<ul>
+<li>单调性，即发生概率越高的事件，其所携带的信息熵越低；</li>
+<li>非负性，即收到一个信源符号所获得的信息量应为正值，H(U)≥0 ；</li>
+<li>累加性，即多随机事件同时发生存在的总不确定性的量度是可以表示为各事件不确定性的量度的和。</li>
+</ul>
+<p>若事件 $$X=A$$ ，事件 $$Y=B$$ 同时发生，且有：</p>
+<p>$$
+P(X=A,Y=B)=P(X=A)\times P(Y=B)
+$$</p>
+<p>即两个事件相互独立，则有信息熵 $$H(A,B)=H(A)+H(B)$$ ；若两事件不相互独立，则有 $$H(A,B)=H(A)+H(B)-I(A,B)$$ ，$$I(A,B)$$ 为互信息（mutual Information），代表一个随机变量包含另一个随机变量信息量的度量。</p>
+<h4 id="1103应用">1.10.3应用</h4>
+<h5 id="11031熵权法">1.10.3.1熵权法</h5>
+<h5 id="11032霍夫曼编码">1.10.3.2霍夫曼编码</h5>
+<h5 id="11033条件熵与信息增益">1.10.3.3条件熵与信息增益</h5>
+<h5 id="11034交叉熵与相对熵">1.10.3.4交叉熵与相对熵</h5>
+<section class="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/266689519" rel="noopener noreffer" target="_blank">TOPSIS(逼近理想解)算法原理详解与代码实现 - 知乎 (zhihu.com)</a> <a class="footnote-backref" href="#fnref:1" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>引自百度百科 <a class="footnote-backref" href="#fnref:2" role="doc-backlink">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
+<div class="post-info">
+<div class="post-info-line">
+<div class="post-info-mod">
+<span>更新于 2021-07-11</span>
+</div>
+<div class="post-info-license"></div>
+</div>
+<div class="post-info-line">
+<div class="post-info-md"></div>
+<div class="post-info-share">
+<span><a data-hashtags='数学建模,评价模型,“打分式评价"' data-sharer="twitter" data-title="(续2)打分式评价(TOPSIS,ENTROPY)" data-url="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" data-via="https://twitter.com/" href="javascript:void(0);" title="分享到 Twitter"><i class="fab fa-twitter fa-fw"></i></a><a data-hashtag="数学建模" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" href="javascript:void(0);" title="分享到 Facebook"><i class="fab fa-facebook-square fa-fw"></i></a><a data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" href="javascript:void(0);" title="分享到 Linkedin"><i class="fab fa-linkedin fa-fw"></i></a><a data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" href="javascript:void(0);" title="分享到 Reddit"><i class="fab fa-reddit fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class="post-info-more">
+<section class="post-tags"><i class="fas fa-tags fa-fw"></i> <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>, <a href="/zh-cn/tags/%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B/">评价模型</a>, <a href="/zh-cn/tags/%E6%89%93%E5%88%86%E5%BC%8F%E8%AF%84%E4%BB%B7/">“打分式评价"</a></section>
+<section>
+<span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span> | <span><a href="/zh-cn/">主页</a></span>
+</section>
+</div>
+<div class="post-nav"><a class="prev" href="/zh-cn/continued_1score-evalutaion-model/" rel="prev" title="(续1)打分式评价(DEA,PCA)"><i class="fas fa-angle-left fa-fw"></i>(续1)打分式评价(DEA,PCA)</a>
+<a class="next" href="/zh-cn/mcm2017c/" rel="next" title="MCM2017C">MCM2017C<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer class="footer">
+<div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span> | <span class="license"><a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license external nofollow noopener noreffer" target="_blank">CC BY-NC 4.0</a></span><span> <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" style="border-width:0"/></a><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></span>
+<div><span class="icp-splitter"></span><br class="icp-br"/>
+<span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a> | </span><span>
+<img src="/images/备案图标.png"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">贵公网安备 52032102000640号</a>
+</span>
+</div>
+</div>
+<span id="busuanzi_container_site_pv">
+                Total Visits:<span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+                Total Visitors:<span id="busuanzi_value_site_uv"></span>
+</span>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</footer></div>
+<div id="fixed-buttons"><a class="fixed-button" href="#" id="back-to-top" title="回到顶部">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a class="fixed-button" href="#" id="view-comments" title="查看评论">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js"></script><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" type="text/javascript"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" type="text/javascript"></script>
+</body></html>

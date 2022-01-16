@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://orangesodahub.github.io/en/sitemap.xml</loc>
+    
+      <lastmod>2021-07-07T11:52:32+08:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://orangesodahub.github.io/zh-cn/sitemap.xml</loc>
+    
+      <lastmod>2021-12-11T21:06:44+08:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://orangesodahub.github.io/fr/sitemap.xml</loc>
+    
+      <lastmod>2021-02-17T11:32:39+08:00</lastmod>
+    
+  </sitemap>
+  
+</sitemapindex>

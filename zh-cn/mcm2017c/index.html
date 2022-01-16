@@ -1,0 +1,445 @@
+<html><head><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fe151ab3944fff51c4da312eeac4eb09";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<script async="" src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
+<!DOCTYPE html>
+
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" onload="renderMathInElement(document.body);" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noodp" name="robots"/>
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
+<title>MCM2017C - ZonLin</title><meta content="关于作者" name="Description"/><meta content="MCM2017C" property="og:title"/>
+<meta content="1.问题的综述 1.1问题描述 美国许多地区由于道路的数量限制，交通容量有限。例如，在大西雅图地区，由于交通量超过道路网络的设计容量，司机在交通" property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://orangesodahub.github.io/zh-cn/mcm2017c/" property="og:url"/><meta content="https://orangesodahub.github.io/logo.png" property="og:image"/><meta content="posts" property="article:section"/>
+<meta content="2021-08-01T16:36:27+08:00" property="article:published_time"/>
+<meta content="2021-08-01T16:36:27+08:00" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://orangesodahub.github.io/logo.png" name="twitter:image"/>
+<meta content="MCM2017C" name="twitter:title"/>
+<meta content="1.问题的综述 1.1问题描述 美国许多地区由于道路的数量限制，交通容量有限。例如，在大西雅图地区，由于交通量超过道路网络的设计容量，司机在交通" name="twitter:description"/>
+<meta content="ZonLin" name="application-name"/>
+<meta content="ZonLin" name="apple-mobile-web-app-title"/><meta content="#ffffff" name="theme-color"/><meta content="#da532c" name="msapplication-TileColor"/><link href="https://orangesodahub.github.io/zh-cn/mcm2017c/" rel="canonical"/><link href="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" rel="prev"/><link href="https://orangesodahub.github.io/zh-cn/%E6%8B%89%E4%BE%9D%E8%BE%BE%E5%87%86%E5%88%99/" rel="next"/><link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet"/><link href="/css/style.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" rel="stylesheet"/><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MCM2017C",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/orangesodahub.github.io\/zh-cn\/mcm2017c\/"
+        },"image": ["https:\/\/orangesodahub.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "数学建模, 运筹学","wordcount":  4882 ,
+        "url": "https:\/\/orangesodahub.github.io\/zh-cn\/mcm2017c\/","datePublished": "2021-08-01T16:36:27+08:00","dateModified": "2021-08-01T16:36:27+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "ZonLin","logo": "https:\/\/orangesodahub.github.io\/images\/%E4%B8%8B%E8%BD%BD.jpg"},"author": {
+                "@type": "Person",
+                "name": "ZonLin"
+            },"description": ""
+    }
+    </script>
+</head><body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<script>
+            
+            Array.from(document.getElementsByClassName('language-mermaid')).forEach(el => {
+                el.parentElement.outerHTML = `<div class="mermaid">${el.innerText}</div>`
+            })
+        </script>
+<style>
+         
+        .mermaid svg {
+            display: block;
+            margin: auto;
+        }
+        </style>
+<div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<div class="header-wrapper">
+<div class="header-title">
+<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
+</div>
+<div class="menu">
+<div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><a class="menu-item language" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option selected="" value="/zh-cn/mcm2017c/">简体中文</option></select>
+</a><span class="menu-item search" id="search-desktop">
+<input id="search-input-desktop" placeholder="在此键入" type="text"/>
+<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-desktop" title="搜索">
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-desktop" title="清空">
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id="search-loading-desktop">
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class="mobile" id="header-mobile">
+<div class="header-container">
+<div class="header-wrapper">
+<div class="header-title">
+<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
+</div>
+<div class="menu-toggle" id="menu-toggle-mobile">
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class="menu" id="menu-mobile"><div class="search-wrapper">
+<div class="search mobile" id="search-mobile">
+<input id="search-input-mobile" placeholder="在此键入" type="text"/>
+<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-mobile" title="搜索">
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-mobile" title="清空">
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id="search-loading-mobile">
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a class="search-cancel" href="javascript:void(0);" id="search-cancel-mobile">
+                        取消
+                    </a>
+</div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i></a><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a class="menu-item" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class="language-select" onchange="location = this.value;"><option selected="" value="/zh-cn/mcm2017c/">简体中文</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+<div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+<div class="container"><div class="toc" id="toc-auto">
+<h2 class="toc-title">目录</h2>
+<div class="toc-content" id="toc-content-auto"></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">MCM2017C</h1><div class="post-meta">
+<div class="post-meta-line"><span class="post-author"><a class="author" href="/zh-cn/" rel="author" title="Author"><i class="fas fa-user-circle fa-fw"></i>ZonLin</a></span> <span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a> <a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
+<div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i> <time datetime="2021-08-01">2021-08-01</time> <i class="fas fa-pencil-alt fa-fw"></i> 约 4882 字 
+                <i class="far fa-clock fa-fw"></i> 预计阅读 10 分钟 </div>
+</div><div class="details toc" id="toc-static" kept="">
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+<ul>
+<li><a href="#1问题的综述">1.问题的综述</a>
+<ul>
+<li><a href="#11问题描述">1.1问题描述</a></li>
+<li><a href="#12参赛状况">1.2参赛状况</a>
+<ul>
+<li><a href="#21-选题情况">2.1 选题情况</a></li>
+<li><a href="#22-获奖情况">2.2 获奖情况</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2问题的背景资料">2.问题的背景资料</a>
+<ul>
+<li><a href="#21问题应用背景">2.1问题应用背景</a></li>
+<li><a href="#22问题技术背景">2.2问题技术背景</a></li>
+</ul>
+</li>
+<li><a href="#3本问题的常用建模思路">3.本问题的常用建模思路</a></li>
+<li><a href="#4模型的相关介绍">4.模型的相关介绍</a>
+<ul>
+<li><a href="#41建模假设">4.1建模假设</a></li>
+<li><a href="#42模型的解释与分析">4.2模型的解释与分析</a>
+<ul>
+<li><a href="#421符号定义">4.2.1符号定义</a></li>
+<li><a href="#422模型解释">4.2.2模型解释</a></li>
+<li><a href="#423模型分析">4.2.3模型分析</a></li>
+</ul>
+</li>
+<li><a href="#43实验结果及可视化">4.3实验结果及可视化</a>
+<ul>
+<li><a href="#431无自动驾驶专用车道">4.3.1无自动驾驶专用车道</a>
+<ul>
+<li><a href="#432设置两条自动驾驶专用车道">4.3.2设置两条自动驾驶专用车道</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5对于模型优劣的分析">5.对于模型优劣的分析</a>
+<ul>
+<li><a href="#51模型的优势">5.1模型的优势</a></li>
+<li><a href="#52模型的不足">5.2模型的不足</a></li>
+</ul>
+</li>
+<li><a href="#6可以继续讨论的问题">6.可以继续讨论的问题</a></li>
+<li><a href="#修改记录">修改记录</a></li>
+<li><a href="#7参考文献">7.参考文献</a></li>
+</ul>
+</nav></div>
+</div><div class="content" id="content"><h2 id="1问题的综述">1.问题的综述</h2>
+<h3 id="11问题描述">1.1问题描述</h3>
+<p>美国许多地区由于道路的数量限制，交通容量有限。例如，在大西雅图地区，由于交通量超过道路网络的设计容量，司机在交通高峰时段经历长时间的延误。这在5号，90号和405号州际公路以及520号国道在这个问题上显得尤为明显。</p>
+<p>自动驾驶车己经作为增加公路能力而不用拓宽车道的方案提出，但是在这一点上，人们并未很好的理解自动驾驶车与现有交通工具的关系。华盛顿州州长要求就自动驾驶车对于Thurston, Pierce和Snohomish等地交通的影响。(详情请参见提供的地图和Excel表格)。重点是当这种自动驾驶车的数量占比从10%增加到50%后，效果会有什么变化?到90%呢?其中是否存在均衡点?是否有明显的变化临界点?假设条件满足，是否应该为这些车设立专用车道?你的模型分析是否提出了改善政策的建议?</p>
+<p>你需要构建一个模型，包括对车道流量，峰值、（和/或）平均交通量，以及自动驾驶车所占的比例 的协作系统。你的模型分析应该含有对自动驾驶车和非自动驾驶车之间的关系分析。你的模型分
+析应该满足附件中Excel提供的指定道路数据。</p>
+<p>你的MCM文件应该包括:1页摘要表，1-2页的州长回信，以及你的解决方案(不超过20页)，整份文件最多23页，注:附录和参考文献不计入23页的限制当中。</p>
+<p>一些有用的背景信息：</p>
+<ul>
+<li>平均而言，每日交通量的8％发生在高峰旅行时间。</li>
+<li>所有这些道路的名义速度限制为每小时60英里。</li>
+<li>里程数从南到北，从西到东。</li>
+<li>车道宽度是标准的12英尺。</li>
+<li>高速公路90被分类为状态路线，直到它与州际5相交。</li>
+<li></li>
+</ul>
+<p>如果此问题中提供的数据与任何其他来源之间存在冲突，请使用这个问题提供的数据。
+定义：</p>
+<ul>
+<li>milepost：在路上测量距离，从路线的起点或a状态边界。</li>
+<li>平均每日交通量：在道路上行驶的平均每天的汽车数量。</li>
+<li>州际公路：作为国家系统的一部分的有限进出高速公路。</li>
+<li>国家路线：可能受限或不受限制的国家公路。</li>
+<li>路由ID：高速公路的编号。</li>
+<li>增加方向：N-S道北行，E-W道东行。</li>
+<li>下降方向：N-S道南行，E-W道西行。</li>
+</ul>
+<figure><img src="/images/map.png" width="80%"/>
+</figure>
+<h3 id="12参赛状况">1.2参赛状况</h3>
+<h4 id="21-选题情况">2.1 选题情况</h4>
+<p>MCM2017年参赛队伍为8843对，其中1527队（17%）选择C题，美国队伍311队。</p>
+<h4 id="22-获奖情况">2.2 获奖情况</h4>
+<p>O奖获奖比例为0.16%，F奖获奖比例0.27%，M奖获奖比例8.88%，H奖获奖比例37.97%，S奖获奖比例51.55%；</p>
+<p>获奖队伍：#55583上海交通大学，#55261加州伯克利大学，#55585上海交通大学，#55278上海交通大学</p>
+<h2 id="2问题的背景资料">2.问题的背景资料</h2>
+<h3 id="21问题应用背景">2.1问题应用背景</h3>
+<p>车辆在行车道上受阻的现象我们称之为交通拥堵现象。交通拥堵问题引起了诸多方面的困扰。首先，由于交通的不畅通，车辆在道路上行驶缓慢，最直接的影响是增加了居民的出行时间和成本。出行成本的增加，不仅浪费了时间，最主要是降低了办事效率。</p>
+<p>城市道路是由错综复杂的路段和交叉口组成的，不同时间、地点的交通流组成和流量有差异，交通拥堵产生的原因、发生地点、影响范围也不一样，表现出明显的时间和空间分布特性。</p>
+<h3 id="22问题技术背景">2.2问题技术背景</h3>
+<p>单双号限行：执行单双号限行政策。这样既公平，又可以减少出行车辆，达到缓解交通拥堵的目的。</p>
+<p>道路建设：减少分叉道路的使用，此中方法包括高架道路，铁路地下化，地下行车道等。发现公共交通系统，都能有效缓解塞车。</p>
+<p>完善交通运输系统和智能公共管理系统：提高我国交通管理方面的智能化，可以大大降低交通拥堵带来的不便。</p>
+<h2 id="3本问题的常用建模思路">3.本问题的常用建模思路</h2>
+<p>1.宏观方法：不关心单个车辆的特性，利用流体力学的方法研究 道路上所有车辆的集体平均行为–流体力学连续模型
+2.微观方法：从单个车辆的动力学行为入手，通过考察单个车辆之间的相互作用，推导出整个系统的统计性质–车辆跟驰模型、元胞自动机模型
+3.介观方法：将交通流中的车辆看成具有相互作用的粒子，然后利用分子动理论对交通进行来研究–气体分子动理论模型</p>
+<p>4.交通流元胞自动机模型:采用离散的时间和空间变量，用一系列的演化规则来描述车辆间的微观相互作用，进而推出系统的动态演化规律。不同于一般的动力学模型，元胞自动机不是由严格定义的物理方程或函数确定，而是用一系列模型构造的规则构成。凡是满足这些规则的模型都可以算作是元胞自动机模型。因此，元胞自动机是一类模型的总称，或者说是一个方法框架。其特点是时间、空间、状态都离散，每个变量只取有限多个状态，且其状态改变的规则在时间和空间上都是局部的。</p>
+<h2 id="4模型的相关介绍">4.模型的相关介绍</h2>
+<h3 id="41建模假设">4.1建模假设</h3>
+<ol>
+<li>所有车辆一致（尺寸外形），将所有车辆看作一致的对象点；</li>
+<li>车辆在弯道处与在直道处行为相同，即忽略弯道；</li>
+<li>非自动驾驶车辆行驶时与前车保持安全距离，自动驾驶车辆与前车距离大幅度减小；</li>
+<li>非自动驾驶车辆制动时，驶过安全距离后完全停止；启动时，与前车距离达到安全距离时启动；</li>
+<li>道路上所有非自动驾驶车辆和自动驾驶车辆同一时刻以同一速度行驶；</li>
+<li>自动驾驶车辆具有完美的控制能力和毫无缺陷的安全性能；</li>
+<li>自动驾驶车辆比非自动驾驶车辆具有更高的平均速度；</li>
+<li>同一天之内输入道路的交通量与时间呈双高斯分布；</li>
+</ol>
+<h3 id="42模型的解释与分析">4.2模型的解释与分析</h3>
+<h4 id="421符号定义">4.2.1符号定义</h4>
+<p>$$
+\begin{array}{c l c l}
+\hline
+d_{sn}&amp;非自动驾驶车辆行驶安全距离&amp;d_{ss}&amp;自动驾驶车辆行驶安全距离\l&amp;路面宽度&amp;N&amp;指定范围的车辆占有路面面积\a&amp;指定范围路面面积&amp;\widetilde{v}&amp;车辆平均速度\s&amp;自动驾驶车辆占比&amp;d_c&amp;当前车道与前车距离\d_l&amp;左侧车道与前车距离&amp;d_r&amp;右侧车道与前车距离\d_{bl}&amp;左侧车道与后车距离&amp;d_{br}&amp;右侧车道与后车距离\v_f&amp;名义限速(60英里每时)&amp;D&amp;平均车长(4m)\\rho_{max}&amp;最大车辆密度&amp;\epsilon&amp;比例系数\
+\hline
+\end{array}
+$$</p>
+<h4 id="422模型解释">4.2.2模型解释</h4>
+<ol>
+<li>
+<p>空间和时间离散化：将道路分为大小一致、等距离的元胞，用大小为6×1000的矩阵表示。每个元胞中可最多容纳2单位车辆；时间以秒计，每一秒钟对应矩阵(空间)的不同状态；模型当中给定时间为实际时间的万分之一；</p>
+</li>
+<li>
+<p>入口车流量：每一次状态更新，初始化驶入道路的第一、二排车辆，即矩阵第一列值。数量由交通量随时间的双高斯分布给定一比例系数$\epsilon$乘以路面宽度确定：</p>
+<p>$$
+N_0(t)=\epsilon(t)\times l\tag{1}
+$$</p>
+</li>
+<li>
+<p>车流量输入分布：</p>
+<p>$$
+\epsilon(t)=e^{-\frac{ {(t-72)}^2}{800} }+0.9e^{-\frac{ {(t-136)}^2}{1250} }\quad 0\leq t\leq 192(0.125h)\tag{2}
+$$</p>
+<p>其中峰值出现在一天中的9时和17时。</p>
+</li>
+<li>
+<p>自动驾驶车辆在更新入口车流量时按照给定比例$s(0\sim1)$设置，该比例为其数量为：</p>
+<p>$$
+N_d=N_0\times s\tag{3}
+$$</p>
+</li>
+<li>
+<p>车速：此时对单位车辆，车辆的前进速度也离散化，以每秒移动的格数计，如每秒移动一格记车速为1。对不同时刻道路车流的整体平均车速，由当前车辆密度$\rho$及速度-密度模型<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" role="doc-noteref">1</a></sup>确定，当密度处于不同区间时，车速与密度为不同的函数关系：</p>
+<p>$$
+v(t)=
+\begin{aligned}\begin{cases}v_f\times(1-e^{\frac{\rho_{max} }{\rho} })\quad &amp;0\leqslant\rho \leqslant 0.2\v_f\times(1-\frac{\rho}{\rho_{max} })\quad &amp;0.2&lt;\rho\leqslant 0.4\v_f\times ln(\frac{\rho_{max} }{\rho})\quad &amp;\rho &gt;0.4\end{cases}\end{aligned}\tag{4}
+$$</p>
+</li>
+<li>
+<p>车辆状态更新：每辆非自动驾驶车辆的下一个状态由其当前车道情况确定，自动驾驶车辆的下一个状态由当前车道及左右侧方车道情况确定；自动驾驶车辆随时变道超车，其变道动机：</p>
+<p>$$
+{d_l&gt; d_c\cap d_{bl}\ge d_s} \cup {d_r&gt; d_c\cap d_{br}\geq d_s}\tag{5}
+$$</p>
+<p>非自动驾驶车辆一般情况下不变道，当后方堆积大量车辆时才变道；</p>
+</li>
+<li>
+<p>非自动驾驶车辆行驶时，一辆占据一个格子，其中包括了安全距离$d_{sn}$；静止时，两辆非自动驾驶车辆占据一个格子；两辆自动驾驶车辆占据一个格子:</p>
+<p>$$
+D+d_{sn}\approx 2(D+d_{ss})\tag{6}
+$$</p>
+</li>
+<li>
+<p>评价指标：对同一天不同时段道路的交通状况的评价指标为道路的负载情况$\rho$和通行能力$\phi$，前者按单位路面的占有率计：</p>
+<p>$$
+\rho(t)=\frac{\partial{N(a,t)} }{\partial{a} }\tag{7}
+$$</p>
+<p>后者由车流量$\phi$指出：</p>
+</li>
+</ol>
+<p>$$
+\phi(t)=\rho(t)\times v(t)\tag{8}
+$$</p>
+<h4 id="423模型分析">4.2.3模型分析</h4>
+<ol>
+<li>分析当自动驾驶车辆在所有车辆中所占不同比例的情况下，同一时刻整个道路的负载情况和通行能力，和车辆的平均速度，进行作图比较。所测试比例分别为0%，10%，20%，30%，40%，50%，60%，70%，80%，90%和100%；</li>
+<li>分析当设置自动驾驶专用车道时，道路的负载情况，通行能力和平均速度变化，作图比较。</li>
+</ol>
+<h3 id="43实验结果及可视化">4.3实验结果及可视化</h3>
+<h4 id="431无自动驾驶专用车道">4.3.1无自动驾驶专用车道</h4>
+<p><strong>1.不同自动驾驶车辆占比情况下道路负载情况随时间变化</strong></p>
+<p>通过变化曲线可以看到，0%~60%的自动驾驶汽车占比对于减缓道路负载的作用是巨大的，高峰时段负载降低约50%左右；更高比例的自动驾驶汽车的降低空间逐渐缩小。</p>
+<figure><img src="/images/11.png" width="60%"/>
+</figure>
+<p><strong>2.不同自动驾驶车辆占比情况下道路通行能力随时间变化</strong></p>
+<p>同样地，0%~60%的的自动驾驶汽车占比将整体车辆均速提升100%左右，尤其对于高峰时段的车流，其道路状况与非高峰时段的差距缩小，有效减轻高峰期道路压力。（速度较大的提升很大程度上依赖于假设(6)）</p>
+<figure><img src="/images/10.png" width="60%"/>
+</figure>
+<p><strong>3.不同自动驾驶车辆占比情况下车辆平均速度随时间变化</strong></p>
+<p>对道路通行能力提升最大的依旧是占比位于0~60%之间的自动驾驶汽车数量，占比为60%时此参数达到峰值。占比超过60%时，过多的自动驾驶汽车反而是通行能力有所降低。另外。从曲线变化趋势可以看到，自动驾驶汽车对提升道路通行能力作用最大的时段为高峰时段，非高峰时段提升较小。</p>
+<figure><img src="/images/09.png" width="60%"/>
+</figure>
+<p><strong>4.道路平均占用率随自动驾驶汽车占比的变化趋势</strong></p>
+<p>自动驾驶汽车对高峰期道路状况的优化程度较高于其余时段。另外，可以更清晰地看到，30%~60%的占比对其优化效果最好。</p>
+<figure><img src="/images/12.png" width="60%"/>
+</figure>
+<p><strong>5.道路通行能力随自动驾驶汽车占比的变化趋势</strong></p>
+<p>道路的平均车流量在自动驾驶汽车占比为50%~60%时达到峰值，随后占比升高使车流量下降，这是车辆均速和道路负载共同作用的结果。最优化的车流量可将高峰时期车流量提升至200%，整体提升至144%左右。</p>
+<figure><img src="/images/13.png" width="60%"/>
+</figure>
+<p><strong>6.车辆均速随自动驾驶汽车占比的变化趋势</strong></p>
+<p>与其他结论相似，30%~60%占比的自动驾驶汽车的使用对均速提升速度最快。虽然占比100%时速度提升至最高，但这显然不是实际上的理想效果，速度过高带来许多负面影响，如导致车流量下降和更高概率的交通事故等等。</p>
+<figure><img src="/images/14.png" width="60%"/>
+</figure>
+<h5 id="432设置两条自动驾驶专用车道">4.3.2设置两条自动驾驶专用车道</h5>
+<p><strong>1.道路车辆密度随时间变化</strong></p>
+<p>约$$1\over 3$$的车道设置为自动驾驶专用车道时，可以得到结论：一定比例的自动驾驶专用车道对应着适合道路通行的最优自动驾驶汽车占比。如下图，0~50%之间的自动驾驶汽车反而使平均路面占用率增加，而在70%才达到最低（由于测试次数有限，数据点较少），也仍然没有在不使用专用车道的基础上优化。所以此时自动驾驶汽车占比在0~20%左右才具有优化效果。</p>
+<figure><img src="/images/15.JPG" width="60%"/>
+</figure>
+<p><strong>2.车辆平均速度随时间变化</strong></p>
+<p>此时自动驾驶汽车占比小于20%和大于60%时才具有提升道路通行能力的效果。</p>
+<figure><img src="/images/16.JPG" width="60%"/>
+</figure>
+<h2 id="5对于模型优劣的分析">5.对于模型优劣的分析</h2>
+<h3 id="51模型的优势">5.1模型的优势</h3>
+<ol>
+<li>用不同的数字代表不同种类的车和各元胞含有的车的数量，方便统计和分析；</li>
+<li>建立离散模型描述模拟不同交通状况；</li>
+<li>利用交通流-密度-和平均速度之间的关系的连续模型，对车流量和平均速度进行计算；</li>
+<li>模型整体比较简便，可在其基础上做更多的优化提升；</li>
+</ol>
+<h3 id="52模型的不足">5.2模型的不足</h3>
+<ol>
+<li>没有考虑到车辆行驶安全距离随速度的变化；</li>
+<li>对车流量的计算和对速度的定义使用了速度—密度—流量模型，比较理想化；</li>
+<li>部分假设条件较理想化，如变道条件，自动驾驶汽车性能等等；</li>
+<li>和优秀论文相比，在建模思路、分析角度、可视化方面均有较大差距。</li>
+<li>建模的思路一定程度上影响了程序的编写，导致计算效率较低。每改变一次自动驾驶汽车占比要模拟一次24小时道路运行状况，花费7-9分钟；讨论专用车道条数时问题更加突出，由于时间等原因只计算了两条专用车道下的各项数据。</li>
+</ol>
+<h2 id="6可以继续讨论的问题">6.可以继续讨论的问题</h2>
+<ol>
+<li>不设置专用车道时，将使道路负载、通行能力和车辆均速均优化至最好状态的自动驾驶汽车占比缩小至更小区间；</li>
+<li>改变专用车道条数，讨论不同的自动驾驶汽车占比情况下使得道路最优化的专用车道条数；由上述讨论结果第二点可见，专用车道的数量设置问题比较复杂，需进一步讨论；</li>
+<li>增加对事故及其细节的模拟（事实上我们已经做了事故模拟，由于并不是本问题探究的内容，所以略去），随着车辆数量、均速的变化，事故发生概率和事故对道路状态的影响也不同；</li>
+</ol>
+<h2 id="修改记录">修改记录</h2>
+<ul>
+<li>2021- 8 - 1，079组编写大致解题过程</li>
+<li>2021-07-19， 张嘉乐建立模板</li>
+</ul>
+<h2 id="7参考文献">7.参考文献</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/300649434?utm_source=qq&amp;utm_medium=social&amp;utm_oi=1118457582766919680" rel="noopener noreffer" target="_blank">https://zhuanlan.zhihu.com/p/300649434?utm_source=qq&amp;utm_medium=social&amp;utm_oi=1118457582766919680</a> <a class="footnote-backref" href="#fnref:1" role="doc-backlink">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
+<div class="post-info">
+<div class="post-info-line">
+<div class="post-info-mod">
+<span>更新于 2021-08-01</span>
+</div>
+<div class="post-info-license"></div>
+</div>
+<div class="post-info-line">
+<div class="post-info-md"></div>
+<div class="post-info-share">
+<span><a data-hashtags="数学建模,运筹学" data-sharer="twitter" data-title="MCM2017C" data-url="https://orangesodahub.github.io/zh-cn/mcm2017c/" data-via="https://twitter.com/" href="javascript:void(0);" title="分享到 Twitter"><i class="fab fa-twitter fa-fw"></i></a><a data-hashtag="数学建模" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/mcm2017c/" href="javascript:void(0);" title="分享到 Facebook"><i class="fab fa-facebook-square fa-fw"></i></a><a data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/mcm2017c/" href="javascript:void(0);" title="分享到 Linkedin"><i class="fab fa-linkedin fa-fw"></i></a><a data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/mcm2017c/" href="javascript:void(0);" title="分享到 Reddit"><i class="fab fa-reddit fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class="post-info-more">
+<section class="post-tags"><i class="fas fa-tags fa-fw"></i> <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>, <a href="/zh-cn/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/">运筹学</a></section>
+<section>
+<span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span> | <span><a href="/zh-cn/">主页</a></span>
+</section>
+</div>
+<div class="post-nav"><a class="prev" href="/zh-cn/continued_2evaluation-model/" rel="prev" title="(续2)打分式评价(TOPSIS,ENTROPY)"><i class="fas fa-angle-left fa-fw"></i>(续2)打分式评价(TOPSIS,ENTROPY)</a>
+<a class="next" href="/zh-cn/%E6%8B%89%E4%BE%9D%E8%BE%BE%E5%87%86%E5%88%99/" rel="next" title="拉依达准则——(3σ)">拉依达准则——(3σ)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer class="footer">
+<div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span> | <span class="license"><a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license external nofollow noopener noreffer" target="_blank">CC BY-NC 4.0</a></span><span> <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" style="border-width:0"/></a><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></span>
+<div><span class="icp-splitter"></span><br class="icp-br"/>
+<span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a> | </span><span>
+<img src="/images/备案图标.png"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">贵公网安备 52032102000640号</a>
+</span>
+</div>
+</div>
+<span id="busuanzi_container_site_pv">
+                Total Visits:<span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+                Total Visitors:<span id="busuanzi_value_site_uv"></span>
+</span>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</footer></div>
+<div id="fixed-buttons"><a class="fixed-button" href="#" id="back-to-top" title="回到顶部">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a class="fixed-button" href="#" id="view-comments" title="查看评论">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js"></script><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" type="text/javascript"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" type="text/javascript"></script>
+</body></html>

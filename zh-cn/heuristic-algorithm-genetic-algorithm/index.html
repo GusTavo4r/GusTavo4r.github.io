@@ -1,0 +1,2379 @@
+<html><head><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fe151ab3944fff51c4da312eeac4eb09";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<script async="" src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
+<!DOCTYPE html>
+
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
+<script crossorigin="anonymous" defer="" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" onload="renderMathInElement(document.body);" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noodp" name="robots"/>
+<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
+<title>启发式算法-遗传算法（GA） - ZonLin</title><meta content="关于作者" name="Description"/><meta content="启发式算法-遗传算法（GA）" property="og:title"/>
+<meta content="1.简述 遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生" property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" property="og:url"/><meta content="https://orangesodahub.github.io/logo.png" property="og:image"/><meta content="posts" property="article:section"/>
+<meta content="2021-08-16T11:57:39+08:00" property="article:published_time"/>
+<meta content="2021-08-16T11:57:39+08:00" property="article:modified_time"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://orangesodahub.github.io/logo.png" name="twitter:image"/>
+<meta content="启发式算法-遗传算法（GA）" name="twitter:title"/>
+<meta content="1.简述 遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生" name="twitter:description"/>
+<meta content="ZonLin" name="application-name"/>
+<meta content="ZonLin" name="apple-mobile-web-app-title"/><meta content="#ffffff" name="theme-color"/><meta content="#da532c" name="msapplication-TileColor"/><link href="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" rel="canonical"/><link href="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-artificial-bee-colony/" rel="prev"/><link href="https://orangesodahub.github.io/zh-cn/roulette-algorithm/" rel="next"/><link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet"/><link href="/css/style.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" rel="stylesheet"/><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "启发式算法-遗传算法（GA）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/orangesodahub.github.io\/zh-cn\/heuristic-algorithm-genetic-algorithm\/"
+        },"image": ["https:\/\/orangesodahub.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "数学建模, 数学模型, 最优化方法, 启发式算法","wordcount":  9551 ,
+        "url": "https:\/\/orangesodahub.github.io\/zh-cn\/heuristic-algorithm-genetic-algorithm\/","datePublished": "2021-08-16T11:57:39+08:00","dateModified": "2021-08-16T11:57:39+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "ZonLin","logo": "https:\/\/orangesodahub.github.io\/images\/%E4%B8%8B%E8%BD%BD.jpg"},"author": {
+                "@type": "Person",
+                "name": "记录"
+            },"description": ""
+    }
+    </script>
+</head><body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<script>
+            
+            Array.from(document.getElementsByClassName('language-mermaid')).forEach(el => {
+                el.parentElement.outerHTML = `<div class="mermaid">${el.innerText}</div>`
+            })
+        </script>
+<style>
+         
+        .mermaid svg {
+            display: block;
+            margin: auto;
+        }
+        </style>
+<div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<div class="header-wrapper">
+<div class="header-title">
+<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
+</div>
+<div class="menu">
+<div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><a class="menu-item language" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option selected="" value="/zh-cn/heuristic-algorithm-genetic-algorithm/">简体中文</option></select>
+</a><span class="menu-item search" id="search-desktop">
+<input id="search-input-desktop" placeholder="在此键入" type="text"/>
+<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-desktop" title="搜索">
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-desktop" title="清空">
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id="search-loading-desktop">
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class="mobile" id="header-mobile">
+<div class="header-container">
+<div class="header-wrapper">
+<div class="header-title">
+<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
+</div>
+<div class="menu-toggle" id="menu-toggle-mobile">
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class="menu" id="menu-mobile"><div class="search-wrapper">
+<div class="search mobile" id="search-mobile">
+<input id="search-input-mobile" placeholder="在此键入" type="text"/>
+<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-mobile" title="搜索">
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-mobile" title="清空">
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id="search-loading-mobile">
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a class="search-cancel" href="javascript:void(0);" id="search-cancel-mobile">
+                        取消
+                    </a>
+</div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i></a><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a class="menu-item" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class="language-select" onchange="location = this.value;"><option selected="" value="/zh-cn/heuristic-algorithm-genetic-algorithm/">简体中文</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+<div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+<div class="container"><div class="toc" id="toc-auto">
+<h2 class="toc-title">目录</h2>
+<div class="toc-content" id="toc-content-auto"></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">启发式算法-遗传算法（GA）</h1><div class="post-meta">
+<div class="post-meta-line"><span class="post-author"><a class="author" href="/zh-cn/" rel="author" title="Author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span> <span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a> <a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
+<div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i> <time datetime="2021-08-16">2021-08-16</time> <i class="fas fa-pencil-alt fa-fw"></i> 约 9551 字 
+                <i class="far fa-clock fa-fw"></i> 预计阅读 20 分钟 </div>
+</div><div class="details toc" id="toc-static" kept="">
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+<ul>
+<li><a href="#1简述">1.简述</a></li>
+<li><a href="#2优化过程">2.优化过程</a>
+<ul>
+<li><a href="#21原理简述">2.1原理简述</a></li>
+<li><a href="#22重要步骤">2.2重要步骤</a>
+<ul>
+<li><a href="#221基因及染色体">2.2.1基因及染色体</a></li>
+<li><a href="#222编码及解码">2.2.2编码及解码</a></li>
+<li><a href="#223遗传算子">2.2.3遗传算子</a></li>
+<li><a href="#224适应度函数">2.2.4适应度函数</a></li>
+<li><a href="#225终止条件">2.2.5终止条件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2具体应用">2.具体应用</a>
+<ul>
+<li><a href="#21负载均衡调度问题">2.1负载均衡调度问题</a></li>
+<li><a href="#22混合流水车间调度问题hybrid-flow-shop-scheduling-problem-hfsp-4">2.2混合流水车间调度问题(Hybrid Flow-shop Scheduling Problem, HFSP )</a></li>
+<li><a href="#23-tsp问题货郎担问题6">2.3 TSP问题(货郎担问题)</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div><div class="content" id="content"><h2 id="1简述">1.简述</h2>
+<p>遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。该算法通过数学的方式,利用计算机仿真运算,将问题的求解过程转换成类似生物进化中的染色体基因的交叉、变异等过程。在求解较为复杂的组合优化问题时,相对一些常规的优化算法,通常能够较快地获得较好的优化结果<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" role="doc-noteref">1</a></sup>。</p>
+<p>所有生物的进化都具有一些共同的特点：</p>
+<ul>
+<li>进化的发生地点是信息载体，即染色体（Chromosome），而不是被编码的生物个体（Individual）上。</li>
+<li>染色体能被复制，成功适应环境的被编码个体的染色体有更多的机会进行复制，形成有优势的后代。</li>
+<li>染色体能产生突变，使子代染色体不同于母代。</li>
+</ul>
+<p>其主要特点是直接对结构对象进行操作，不存在求导和函数连续性的限定；具有内在的隐并行性和更好的全局寻优能力；采用概率化的寻优方法，不需要确定的规则就能自动获取和指导优化的搜索空间，自适应地调整搜索方向。</p>
+<h2 id="2优化过程">2.优化过程</h2>
+<h3 id="21原理简述">2.1原理简述</h3>
+<p>与自然界相似，遗传算法对求解问题的本身一无所知，它所需要的仅是对算法所产生的每个染色体进行评价，并基于适应值来选择染色体，使适应性好的染色体有更多的繁殖机会。在遗传算法中，通过随机方式产生若干个所求解问题的数字「编码」，即染色体，形成初始群体；通过「适应度」函数给每个个体一个数值评价，淘汰低适应度的个体，选择高适应度的个体参加遗传操作，经过遗传操作后的个体集合形成下一代新的种群。对这个新种群进行下一轮进化。</p>
+<p>遗传算法采用种群的方式组织搜索，因而可同时搜索解空间内的多个区域，并相互交流信息。遗传算法是一种可以克服搜索空间过大、寻求最优解的近似解的启发式算法。</p>
+<p>遗传算法的基本步骤：</p>
+<ol>
+<li>设定初始种群(初始解集)；</li>
+<li>计算种群中每个个体(染色体)的适应度，根据适应度对个体进行「选择」；</li>
+<li>选择后个体的染色体发生「交叉」和「变异」现象，产生新的下一代种群；</li>
+<li>进入下一代，重复前三步；</li>
+<li>直到达到终止条件，结束，输出种群中适应度最优的个体作为问题的满意解。</li>
+</ol>
+<h3 id="22重要步骤">2.2重要步骤</h3>
+<h4 id="221基因及染色体">2.2.1基因及染色体</h4>
+<p>待解问题的一个可行解为一条染色体(Chromosome)，GA求解空间中表示为一条位串(Bit string)；解中包含的多个元素为其基因(Gene)，表示为单个字符或数字。</p>
+<h4 id="222编码及解码">2.2.2编码及解码</h4>
+<p>编码是指把一个问题的可行解从其解空间转换到遗传算法的搜索空间的转换方法。解码（译码）是指遗传算法解空间向问题空间的转换。 编码通常需满足几个规范：(1)完备性(completeness);(2)健全性(soundness);(3)非冗余性(nonredundancy)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" role="doc-noteref">2</a></sup>。常见编码方法：二进制编码、格雷码编码、 浮点数编码等等。</p>
+<p>以二进制编码为例[<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" role="doc-noteref">3</a></sup>：</p>
+<p>设某一参数值的取值范围为 $$[U_1,U_2]$$ ，将其映射为长度为 $$k$$ 的二进制编码串，总共产生 $$2^k$$ 个二进制串，其对应关系为：</p>
+<p>$$
+\begin{aligned}
+&amp;00000\cdots 000 (0)\rightarrow U_1\
+&amp;00001\cdots 000 (1)\rightarrow U_1+\sigma\
+&amp;00010\cdots 000 (2)\rightarrow U_1+2\sigma\
+&amp;\vdots\
+&amp;11111\cdots 111 (2^k-1)\rightarrow U_2&amp;其中\sigma={U_2-U_1\over2}
+\end{aligned}
+$$</p>
+<p>解码过程为：</p>
+<p>$$
+X=U_1+(\sum_{i=1}^kb_i\cdot2^{i-1})\cdot{U_2-U_1\over2^k-1}\tag{1}
+$$</p>
+<p>其中 $$\sum_{i=1}^kb_i\cdot2^{i-1}$$ 为二进制串对应的十进制值。</p>
+<h4 id="223遗传算子">2.2.3遗传算子</h4>
+<p><strong>（1）选择(selection)</strong></p>
+<p>选择操作从旧群体中以一定概率选择优良个体(即染色体)组成新的种群，用来确定重组或交叉个体，以及被选个体将产生多少个子代个体，以得到下一代种群。个体被选中的概率跟适应度值有关，个体适应度值越高，被选中的概率越大。</p>
+<p>常用的选择算子：</p>
+<ol>
+<li>轮盘赌选择Roulette Wheel Selection：最常用的选择算子。这是一种回放式随机采样方法。每个个体进入下一代的概率等于它的适应度值与整个种群中个体适应度值和的比例。选择误差较大。</li>
+<li>随机竞争选择Stochastic Tournament ：每次按轮盘赌选择一对个体，然后让这两个个体进行竞争，适应度高的被选中，如此反复，直到选满为止。</li>
+<li>最佳保留选择：首先按轮盘赌选择方法执行遗传算法的选择操作，然后将当前群体中适应度最高的个体结构完整地复制到下一代群体中。</li>
+<li>无回放随机选择（也叫期望值选择Excepted Value Selection）：根据每个个体在下一代群体中的生存期望来进行随机选择运算。方法如下：（1）计算群体中每个个体在下一代群体中的生存期望数目N；（2）若某一个体被选中参与交叉运算，则它在下一代中的生存期望数目减去0.5，若某一个体未被选中参与交叉运算，则它在下一代中的生存期望数目减去1.0；（3）随着选择过程的进行，若某一个体的生存期望数目小于0时，则该个体就不再有机会被选中。</li>
+</ol>
+<p><strong>（2）交叉(crossover)</strong></p>
+<p>交叉操作是指从种群中随机选择两个个体，通过两个染色体的交换组合，把父串的优秀特征遗传给子串，从而产生新的优秀个体。对「单点交叉」算子来说，其过程为：对种群个体进行随机配对；逐一对配对的染色体，随机设置一个交叉点；按设定的交叉概率进行交换。其余还有双点交叉或多点交叉、均匀交叉、算术交叉等等。</p>
+<p><strong>（3）变异(mutation)</strong></p>
+<p>为了防止遗传算法在优化过程中陷入局部最优解，在搜索过程中，需要对个体进行变异，在实际应用中，主要采用「单点变异」，也叫位变异，即只需要对基因序列中某一个位进行变异，以二进制编码为例，即0变为1，而1变为0。</p>
+<h4 id="224适应度函数">2.2.4适应度函数</h4>
+<p>适应度函数也称评价函数，是根据目标函数确定的用于区分群体中个体好坏的标准。适应度函数总是非负的，而目标函数可能有正有负，故需要在目标函数与适应度函数之间进行变换。</p>
+<p>评价个体适应度的一般过程为：</p>
+<ol>
+<li>对个体 $$x_i$$ 编码串(基因型)进行解码处理后，可得到个体的表现型；</li>
+<li>由个体的表现型及对应关系 $$F$$ 可计算出对应个体的目标函数值 $$F(x_i)$$；</li>
+<li>根据最优化问题的类型，由目标函数值按一定的转换规则 $$G$$ 求出个体的适应度 $$G(F(x_i))=Fit(x_i)$$。</li>
+</ol>
+<p>由目标函数到适应度函数的转换</p>
+<ul>
+<li>$$Fit(x_i)=F(x_i)$$，目标函数为最大化问题</li>
+<li>$$Fit(x_i)=-F(x_i)$$，目标函数为最小化问题</li>
+</ul>
+<h4 id="225终止条件">2.2.5终止条件</h4>
+<p>程序的终止条件有两种：完成了预先设定的最大进化迭代数时；种群中的最优个体在连续若干代没有改进（最优适应度没有改进）或平均适应度在连续若干代基本没有改进时。</p>
+<blockquote>
+<p>需要预先设定的参数：</p>
+<p>$$M$$ ：种群大小；$$T$$ ：遗传算法的最大迭代次数；$$P_c$$ ：交叉概率；$$P_m$$ ：变异概率。</p>
+</blockquote>
+<h2 id="2具体应用">2.具体应用</h2>
+<h3 id="21负载均衡调度问题">2.1负载均衡调度问题</h3>
+<p>问题描述：假设有 $$N$$ 个任务，需要负载均衡器分配给 $$M$$ 个服务器节点去处理。每个任务的任务长度、每台服务器节点(下面简称“节点”)的处理速度已知，请给出一种任务分配方式，使得所有任务的总处理时间最短。</p>
+<h3 id="22混合流水车间调度问题hybrid-flow-shop-scheduling-problem-hfsp-4">2.2混合流水车间调度问题(Hybrid Flow-shop Scheduling Problem, HFSP )<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" role="doc-noteref">4</a></sup></h3>
+<p><strong>假设和约束</strong></p>
+<ol>
+<li>一个工件在一道工序上被任意一个机器加工。</li>
+<li>一个机器在某一时刻只能空闲或加工一个工件。</li>
+<li>工件必须按照加工工序顺序进行加工。</li>
+<li>同一道工序中机器都相同。</li>
+<li>工件加工过程不允许中断。</li>
+<li>如果多个工件同时需要被加工，则按优先级顺序进行加工。</li>
+<li>同一台机器可同时完成任意工序，但同一工序同一时刻只能加工一个工件。</li>
+</ol>
+<p><strong>需要解决的问题</strong>：确定零件的加工优先级，以使整体加工时间最短。</p>
+<p>以2台机器，6个工件，3道工序为例：</p>
+<p><strong>(1)C++代码实现：</strong></p>
+<p>按照以下格式输入各工件每道工序的加工时间（input.txt）：</p>
+<p>$$
+\begin{array}{c c c c}\hline&amp;工序1&amp;工序2&amp;工序3\工件1&amp;8&amp;4&amp;6\工件2&amp;2&amp;9&amp;7\工件3&amp;4&amp;2&amp;8\工件4&amp;3&amp;1&amp;6\工件5&amp;5&amp;2&amp;10\工件6&amp;9&amp;5&amp;3\\hline\ \end{array}
+$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span><span class="lnt">284
+</span><span class="lnt">285
+</span><span class="lnt">286
+</span><span class="lnt">287
+</span><span class="lnt">288
+</span><span class="lnt">289
+</span><span class="lnt">290
+</span><span class="lnt">291
+</span><span class="lnt">292
+</span><span class="lnt">293
+</span><span class="lnt">294
+</span><span class="lnt">295
+</span><span class="lnt">296
+</span><span class="lnt">297
+</span><span class="lnt">298
+</span><span class="lnt">299
+</span><span class="lnt">300
+</span><span class="lnt">301
+</span><span class="lnt">302
+</span><span class="lnt">303
+</span><span class="lnt">304
+</span><span class="lnt">305
+</span><span class="lnt">306
+</span><span class="lnt">307
+</span><span class="lnt">308
+</span><span class="lnt">309
+</span><span class="lnt">310
+</span><span class="lnt">311
+</span><span class="lnt">312
+</span><span class="lnt">313
+</span><span class="lnt">314
+</span><span class="lnt">315
+</span><span class="lnt">316
+</span><span class="lnt">317
+</span><span class="lnt">318
+</span><span class="lnt">319
+</span><span class="lnt">320
+</span><span class="lnt">321
+</span><span class="lnt">322
+</span><span class="lnt">323
+</span><span class="lnt">324
+</span><span class="lnt">325
+</span><span class="lnt">326
+</span><span class="lnt">327
+</span><span class="lnt">328
+</span><span class="lnt">329
+</span><span class="lnt">330
+</span><span class="lnt">331
+</span><span class="lnt">332
+</span><span class="lnt">333
+</span><span class="lnt">334
+</span><span class="lnt">335
+</span><span class="lnt">336
+</span><span class="lnt">337
+</span><span class="lnt">338
+</span><span class="lnt">339
+</span><span class="lnt">340
+</span><span class="lnt">341
+</span><span class="lnt">342
+</span><span class="lnt">343
+</span><span class="lnt">344
+</span><span class="lnt">345
+</span><span class="lnt">346
+</span><span class="lnt">347
+</span><span class="lnt">348
+</span><span class="lnt">349
+</span><span class="lnt">350
+</span><span class="lnt">351
+</span><span class="lnt">352
+</span><span class="lnt">353
+</span><span class="lnt">354
+</span><span class="lnt">355
+</span><span class="lnt">356
+</span><span class="lnt">357
+</span><span class="lnt">358
+</span><span class="lnt">359
+</span><span class="lnt">360
+</span><span class="lnt">361
+</span><span class="lnt">362
+</span><span class="lnt">363
+</span><span class="lnt">364
+</span><span class="lnt">365
+</span><span class="lnt">366
+</span><span class="lnt">367
+</span><span class="lnt">368
+</span><span class="lnt">369
+</span><span class="lnt">370
+</span><span class="lnt">371
+</span><span class="lnt">372
+</span><span class="lnt">373
+</span><span class="lnt">374
+</span><span class="lnt">375
+</span><span class="lnt">376
+</span><span class="lnt">377
+</span><span class="lnt">378
+</span><span class="lnt">379
+</span><span class="lnt">380
+</span><span class="lnt">381
+</span><span class="lnt">382
+</span><span class="lnt">383
+</span><span class="lnt">384
+</span><span class="lnt">385
+</span><span class="lnt">386
+</span><span class="lnt">387
+</span><span class="lnt">388
+</span><span class="lnt">389
+</span><span class="lnt">390
+</span><span class="lnt">391
+</span><span class="lnt">392
+</span><span class="lnt">393
+</span><span class="lnt">394
+</span><span class="lnt">395
+</span><span class="lnt">396
+</span><span class="lnt">397
+</span><span class="lnt">398
+</span><span class="lnt">399
+</span><span class="lnt">400
+</span><span class="lnt">401
+</span><span class="lnt">402
+</span><span class="lnt">403
+</span><span class="lnt">404
+</span><span class="lnt">405
+</span><span class="lnt">406
+</span><span class="lnt">407
+</span><span class="lnt">408
+</span><span class="lnt">409
+</span><span class="lnt">410
+</span><span class="lnt">411
+</span><span class="lnt">412
+</span><span class="lnt">413
+</span><span class="lnt">414
+</span><span class="lnt">415
+</span><span class="lnt">416
+</span><span class="lnt">417
+</span><span class="lnt">418
+</span><span class="lnt">419
+</span><span class="lnt">420
+</span><span class="lnt">421
+</span><span class="lnt">422
+</span><span class="lnt">423
+</span><span class="lnt">424
+</span><span class="lnt">425
+</span><span class="lnt">426
+</span><span class="lnt">427
+</span><span class="lnt">428
+</span><span class="lnt">429
+</span><span class="lnt">430
+</span><span class="lnt">431
+</span><span class="lnt">432
+</span><span class="lnt">433
+</span><span class="lnt">434
+</span><span class="lnt">435
+</span><span class="lnt">436
+</span><span class="lnt">437
+</span><span class="lnt">438
+</span><span class="lnt">439
+</span><span class="lnt">440
+</span><span class="lnt">441
+</span><span class="lnt">442
+</span><span class="lnt">443
+</span><span class="lnt">444
+</span><span class="lnt">445
+</span><span class="lnt">446
+</span><span class="lnt">447
+</span><span class="lnt">448
+</span><span class="lnt">449
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="n">ofstream</span> <span class="n">outfile</span><span class="p">;</span>
+<span class="cp">#define machinenumber 6  </span><span class="c1">//机器的总数（等于每道工序的并行机个数×工序数）
+</span><span class="c1"></span><span class="cp">#define parallel 2       </span><span class="c1">//每道工序的并行机个数
+</span><span class="c1"></span><span class="cp">#define ordernumber 3     </span><span class="c1">//工序数
+</span><span class="c1"></span><span class="cp">#define workpiecesnumber 6  </span><span class="c1">//工件总数
+</span><span class="c1"></span><span class="cp">#define populationnumber 200  </span><span class="c1">//每一代种群的个体数
+</span><span class="c1"></span>
+<span class="kt">double</span> <span class="n">crossoverrate</span><span class="o">=</span><span class="mf">0.6</span><span class="p">;</span>            <span class="c1">//交叉概率
+</span><span class="c1"></span><span class="kt">double</span> <span class="n">mutationrate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">;</span>             <span class="c1">//变异概率
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">G</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>                        <span class="c1">//循环代数100
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">usetime</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">][</span><span class="n">ordernumber</span><span class="p">];</span>  <span class="c1">//第几个工件第几道工序的加工用时；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">machinetime</span><span class="p">[</span><span class="n">ordernumber</span><span class="p">][</span><span class="n">parallel</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//第几道工序的第几台并行机器的统计时间；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">starttime</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">][</span><span class="n">ordernumber</span><span class="p">][</span><span class="n">parallel</span><span class="p">];</span><span class="c1">//第几个工件第几道工序在第几台并行机上开始加工的时间；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">finishtime</span> <span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">][</span><span class="n">ordernumber</span><span class="p">][</span><span class="n">parallel</span><span class="p">];</span><span class="c1">//第几个工件第几道工序在第几台并行机上完成加工的时间；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">ttime</span><span class="p">[</span><span class="n">populationnumber</span><span class="p">];</span>      <span class="c1">//个体的makespan；                                                    ？？？？？？？？？？？？？？？？？？？？？？？
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">a</span> <span class="p">[</span><span class="n">populationnumber</span><span class="p">][</span><span class="n">workpiecesnumber</span><span class="p">];</span><span class="c1">//第几代的染色体顺序，即工件加工顺序；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">times</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>  <span class="c1">//用来存储已知用时的数组；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">makespan</span><span class="p">;</span>    <span class="c1">//总的流程加工时间；
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">flg7</span><span class="p">;</span>   <span class="c1">//暂时存储流程加工时间；
+</span><span class="c1"></span><span class="kt">double</span> <span class="n">fits</span><span class="p">[</span><span class="n">populationnumber</span><span class="p">]</span> <span class="p">;</span><span class="c1">//存储每一代种群每一个个体的适应度，便于进行选择操作；
+</span><span class="c1"></span>                                                                                       <span class="c1">//？？？？？？？？？？？？？？？？
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">initialization</span><span class="p">()</span>   <span class="c1">//初始化种群；
+</span><span class="c1"></span><span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>     <span class="c1">//首先生成一个工件个数的全排列的个体；
+</span><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>     <span class="c1">//将全排列的个体中随机选取两个基因位交换，重复工件个数次，以形成随机初始种群；
+</span><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">flg1</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">workpiecesnumber</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">flg2</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">workpiecesnumber</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">flg3</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">flg1</span><span class="p">];</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">flg1</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">flg2</span><span class="p">];</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">flg2</span><span class="p">]</span><span class="o">=</span><span class="n">flg3</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">fitness</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span>   <span class="c1">//计算适应度函数，c代表某个体；
+</span><span class="c1"></span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">totaltime</span><span class="p">;</span>      <span class="c1">//总的加工流程时间（makespan）；
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">temp1</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">temp2</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">temp3</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>   <span class="c1">//temp1暂时存储个体c的基因序列，以便进行不同流程之间的加工时记录工件加工先后顺序；
+</span><span class="c1"></span>    <span class="p">{</span>
+        <span class="n">temp1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>  <span class="c1">//该循环的目的是通过比较所有机器的当前工作时间，找出最先空闲的机器，便于新的工件生产；
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>        <span class="c1">//先记录第i道工序的第一台并行机器的当前工作时间；
+</span><span class="c1"></span>            <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">&lt;</span><span class="n">parallel</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="c1">//与其他并行机器进行比较，找出时间最小的机器；
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">&gt;</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">])</span>
+                <span class="p">{</span>
+                    <span class="n">m</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">];</span>
+                    <span class="n">n</span><span class="o">=</span><span class="n">p</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="n">temp1</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>                 <span class="c1">//按顺序提取temp1中的工件号，对工件进行加工；
+</span><span class="c1"></span>            <span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">],</span><span class="n">temp3</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>  <span class="c1">//开始加工时间取该机器的当前时间和该工件上一道工序完工时间的最大值；
+</span><span class="c1"></span>            <span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="n">usetime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">;</span> <span class="c1">//机器的累计加工时间等于机器开始加工的时刻，加上该工件加工所用的时间；
+</span><span class="c1"></span>            <span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>                 <span class="c1">//工件的完工时间就是该机器当前的累计加工时间；
+</span><span class="c1"></span>            <span class="n">temp2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>       <span class="c1">//将每个工件的完工时间赋予temp2，根据完工时间的快慢，便于决定下一道工序的工件加工顺序；
+</span><span class="c1"></span>        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">flg2</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>           <span class="c1">//生成暂时数组，便于将temp1和temp2中的工件重新排列；
+</span><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">s</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">flg2</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">=</span><span class="n">temp1</span><span class="p">[</span><span class="n">s</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">e</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">ee</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">ee</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="p">;</span> <span class="n">ee</span><span class="o">++</span><span class="p">)</span> <span class="c1">// 由于temp2存储工件上一道工序的完工时间，在进行下一道工序生产时，按照先完工先生产的
+</span><span class="c1"></span>            <span class="p">{</span>                                            <span class="c1">//原则，因此，该循环的目的在于将temp2中按照加工时间从小到大排列，同时temp1相应进行变换
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="p">]</span><span class="o">&gt;</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>               <span class="c1">//来记录temp2中的工件号；
+</span><span class="c1"></span>                <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">flg5</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="p">];</span>
+                    <span class="kt">int</span> <span class="n">flg6</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="p">];</span>
+                    <span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+                    <span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="p">]</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+                    <span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">flg5</span><span class="p">;</span>
+                    <span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">flg6</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">e</span><span class="o">++</span><span class="p">)</span>    <span class="c1">//更新temp1，temp2的数据，开始下一道工序；
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="n">temp1</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">e</span><span class="p">];</span>
+            <span class="n">temp3</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">e</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">totaltime</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">parallel</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">//比较最后一道工序机器的累计加工时间，最大时间就是该流程的加工时间；
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">totaltime</span><span class="o">&lt;</span><span class="n">machinetime</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="n">totaltime</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  <span class="c1">//将数组归零，便于下一个个体的加工时间统计；
+</span><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">t</span><span class="o">&lt;</span><span class="n">parallel</span><span class="p">;</span> <span class="n">t</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">starttime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">t</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="n">finishtime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">t</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="n">machinetime</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">t</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="n">makespan</span><span class="o">=</span><span class="n">totaltime</span><span class="p">;</span>
+    <span class="n">fits</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">=</span><span class="mf">1.000</span><span class="o">/</span><span class="n">makespan</span><span class="p">;</span>          <span class="c1">//将makespan取倒数作为适应度函数；
+</span><span class="c1"></span><span class="p">}</span>
+
+
+
+<span class="kt">int</span> <span class="nf">gant</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span>                   <span class="c1">//该函数是为了将最后的结果便于清晰明朗的展示并做成甘特图，对问题的结果以及问题的解决并没有影响；
+</span><span class="c1"></span><span class="p">{</span>
+
+    <span class="kt">int</span> <span class="n">totaltime</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">machine</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">parallel</span><span class="p">][</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="s">"0"</span><span class="p">};</span>
+
+    <span class="kt">int</span> <span class="n">temp1</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//jiagongshunxu
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">temp2</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//shangyibuzhou de wan cheng shijian
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">temp3</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="c1">//////////////////////////////////////////
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">temp1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+
+    <span class="p">{</span>
+
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+
+            <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+            <span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">&lt;</span><span class="n">parallel</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">)</span> <span class="c1">//找出时间最小的机器；
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="o">&gt;</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">])</span>
+                <span class="p">{</span>
+                    <span class="n">m</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">];</span>
+                    <span class="n">n</span><span class="o">=</span><span class="n">p</span><span class="p">;</span>
+
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="n">temp1</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+
+            <span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">],</span><span class="n">temp3</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+            <span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="n">usetime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">;</span>
+            <span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
+            <span class="n">temp2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
+            <span class="c1">//cout&lt;&lt;"start:"&lt;&lt;starttime[q-1][i][n]&lt;&lt;"   use:"&lt;&lt;usetime[q-1][i]&lt;&lt;"  machine:"&lt;&lt;machinetime[i][n]&lt;&lt;"   finish:"&lt;&lt;finishtime[q-1][i][n]&lt;&lt;endl;
+</span><span class="c1"></span>            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span> <span class="n">h</span><span class="o">&lt;</span><span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'1'</span><span class="p">;</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'2'</span><span class="p">;</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'3'</span><span class="p">;</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'4'</span><span class="p">;</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">5</span><span class="p">)</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'5'</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'6'</span><span class="p">;</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">flg2</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">s</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">s</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">flg2</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">=</span><span class="n">temp1</span><span class="p">[</span><span class="n">s</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">e</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">ee</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">ee</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="p">;</span> <span class="n">ee</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="p">]</span><span class="o">&gt;</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+                <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">flg5</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="p">];</span>
+                    <span class="kt">int</span> <span class="n">flg6</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="p">];</span>
+                    <span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+                    <span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="p">]</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+                    <span class="n">temp2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">flg5</span><span class="p">;</span>
+                    <span class="n">flg2</span><span class="p">[</span><span class="n">ee</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">flg6</span><span class="p">;</span>
+                    <span class="c1">//swap(temp2[ee],temp2[ee+1]);
+</span><span class="c1"></span>                    <span class="c1">//swap(flg2[ee],flg2[ee+1]);
+</span><span class="c1"></span>                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">e</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">e</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">temp1</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">e</span><span class="p">];</span>
+            <span class="n">temp3</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">e</span><span class="p">];</span>
+            <span class="c1">//cout&lt;&lt;"temp3=="&lt;&lt;temp3[e]&lt;&lt;endl;
+</span><span class="c1"></span>        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">totaltime</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">parallel</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">totaltime</span><span class="o">&lt;</span><span class="n">machinetime</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="n">totaltime</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+
+        <span class="p">}</span>
+      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"total="</span><span class="o">&lt;&lt;</span><span class="n">totaltime</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+      <span class="n">outfile</span><span class="o">&lt;&lt;</span><span class="n">totaltime</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="c1">///////////////////////////////////////////////////////////////////////////////
+</span><span class="c1"></span>    <span class="n">flg7</span><span class="o">=</span><span class="n">totaltime</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">parallel</span><span class="p">;</span> <span class="n">u</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">uu</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">uu</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">uu</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span><span class="n">outfile</span><span class="o">&lt;&lt;</span><span class="n">machine</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">uu</span><span class="p">];</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">machine</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">uu</span><span class="p">];</span>
+            <span class="p">}</span>
+            <span class="n">outfile</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+<span class="c1">//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">select</span><span class="p">()</span>
+<span class="p">{</span>
+   <span class="kt">double</span> <span class="n">roulette</span><span class="p">[</span><span class="n">populationnumber</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mf">0.00</span><span class="p">};</span>	<span class="c1">//记录轮盘赌的每一个概率区间；
+</span><span class="c1"></span>   <span class="kt">double</span> <span class="n">pro_single</span><span class="p">[</span><span class="n">populationnumber</span><span class="p">];</span>			<span class="c1">//记录每个个体出现的概率，即个体的适应度除以总体适应度之和；
+</span><span class="c1"></span>   <span class="kt">double</span> <span class="n">totalfitness</span><span class="o">=</span><span class="mf">0.00</span><span class="p">;</span>                	<span class="c1">//种群所有个体的适应度之和；
+</span><span class="c1"></span>   <span class="kt">int</span> <span class="n">a1</span><span class="p">[</span><span class="n">populationnumber</span><span class="p">][</span><span class="n">workpiecesnumber</span><span class="p">];</span>	<span class="c1">//存储a中所有个体的染色体；
+</span><span class="c1"></span>
+   <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>     		<span class="c1">//计算所有个体适应度的总和；
+</span><span class="c1"></span>   <span class="p">{</span>
+       <span class="n">totalfitness</span><span class="o">=</span><span class="n">totalfitness</span><span class="o">+</span><span class="n">fits</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+   <span class="p">}</span>
+
+   <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="n">pro_single</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">fits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">totalfitness</span><span class="p">;</span>   	<span class="c1">//计算每个个体适应度与总体适应度之比；
+</span><span class="c1"></span>       <span class="n">roulette</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">roulette</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">pro_single</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="c1">//将每个个体的概率累加，构造轮盘赌；
+</span><span class="c1"></span>   <span class="p">}</span>
+
+   <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="n">a1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>               <span class="c1">//a1暂时存储a的值；
+</span><span class="c1"></span>       <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+   <span class="p">{</span>
+       <span class="kt">int</span> <span class="n">a2</span><span class="p">;</span>   <span class="c1">//当识别出所属区间之后，a2记录区间的序号；
+</span><span class="c1"></span>       <span class="kt">double</span> <span class="n">p</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="mi">1000</span><span class="p">);</span>
+       <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">&gt;=</span><span class="n">roulette</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">roulette</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+              <span class="n">a2</span><span class="o">=</span><span class="n">j</span><span class="p">;</span>
+       <span class="p">}</span>
+       <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">m</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">m</span><span class="o">++</span><span class="p">)</span>
+       <span class="p">{</span>
+           <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">m</span><span class="p">]</span><span class="o">=</span><span class="n">a1</span><span class="p">[</span><span class="n">a2</span><span class="p">][</span><span class="n">m</span><span class="p">];</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+
+
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">crossover</span><span class="p">()</span>
+<span class="cm">/*种群中的个体随机进行两两配对，配对成功的两个个体作为父代1和父代2进行交叉操作。
+</span><span class="cm">随机生成两个不同的基因点位，子代1继承父代2基因位之间的基因片段，其余基因按顺序集成父代1中未重复的基因；
+</span><span class="cm">子代2继承父代1基因位之间的基因片段，其余基因按顺序集成父代2中未重复的基因。*/</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">//将所有个体平均分成两部分，一部分为交叉的父代1，一部分为进行交叉的父代2；
+</span><span class="c1"></span>    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n1</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">workpiecesnumber</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>    <span class="c1">//该方法生成两个不同的基因位；
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">n2</span><span class="o">=</span><span class="n">n1</span><span class="o">+</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="p">(</span><span class="n">workpiecesnumber</span><span class="o">-</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n3</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">10</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n3</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>   <span class="c1">//n3=2的概率为0.1；若满足0.1的概率，那么就进行交叉操作；
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">temp1</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="kt">int</span> <span class="n">temp2</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">flg1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="kt">int</span> <span class="n">flg2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="n">n1</span><span class="p">;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">n2</span><span class="p">;</span><span class="n">p</span><span class="o">++</span><span class="p">)</span>          <span class="c1">//将交叉点位之间的基因片段进行交叉，temp1和temp2记录没有发生重复的基因；
+</span><span class="c1"></span>                    <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">==</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+                      <span class="n">flg1</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">flg1</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">temp1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];}</span>
+
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="n">n1</span><span class="p">;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">n2</span><span class="p">;</span><span class="n">p</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">==</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+                    <span class="n">flg2</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">flg2</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">temp2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];}</span>
+
+            <span class="p">}</span>
+
+
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">n1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n2</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>             <span class="c1">//子代1继承父代2交叉点位之间的基因；子代2继承父代1交叉点位之间的基因；
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">n4</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="n">n4</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">n4</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">n1</span><span class="p">;</span><span class="n">p</span><span class="o">++</span><span class="p">)</span>               <span class="c1">//子代1第一交叉点之前的基因片段，按顺序依次继承父代1中未与子代1重复的基因；
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">q</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">q</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">temp1</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+                      <span class="p">{</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="n">temp1</span><span class="p">[</span><span class="n">q</span><span class="p">];</span><span class="n">temp1</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                       <span class="k">break</span><span class="p">;}</span>
+                    <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">n1</span><span class="p">;</span><span class="n">p</span><span class="o">++</span><span class="p">)</span>               <span class="c1">//子代2第一交叉点之前的基因片段，按顺序依次继承父代2中未与子代2重复的基因；
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">m</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">m</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">temp2</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+                     <span class="p">{</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">m</span><span class="p">];</span><span class="n">temp2</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                      <span class="k">break</span><span class="p">;}</span>
+                    <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="n">n2</span><span class="p">;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">p</span><span class="o">++</span><span class="p">)</span>             <span class="c1">//子代1第2交叉点之后的基因片段，按顺序依次继承父代1中未与子代1重复的基因；
+</span><span class="c1"></span>            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">q</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">q</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">q</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">temp1</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+                      <span class="p">{</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="n">temp1</span><span class="p">[</span><span class="n">q</span><span class="p">];</span><span class="n">temp1</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                       <span class="k">break</span><span class="p">;}</span>
+
+                    <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">=</span><span class="n">n2</span><span class="p">;</span><span class="n">p</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">p</span><span class="o">++</span><span class="p">)</span>               <span class="c1">//子代2第2交叉点之后的基因片段，按顺序依次继承父代2中未与子代2重复的基因；
+</span><span class="c1"></span>                <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">m</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span><span class="n">m</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span><span class="k">if</span><span class="p">(</span><span class="n">temp2</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+                     <span class="p">{</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">m</span><span class="p">];</span><span class="n">temp2</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                     <span class="k">break</span><span class="p">;}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+
+<span class="c1">///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</span><span class="c1"></span>
+<span class="kt">int</span> <span class="nf">mutation</span><span class="p">()</span>  <span class="c1">//变异操作为两点变异，随机生成两个基因位，并交换两个基因的位置；
+</span><span class="c1"></span><span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n3</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">20</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n3</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">{</span>
+           <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+          <span class="p">{</span>
+           <span class="kt">int</span> <span class="n">b1</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">workpiecesnumber</span><span class="p">;</span>
+           <span class="kt">int</span> <span class="n">b2</span><span class="o">=</span><span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="n">workpiecesnumber</span><span class="p">;</span>
+           <span class="kt">int</span> <span class="n">b3</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">b1</span><span class="p">];</span>
+           <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">b1</span><span class="p">]</span><span class="o">=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">b2</span><span class="p">];</span>
+           <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">b2</span><span class="p">]</span><span class="o">=</span><span class="n">b3</span><span class="p">;</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ifstream</span> <span class="n">ifs</span><span class="p">(</span><span class="s">"input.txt"</span><span class="p">);</span>
+    <span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"output.txt"</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ifs</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"打开文件失败！"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">ifs</span><span class="o">&gt;&gt;</span><span class="n">times</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="n">l</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>  <span class="c1">//读入已知的加工时间；
+</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">"  "</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">usetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">times</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">usetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">"  "</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"//////////////////////////////////////////////////"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;;</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+    <span class="n">initialization</span><span class="p">();</span>    <span class="c1">//初始化种群；
+</span><span class="c1"></span>                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">g</span><span class="o">&lt;</span><span class="n">G</span><span class="p">;</span> <span class="n">g</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="c1">//计算每个个体适应度并存在ttime中；
+</span><span class="c1"></span>                    <span class="p">{</span>
+                        <span class="n">fitness</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+                        <span class="n">ttime</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">=</span><span class="n">makespan</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">select</span><span class="p">();</span>     <span class="c1">//选择操作；
+</span><span class="c1"></span>                    <span class="n">crossover</span><span class="p">();</span>  <span class="c1">//交叉操作；
+</span><span class="c1"></span>                    <span class="n">mutation</span><span class="p">();</span>   <span class="c1">//变异操作；
+</span><span class="c1"></span>                <span class="p">}</span>
+
+                    <span class="kt">int</span> <span class="n">flg8</span><span class="o">=</span><span class="n">ttime</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+                    <span class="kt">int</span> <span class="n">flg9</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">populationnumber</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span>  <span class="c1">//计算最后一代每个个体的适应度，并找出最优个体；
+</span><span class="c1"></span>                    <span class="p">{</span>
+
+                        <span class="k">if</span><span class="p">(</span><span class="n">ttime</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">&lt;</span><span class="n">flg8</span><span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="n">flg8</span><span class="o">=</span><span class="n">ttime</span><span class="p">[</span><span class="n">c</span><span class="p">];</span>
+                            <span class="n">flg9</span><span class="o">=</span><span class="n">c</span><span class="p">;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="n">gant</span><span class="p">(</span><span class="n">flg9</span><span class="p">);</span>   <span class="c1">//画出简易的流程图；
+</span><span class="c1"></span>    <span class="n">outfile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行后的结果（output.txt）如下：</p>
+<figure><img src="/images/GAresult.png"/><figcaption>
+<h4>（运行结果）</h4>
+</figcaption>
+</figure>
+<p><strong>(2)MATLAB代码实现<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>：</strong></p>
+<p>主函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">piecetime</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">4</span> <span class="mi">6</span><span class="p">;</span> <span class="c">...             % 设备加工时间</span>
+
+    <span class="mi">4</span> <span class="mi">9</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">4</span> <span class="mi">2</span> <span class="mi">8</span><span class="p">;</span> <span class="mi">9</span> <span class="mi">56</span><span class="p">;</span> <span class="mi">5</span> <span class="mi">2</span> <span class="mi">7</span><span class="p">;</span> <span class="mi">9</span> <span class="mi">4</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="n">equsize</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">];</span>                  <span class="c">% 每个工序设备数目</span>
+
+<span class="n">piecesize</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">piecetime</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>     <span class="c">% 工件数目</span>
+
+<span class="n">prosize</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">piecetime</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>       <span class="c">% 工序数目</span>
+
+<span class="n">popsize</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>      <span class="c">% 种群规模</span>
+
+<span class="n">cr</span> <span class="p">=</span> <span class="mf">0.6</span><span class="p">;</span>          <span class="c">% 交叉概率</span>
+
+<span class="n">mr</span> <span class="p">=</span> <span class="mf">0.05</span><span class="p">;</span>         <span class="c">% 变异概率</span>
+
+<span class="n">maxgen</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>      <span class="c">% 迭代次数</span>
+
+<span class="n">bestobjvalue</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxgen</span><span class="p">);</span>
+
+<span class="n">bestpop</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">maxgen</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">);</span>
+
+<span class="n">avgobjvalue</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxgen</span><span class="p">);</span>
+
+<span class="n">bestptr</span> <span class="p">=</span> <span class="n">cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxgen</span><span class="p">);</span>
+
+<span class="n">bestper</span> <span class="p">=</span> <span class="n">cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxgen</span><span class="p">);</span>
+
+<span class="n">pop</span> <span class="p">=</span> <span class="n">initpop</span><span class="p">(</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">gen</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">maxgen</span>
+
+    <span class="p">[</span><span class="n">objvalue</span><span class="p">,</span> <span class="n">ptr</span><span class="p">,</span><span class="n">per</span><span class="p">]</span> <span class="p">=</span> <span class="n">calobjvalue</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">piecetime</span><span class="p">,</span> <span class="n">equsize</span><span class="p">);</span>
+
+    <span class="p">[</span><span class="n">bobjvalue</span><span class="p">,</span><span class="n">bindex</span><span class="p">]</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">objvalue</span><span class="p">);</span>
+
+    <span class="n">bestobjvalue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">gen</span><span class="p">)</span> <span class="p">=</span> <span class="n">bobjvalue</span><span class="p">;</span>
+
+    <span class="n">bestpop</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span><span class="n">pop</span><span class="p">(</span><span class="n">bindex</span><span class="p">,</span> <span class="p">:);</span>
+
+    <span class="n">avgobjvalue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">gen</span><span class="p">)</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">objvalue</span><span class="p">)</span> <span class="o">/</span> <span class="n">popsize</span><span class="p">;</span>
+
+    <span class="n">bestptr</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">gen</span><span class="p">}</span> <span class="p">=</span><span class="n">ptr</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">bindex</span><span class="p">};</span>
+
+    <span class="n">bestper</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">gen</span><span class="p">}</span> <span class="p">=</span><span class="n">per</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">bindex</span><span class="p">};</span>
+
+    <span class="n">fitness</span><span class="p">=</span> <span class="n">calfitness</span><span class="p">(</span><span class="n">objvalue</span><span class="p">);</span>     <span class="c">% 计算适应度值</span>
+
+    <span class="n">pop</span> <span class="p">=</span><span class="n">selection</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">fitness</span><span class="p">);</span>      <span class="c">% 选择</span>
+
+    <span class="n">pop</span> <span class="p">=</span><span class="n">crossover</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">cr</span><span class="p">);</span>           <span class="c">% 交叉</span>
+
+    <span class="n">pop</span> <span class="p">=</span><span class="n">mutation</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span> <span class="n">mr</span><span class="p">);</span>            <span class="c">% 变异</span>
+
+<span class="k">end</span>
+
+<span class="p">[</span><span class="o">~</span><span class="p">,</span> <span class="n">finalindex</span><span class="p">]</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">bestobjvalue</span><span class="p">);</span>
+
+<span class="n">finalptr</span> <span class="p">=</span> <span class="n">bestptr</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">finalindex</span><span class="p">};</span>
+
+<span class="n">finalper</span> <span class="p">=</span> <span class="n">bestper</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">finalindex</span><span class="p">};</span>
+
+<span class="n">fprintf</span><span class="p">(</span>"最优序列<span class="p">:</span><span class="o">\</span><span class="n">n</span>"<span class="p">);</span>
+
+<span class="nb">disp</span><span class="p">(</span><span class="n">bestpop</span><span class="p">(</span><span class="n">finalindex</span><span class="p">,</span> <span class="p">:));</span>
+
+<span class="n">gantt</span> <span class="p">=</span> <span class="n">makegantt</span><span class="p">(</span><span class="n">finalptr</span><span class="p">,</span> <span class="n">finalper</span><span class="p">,</span> <span class="n">equsize</span><span class="p">);</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">imagesc</span><span class="p">(</span><span class="n">gantt</span><span class="p">);</span>
+
+<span class="n">colorbar</span><span class="p">;</span>
+
+<span class="n">title</span><span class="p">(</span>"加工流程图"<span class="p">);</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">maxgen</span><span class="p">,</span> <span class="n">bestobjvalue</span><span class="p">);</span>
+
+<span class="n">title</span><span class="p">(</span>"最优时间变化图"<span class="p">);</span>
+
+<span class="n">xlabel</span><span class="p">(</span>"代数"<span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span>"最优时间"<span class="p">);</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">maxgen</span><span class="p">,</span> <span class="n">avgobjvalue</span><span class="p">);</span>
+
+<span class="n">title</span><span class="p">(</span>"平均时间变化图"<span class="p">);</span>
+
+<span class="n">xlabel</span><span class="p">(</span>"代数"<span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span>"平均时间"<span class="p">);</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>目标值函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[objvalue, ptr, per] <span class="p">=</span><span class="w"> </span><span class="nf">calobjvalue</span><span class="p">(</span>pop, piecetime,equsize<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">% 计算目标函数值</span>
+
+<span class="c">% pop          input  种群</span>
+
+<span class="c">% piecetime    input  工件加工时间</span>
+
+<span class="c">% equsize      input  每个工序设备数量</span>
+
+<span class="c">% objvalue     output 目标函数值（加工时间）</span>
+
+<span class="c">% ptr          output 工件加工时间记录，cell</span>
+
+<span class="c">% per          output 工件加工设备记录，cell</span>
+
+<span class="p">[</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">pop</span><span class="p">);</span>
+
+<span class="n">prosize</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">equsize</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="n">objvalue</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">popsize</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="n">ptr</span> <span class="p">=</span> <span class="n">cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">popsize</span><span class="p">);</span>
+
+<span class="n">per</span> <span class="p">=</span> <span class="n">cell</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">popsize</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">popsize</span>
+
+    <span class="n">pieceweight</span> <span class="p">=</span><span class="n">pop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:);</span>
+
+    <span class="c">% 设备状态序列</span>
+
+    <span class="c">% [工序1设备1工序1设备2 工序2设备1 工序2设备2 ……]</span>
+
+    <span class="c">% 记录当前设备使用结束时间，默认为0表示未开始</span>
+
+    <span class="n">equstu</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sum</span><span class="p">(</span><span class="n">equsize</span><span class="p">));</span>
+
+    <span class="c">% 对设备状态序列的工序分隔符</span>
+
+    <span class="c">% 大于等于当前设备最小值的索引是当前设备所处的工序</span>
+
+    <span class="c">% [2 35] 工序1有2台设备工序2有1台设备 工序3有2台设备</span>
+
+    <span class="n">prosep</span> <span class="p">=</span><span class="n">cumsum</span><span class="p">(</span><span class="n">equsize</span><span class="p">);</span>
+
+    <span class="c">% 工件时间记录，记录每个工件每个工序的开始时间和结束时间</span>
+
+    <span class="c">% 行表示工件，相邻两列表示开始加工时间和停止加工时间</span>
+
+    <span class="c">% [1 2 2 3; 4 5 67]</span>
+
+    <span class="c">% 表示工件1第1工序加工时间为1-2，第2工序加工时间为2-3</span>
+
+    <span class="c">% 工件2第1工序加工时间为4-5，第2工序加工时间为6-7</span>
+
+    <span class="n">piecetimerecord</span> <span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">piecesize</span><span class="p">,</span> <span class="n">prosize</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="c">% 工件设备记录，记录每个工件在工序中的加工设备</span>
+
+    <span class="c">% 行数表示工件，列表示该零件在每个工序加工设备</span>
+
+    <span class="c">% [1 2; 2 1]</span>
+
+    <span class="c">% 表示工件1在第1工序加工设备为1，第2工序加工设备为2</span>
+
+    <span class="c">% 工件2在第1工序加工设备为2，第2工序加工设备为1</span>
+
+    <span class="n">pieceequrecord</span> <span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">piecesize</span><span class="p">,</span> <span class="n">prosize</span><span class="p">);</span>
+
+    <span class="c">% 对每一道工序</span>
+
+    <span class="c">%   如果是第1道工序，对工件按优先级排序</span>
+
+    <span class="c">%     其余工序上上一道工序完工时间对工件排序</span>
+
+    <span class="c">%   对排序后的每一件工件</span>
+
+    <span class="c">%     对该工序中可用机器按使用结束时间排序</span>
+
+    <span class="c">%     使用使用结束时间最小的机器</span>
+
+    <span class="c">%     加工开始时间为max{设备使用结束时间,零件上一工序完工时间}</span>
+
+    <span class="c">%     加工结束时间=加工开始时间+加工时间</span>
+
+    <span class="c">%     更新各个状态和记录矩阵</span>
+
+    <span class="k">for</span> <span class="n">pro</span> <span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">prosize</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">pro</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">piecelist</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">pieceweight</span><span class="p">);</span>
+
+        <span class="k">else</span>
+
+           <span class="n">tempendtime</span> <span class="p">=</span> <span class="n">piecetimerecord</span><span class="p">(:,</span> <span class="p">(</span><span class="n">pro</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+
+           <span class="n">tempendtime</span> <span class="p">=</span> <span class="n">tempendtime</span><span class="o">'</span><span class="p">;</span>
+
+            <span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">piecelist</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">tempendtime</span><span class="p">);</span>
+
+        <span class="k">end</span>
+
+        <span class="k">for</span> <span class="n">pieceindex</span><span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">piecelist</span><span class="p">)</span>
+
+            <span class="n">piece</span> <span class="p">=</span><span class="n">piecelist</span><span class="p">(</span><span class="n">pieceindex</span><span class="p">);</span>
+
+           <span class="n">equtimelist</span> <span class="p">=</span> <span class="n">equstu</span><span class="p">(</span><span class="n">prosep</span><span class="p">(</span><span class="n">pro</span><span class="p">)</span><span class="o">-</span><span class="n">equsize</span><span class="p">(</span><span class="n">pro</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">prosep</span><span class="p">(</span><span class="n">pro</span><span class="p">));</span>
+
+            <span class="p">[</span><span class="n">equtime</span><span class="p">,</span><span class="n">equlist</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">equtimelist</span><span class="p">);</span>
+
+            <span class="n">equ</span> <span class="p">=</span><span class="n">equlist</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="n">pro</span> <span class="o">==</span><span class="mi">1</span>
+
+               <span class="n">piecestarttime</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+
+            <span class="k">else</span>
+
+               <span class="n">piecestarttime</span> <span class="p">=</span> <span class="n">piecetimerecord</span><span class="p">(</span><span class="n">piece</span><span class="p">,</span> <span class="n">pro</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+
+            <span class="k">end</span>
+
+            <span class="n">starttime</span><span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">equtime</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">piecestarttime</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+            <span class="n">endtime</span> <span class="p">=</span><span class="n">starttime</span> <span class="o">+</span> <span class="n">piecetime</span><span class="p">(</span><span class="n">piece</span><span class="p">,</span> <span class="n">pro</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+           <span class="n">equstuindex</span> <span class="p">=</span> <span class="n">prosep</span><span class="p">(</span><span class="n">pro</span><span class="p">)</span><span class="o">-</span><span class="n">equsize</span><span class="p">(</span><span class="n">pro</span><span class="p">)</span><span class="o">+</span><span class="n">equ</span><span class="p">;</span>
+
+           <span class="n">equstu</span><span class="p">(</span><span class="n">equstuindex</span><span class="p">)</span> <span class="p">=</span> <span class="n">endtime</span><span class="p">;</span>
+
+           <span class="n">piecetimerecord</span><span class="p">(</span><span class="n">piece</span><span class="p">,</span> <span class="n">pro</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">starttime</span><span class="p">;</span>
+
+           <span class="n">piecetimerecord</span><span class="p">(</span><span class="n">piece</span><span class="p">,</span> <span class="n">pro</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">endtime</span><span class="p">;</span>
+
+           <span class="n">pieceequrecord</span><span class="p">(</span><span class="n">piece</span><span class="p">,</span> <span class="n">pro</span><span class="p">)</span> <span class="p">=</span> <span class="n">equ</span><span class="p">;</span>
+
+        <span class="k">end</span>
+
+    <span class="k">end</span>
+
+    <span class="n">objvalue</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">=</span><span class="n">max</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">piecetimerecord</span><span class="p">));</span>
+
+    <span class="n">ptr</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="nb">i</span><span class="p">}</span> <span class="p">=</span><span class="n">piecetimerecord</span><span class="p">;</span>
+
+    <span class="n">per</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="nb">i</span><span class="p">}</span> <span class="p">=</span><span class="n">pieceequrecord</span><span class="p">;</span>
+
+<span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>选择函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>spop <span class="p">=</span><span class="w"> </span><span class="nf">selection</span><span class="p">(</span>pop, fitness<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">% 轮盘赌选择</span>
+
+<span class="c">% pop      input  种群</span>
+
+<span class="c">% fitness  input  适应度值</span>
+
+<span class="c">% spop     output 选择后生成的种群</span>
+
+<span class="p">[</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">pop</span><span class="p">);</span>
+
+<span class="n">spop</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">);</span>
+
+<span class="n">sumfit</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">fitness</span><span class="p">);</span>
+
+<span class="n">fitness</span> <span class="p">=</span> <span class="n">fitness</span> <span class="o">./</span> <span class="n">sumfit</span><span class="p">;</span>
+
+<span class="n">fitness</span> <span class="p">=</span> <span class="n">cumsum</span><span class="p">(</span><span class="n">fitness</span><span class="p">);</span>
+
+<span class="n">r</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">popsize</span><span class="p">);</span>
+
+<span class="n">r</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+
+<span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">popsize</span>
+
+    <span class="k">while</span> <span class="n">fitness</span><span class="p">(</span><span class="nb">j</span><span class="p">)</span><span class="o">&lt;</span> <span class="n">r</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>
+
+        <span class="nb">j</span> <span class="p">=</span> <span class="nb">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">end</span>
+
+    <span class="n">spop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span><span class="n">pop</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span> <span class="p">:);</span>
+
+<span class="k">end</span>
+
+<span class="c">% 由于上面轮盘赌方法特殊性，一个个体在相邻位置多次重复，故随机排序</span>
+
+<span class="n">rr</span> <span class="p">=</span> <span class="n">randperm</span><span class="p">(</span><span class="n">popsize</span><span class="p">);</span>
+
+<span class="n">spop</span><span class="p">(:,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">spop</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span> <span class="p">:);</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>交叉函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>cpop <span class="p">=</span><span class="w"> </span><span class="nf">crossover</span><span class="p">(</span>pop, cr<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">% 交叉</span>
+
+<span class="c">% pop      input  种群</span>
+
+<span class="c">% cr       input  交叉概率</span>
+
+<span class="c">% cpop     output 交叉后种群</span>
+
+<span class="p">[</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">pop</span><span class="p">);</span>
+
+<span class="n">cpop</span> <span class="p">=</span> <span class="n">pop</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="nb">mod</span><span class="p">(</span><span class="n">popsize</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">~=</span> <span class="mi">0</span>
+
+    <span class="n">nn</span> <span class="p">=</span> <span class="n">popsize</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">else</span>
+
+    <span class="n">nn</span> <span class="p">=</span> <span class="n">popsize</span><span class="p">;</span>
+
+<span class="k">end</span>
+
+<span class="c">% 父代father mother, 子代son daughter</span>
+
+<span class="c">% 在rl:ru中，son继承mother，daughter继承father</span>
+
+<span class="c">% 其余位置son继承father，daughter继承mother</span>
+
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">nn</span>
+
+    <span class="k">if</span> <span class="nb">rand</span> <span class="o">&gt;</span> <span class="n">cr</span>
+
+        <span class="k">continue</span><span class="p">;</span>
+
+    <span class="k">end</span>
+
+    <span class="p">[</span><span class="n">rl</span><span class="p">,</span> <span class="n">ru</span><span class="p">]</span> <span class="p">=</span><span class="n">makerlru</span><span class="p">(</span><span class="n">piecesize</span><span class="p">);</span>
+
+    <span class="n">father</span> <span class="p">=</span> <span class="n">pop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:);</span>
+
+    <span class="n">mother</span> <span class="p">=</span> <span class="n">pop</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">:);</span>
+
+    <span class="k">if</span> <span class="n">father</span> <span class="o">==</span> <span class="n">mother</span>
+
+        <span class="k">continue</span><span class="p">;</span>
+
+    <span class="k">end</span>
+
+    <span class="n">son</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">);</span>
+
+    <span class="n">daughter</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">piecesize</span><span class="p">);</span>
+
+    <span class="n">son</span><span class="p">(</span><span class="n">rl</span><span class="p">:</span><span class="n">ru</span><span class="p">)</span> <span class="p">=</span> <span class="n">mother</span><span class="p">(</span><span class="n">rl</span><span class="p">:</span><span class="n">ru</span><span class="p">);</span>
+
+    <span class="n">daughter</span><span class="p">(</span><span class="n">rl</span><span class="p">:</span><span class="n">ru</span><span class="p">)</span> <span class="p">=</span><span class="n">father</span><span class="p">(</span><span class="n">rl</span><span class="p">:</span><span class="n">ru</span><span class="p">);</span>
+
+    <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">piecesize</span>
+
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span><span class="p">=</span> <span class="n">rl</span> <span class="o">&amp;&amp;</span><span class="n">k</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">ru</span>
+
+            <span class="k">continue</span><span class="p">;</span>
+
+        <span class="k">end</span>
+
+        <span class="k">while</span> <span class="o">~</span><span class="nb">isempty</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">son</span><span class="o">==</span> <span class="n">father</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+
+            <span class="nb">j</span> <span class="p">=</span> <span class="nb">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="k">end</span>
+
+        <span class="n">son</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">=</span> <span class="n">father</span><span class="p">(</span><span class="nb">j</span><span class="p">);</span>
+
+    <span class="k">end</span>
+
+    <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">piecesize</span>
+
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span><span class="p">=</span> <span class="n">rl</span> <span class="o">&amp;&amp;</span><span class="n">k</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">ru</span>
+
+            <span class="k">continue</span><span class="p">;</span>
+
+        <span class="k">end</span>
+
+        <span class="k">while</span><span class="o">~</span><span class="nb">isempty</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">daughter</span> <span class="o">==</span> <span class="n">mother</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+
+            <span class="nb">j</span> <span class="p">=</span> <span class="nb">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="k">end</span>
+
+        <span class="n">daughter</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">=</span> <span class="n">mother</span><span class="p">(</span><span class="nb">j</span><span class="p">);</span>
+
+    <span class="k">end</span>
+
+    <span class="n">cpop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">son</span><span class="p">;</span>
+
+    <span class="n">cpop</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">daughter</span><span class="p">;</span>
+
+<span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>变异函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>mpop <span class="p">=</span><span class="w"> </span><span class="nf">mutation</span><span class="p">(</span>pop, mr<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">% 变异，交换两个随即位置的基因</span>
+
+<span class="c">% pop      input  种群</span>
+
+<span class="c">% mr       input  变异概率</span>
+
+<span class="c">% mpop     output 变异后种群</span>
+
+<span class="p">[</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">pop</span><span class="p">);</span>
+
+<span class="n">mpop</span> <span class="p">=</span> <span class="n">pop</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">popsize</span>
+
+    <span class="k">if</span> <span class="nb">rand</span> <span class="o">&gt;</span> <span class="n">mr</span>
+
+        <span class="k">continue</span><span class="p">;</span>
+
+    <span class="k">end</span>
+
+    <span class="n">r1</span> <span class="p">=</span> <span class="n">randi</span><span class="p">(</span><span class="n">piecesize</span><span class="p">);</span>
+
+    <span class="n">r2</span> <span class="p">=</span> <span class="n">randi</span><span class="p">(</span><span class="n">piecesize</span><span class="p">);</span>
+
+    <span class="n">temp</span>  <span class="p">=</span> <span class="n">mpop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">r1</span><span class="p">);</span>
+
+    <span class="n">mpop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">r1</span><span class="p">)</span> <span class="p">=</span> <span class="n">mpop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">r2</span><span class="p">);</span>
+
+    <span class="n">mpop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span> <span class="p">=</span> <span class="n">temp</span><span class="p">;</span>
+
+<span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>初始化种群函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>pop<span class="p">=</span><span class="w"> </span><span class="nf">initpop</span><span class="p">(</span>popsize, piecesize<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">%初始化种群</span>
+
+<span class="c">%popsize           input  种群规模</span>
+
+<span class="c">%piecesize         input  工件数量</span>
+
+<span class="c">%pop               output 种群</span>
+
+<span class="n">pop</span> <span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">popsize</span><span class="p">,</span> <span class="n">piecesize</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">popsize</span>
+
+    <span class="n">pop</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="p">:)</span> <span class="p">=</span> <span class="n">randperm</span><span class="p">(</span><span class="n">piecesize</span><span class="p">);</span>
+
+<span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>计算适应度函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span>fitness <span class="p">=</span><span class="w"> </span><span class="nf">calfitness</span><span class="p">(</span>objvalue<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">%计算适应度值</span>
+
+<span class="c">%objvalue      input  目标函数值</span>
+
+<span class="c">%fitness       output 适应度值</span>
+
+<span class="n">fitness</span> <span class="p">=</span> <span class="mf">1.</span><span class="o">/</span> <span class="n">objvalue</span><span class="p">;</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>制作加工流程矩阵函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span>gantt <span class="p">=</span><span class="w"> </span><span class="nf">makegantt</span><span class="p">(</span>ptr, per, equsize<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">%制作加工流程矩阵</span>
+
+<span class="c">%ptr       input  工件时间记录</span>
+
+<span class="c">%per       input  工件设备记录</span>
+
+<span class="c">%equsize   input  工序设备数量</span>
+
+<span class="c">%gantt     output 加工流程矩阵</span>
+
+<span class="n">finaltime</span> <span class="p">=</span><span class="n">max</span><span class="p">(</span><span class="n">max</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
+
+<span class="p">[</span><span class="n">piecesize</span><span class="p">,</span><span class="n">prosize</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">per</span><span class="p">);</span>
+
+<span class="n">cumsumequ</span> <span class="p">=</span><span class="n">cumsum</span><span class="p">(</span><span class="n">equsize</span><span class="p">);</span>
+
+<span class="n">gantt</span> <span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">equsize</span><span class="p">),</span> <span class="n">finaltime</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">pro</span> <span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">prosize</span>
+
+    <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">piecesize</span>
+
+        <span class="k">if</span> <span class="n">pro</span> <span class="o">==</span> <span class="mi">1</span>
+
+            <span class="n">equ</span> <span class="p">=</span> <span class="n">per</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">pro</span><span class="p">);</span>
+
+        <span class="k">else</span>
+
+            <span class="n">equ</span> <span class="p">=</span> <span class="n">cumsumequ</span><span class="p">(</span><span class="n">pro</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">per</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="n">pro</span><span class="p">);</span>
+
+        <span class="k">end</span>
+
+        <span class="n">starttime</span> <span class="p">=</span> <span class="n">ptr</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">pro</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+
+        <span class="n">endtime</span> <span class="p">=</span> <span class="n">ptr</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span> <span class="n">pro</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+
+        <span class="n">gantt</span><span class="p">(</span><span class="n">equ</span><span class="p">,</span> <span class="n">starttime</span><span class="p">:</span><span class="n">endtime</span><span class="p">)</span> <span class="p">=</span> <span class="nb">i</span><span class="p">;</span> 
+
+    <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>生成随机数函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[rl,ru] <span class="p">=</span><span class="w"> </span><span class="nf">makerlru</span><span class="p">(</span>maxnum<span class="p">)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">%制作两个随机整数， rl &lt; ru</span>
+
+<span class="c">%maxnum        input  最大数</span>
+
+<span class="c">%rl            output 小随机数</span>
+
+<span class="c">%ru            output 大随机数</span>
+
+<span class="n">r1</span> <span class="p">=</span><span class="n">randi</span><span class="p">(</span><span class="n">maxnum</span><span class="p">);</span>
+
+<span class="n">r2</span>  <span class="p">=</span><span class="n">randi</span><span class="p">(</span><span class="n">maxnum</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="n">r2</span> <span class="o">==</span><span class="n">r1</span>
+
+    <span class="n">r2</span> <span class="p">=</span> <span class="n">randi</span><span class="p">(</span><span class="n">maxnum</span><span class="p">);</span>
+
+<span class="k">end</span>
+
+<span class="n">rl</span> <span class="p">=</span> <span class="n">min</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">]);</span>
+
+<span class="n">ru</span> <span class="p">=</span> <span class="n">max</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">]);</span>
+
+<span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="23-tsp问题货郎担问题6">2.3 TSP问题(货郎担问题)<sup id="fnref:6"><a class="footnote-ref" href="#fn:6" role="doc-noteref">6</a></sup></h3>
+<p><strong>问题定义：巡回旅行商问题</strong></p>
+<p>给定一组n个城市和俩俩之间的直达距离，寻找一条闭合的旅程，使得每个城市刚好经过一次且总的旅行距离最短。</p>
+<p>TSP问题也称为货郎担问题，是一个古老的问题。最早可以追溯到1759年Euler提出的骑士旅行的问题。1948年，由美国兰德公司推动，TSP成为近代「组合优化」领域的典型难题，也是典型的[「$$NP$$问题」](<a href="https://blog.csdn.net/m0_37407587/article/details/87169128" rel="noopener noreffer" target="_blank">(6条消息) 组合优化中的P问题，NP问题，NP-complete问题和NP-hard问题_m0_37407587的博客-CSDN博客</a> )。</p>
+<p>TSP是一个具有广泛的应用背景和重要理论价值的组合优化问题。 近年来，有很多解决该问题的较为有效的算法不断被推出，例如Hopfield神经网络方法，模拟退火方法以及遗传算法方法等。</p>
+<p>TSP搜索空间随着城市数n的增加而增大,所有的旅程路线组合数为$$(n-1)!\over2$$。在如此庞大的搜索空间中寻求最优解，对于常规方法和现有的计算工具而言，存在着诸多计算困难。故需借助遗传算法的搜索能力解决TSP问题。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>引自百度百科 <a class="footnote-backref" href="#fnref:1" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>王铁方．计算机基因学 基于家族基因的网格信任模型[M]．北京：知识产权出版社，2016：93-94 <a class="footnote-backref" href="#fnref:2" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>引自zhuanlan.zhihu.com/p/100337680 <a class="footnote-backref" href="#fnref:3" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>引自cloud.tencent.com/developer/article/1376883?from=article.detail.1522910 <a class="footnote-backref" href="#fnref:4" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>引自cloud.tencent.com/developer/article/1377357?from=article.detail.1522910 <a class="footnote-backref" href="#fnref:5" role="doc-backlink">↩︎</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>引自cloud.tencent.com/developer/article/1827527?from=article.detail.1830041 <a class="footnote-backref" href="#fnref:6" role="doc-backlink">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
+<div class="post-info">
+<div class="post-info-line">
+<div class="post-info-mod">
+<span>更新于 2021-08-16</span>
+</div>
+<div class="post-info-license"></div>
+</div>
+<div class="post-info-line">
+<div class="post-info-md"></div>
+<div class="post-info-share">
+<span><a data-hashtags="数学建模,数学模型,最优化方法,启发式算法" data-sharer="twitter" data-title="启发式算法-遗传算法（GA）" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" data-via="https://twitter.com/" href="javascript:void(0);" title="分享到 Twitter"><i class="fab fa-twitter fa-fw"></i></a><a data-hashtag="数学建模" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" href="javascript:void(0);" title="分享到 Facebook"><i class="fab fa-facebook-square fa-fw"></i></a><a data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" href="javascript:void(0);" title="分享到 Linkedin"><i class="fab fa-linkedin fa-fw"></i></a><a data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" href="javascript:void(0);" title="分享到 Reddit"><i class="fab fa-reddit fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class="post-info-more">
+<section class="post-tags"><i class="fas fa-tags fa-fw"></i> <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>, <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/">数学模型</a>, <a href="/zh-cn/tags/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">最优化方法</a>, <a href="/zh-cn/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95/">启发式算法</a></section>
+<section>
+<span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span> | <span><a href="/zh-cn/">主页</a></span>
+</section>
+</div>
+<div class="post-nav"><a class="prev" href="/zh-cn/heuristic-algorithm-artificial-bee-colony/" rel="prev" title="启发式算法-人工蜂群算法（ABC）"><i class="fas fa-angle-left fa-fw"></i>启发式算法-人工蜂群算法（ABC）</a>
+<a class="next" href="/zh-cn/roulette-algorithm/" rel="next" title="轮盘赌算法">轮盘赌算法<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer class="footer">
+<div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span> | <span class="license"><a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license external nofollow noopener noreffer" target="_blank">CC BY-NC 4.0</a></span><span> <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" style="border-width:0"/></a><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></span>
+<div><span class="icp-splitter"></span><br class="icp-br"/>
+<span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a> | </span><span>
+<img src="/images/备案图标.png"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">贵公网安备 52032102000640号</a>
+</span>
+</div>
+</div>
+<span id="busuanzi_container_site_pv">
+                Total Visits:<span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+                Total Visitors:<span id="busuanzi_value_site_uv"></span>
+</span>
+<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</footer></div>
+<div id="fixed-buttons"><a class="fixed-button" href="#" id="back-to-top" title="回到顶部">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a class="fixed-button" href="#" id="view-comments" title="查看评论">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js"></script><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" type="text/javascript"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" type="text/javascript"></script>
+</body></html>
