@@ -1,4 +1,4 @@
-<html><head><script>
+<script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -7,28 +7,41 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<script async="" src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
-<!DOCTYPE html>
+    
+    <script async src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
 
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" onload="renderMathInElement(document.body);" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="noodp" name="robots"/>
-<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
-<title>PYTHON可视化-MATPLOTLIB - ZonLin</title><meta content="关于作者" name="Description"/><meta content="PYTHON可视化-MATPLOTLIB" property="og:title"/>
-<meta content="官方文档：Matplotlib: Python plotting — Matplotlib 3.4.3 documentation pip安装matplotlib： 1 2 python -m install -U pip python -m install -U matplotlib Matplotlib.Pyplot 使用时导入： 1 import matplotlib.pyplot as plt Plot Gallery Matplotlib 常用的几个" property="og:description"/>
-<meta content="article" property="og:type"/>
-<meta content="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" property="og:url"/><meta content="https://orangesodahub.github.io/logo.png" property="og:image"/><meta content="posts" property="article:section"/>
-<meta content="2021-08-19T11:04:12+08:00" property="article:published_time"/>
-<meta content="2021-08-19T11:04:12+08:00" property="article:modified_time"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://orangesodahub.github.io/logo.png" name="twitter:image"/>
-<meta content="PYTHON可视化-MATPLOTLIB" name="twitter:title"/>
-<meta content="官方文档：Matplotlib: Python plotting — Matplotlib 3.4.3 documentation pip安装matplotlib： 1 2 python -m install -U pip python -m install -U matplotlib Matplotlib.Pyplot 使用时导入： 1 import matplotlib.pyplot as plt Plot Gallery Matplotlib 常用的几个" name="twitter:description"/>
-<meta content="ZonLin" name="application-name"/>
-<meta content="ZonLin" name="apple-mobile-web-app-title"/><meta content="#ffffff" name="theme-color"/><meta content="#da532c" name="msapplication-TileColor"/><link href="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" rel="canonical"/><link href="https://orangesodahub.github.io/zh-cn/roulette-algorithm/" rel="prev"/><link href="https://orangesodahub.github.io/zh-cn/python-visualization-pyecharts/" rel="next"/><link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet"/><link href="/css/style.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" rel="stylesheet"/><script type="application/ld+json">
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+    
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>PYTHON可视化-MATPLOTLIB - ZonLin</title><meta name="Description" content="关于作者"><meta property="og:title" content="PYTHON可视化-MATPLOTLIB" />
+<meta property="og:description" content="官方文档：Matplotlib: Python plotting — Matplotlib 3.4.3 documentation pip安装matplotlib： 1 2 python -m install -U pip python -m install -U matplotlib Matplotlib.Pyplot 使用时导入： 1 import matplotlib.pyplot as plt Plot Gallery Matplotlib 常用的几个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" /><meta property="og:image" content="https://orangesodahub.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-19T11:04:12+08:00" />
+<meta property="article:modified_time" content="2021-08-19T11:04:12+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://orangesodahub.github.io/logo.png"/>
+
+<meta name="twitter:title" content="PYTHON可视化-MATPLOTLIB"/>
+<meta name="twitter:description" content="官方文档：Matplotlib: Python plotting — Matplotlib 3.4.3 documentation pip安装matplotlib： 1 2 python -m install -U pip python -m install -U matplotlib Matplotlib.Pyplot 使用时导入： 1 import matplotlib.pyplot as plt Plot Gallery Matplotlib 常用的几个"/>
+<meta name="application-name" content="ZonLin">
+<meta name="apple-mobile-web-app-title" content="ZonLin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" /><link rel="prev" href="https://orangesodahub.github.io/zh-cn/roulette-algorithm/" /><link rel="next" href="https://orangesodahub.github.io/zh-cn/python-visualization-pyecharts/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -45,126 +58,128 @@
                 "name": "记录"
             },"description": ""
     }
-    </script>
-</head><body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-<script>
+    </script></head>
+    <body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <script>
             
             Array.from(document.getElementsByClassName('language-mermaid')).forEach(el => {
                 el.parentElement.outerHTML = `<div class="mermaid">${el.innerText}</div>`
             })
         </script>
-<style>
+        <style>
          
         .mermaid svg {
             display: block;
             margin: auto;
         }
         </style>
-<div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-<div class="header-wrapper">
-<div class="header-title">
-<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
-</div>
-<div class="menu">
-<div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><a class="menu-item language" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-<select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option selected="" value="/zh-cn/python-visualiszation-matplotlib/">简体中文</option></select>
-</a><span class="menu-item search" id="search-desktop">
-<input id="search-input-desktop" placeholder="在此键入" type="text"/>
-<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-desktop" title="搜索">
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-desktop" title="清空">
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id="search-loading-desktop">
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>ZonLin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/python-visualiszation-matplotlib/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="在此键入" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </header><header class="mobile" id="header-mobile">
-<div class="header-container">
-<div class="header-wrapper">
-<div class="header-title">
-<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
-</div>
-<div class="menu-toggle" id="menu-toggle-mobile">
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class="menu" id="menu-mobile"><div class="search-wrapper">
-<div class="search mobile" id="search-mobile">
-<input id="search-input-mobile" placeholder="在此键入" type="text"/>
-<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-mobile" title="搜索">
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-mobile" title="清空">
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id="search-loading-mobile">
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a class="search-cancel" href="javascript:void(0);" id="search-cancel-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>ZonLin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="在此键入" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-</div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i></a><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
-<i class="fas fa-adjust fa-fw"></i>
-</a><a class="menu-item" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-<select class="language-select" onchange="location = this.value;"><option selected="" value="/zh-cn/python-visualiszation-matplotlib/">简体中文</option></select>
-</a></div>
-</div>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/python-visualiszation-matplotlib/" selected>简体中文</option></select>
+                </a></div>
+    </div>
 </header>
 <div class="search-dropdown desktop">
-<div id="search-dropdown-desktop"></div>
+    <div id="search-dropdown-desktop"></div>
 </div>
 <div class="search-dropdown mobile">
-<div id="search-dropdown-mobile"></div>
+    <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-<div class="container"><div class="toc" id="toc-auto">
-<h2 class="toc-title">目录</h2>
-<div class="toc-content" id="toc-content-auto"></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">PYTHON可视化-MATPLOTLIB</h1><div class="post-meta">
-<div class="post-meta-line"><span class="post-author"><a class="author" href="/zh-cn/" rel="author" title="Author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span> <span class="post-category">收录于 <a href="/zh-cn/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a> <a href="/zh-cn/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"><i class="far fa-folder fa-fw"></i>可视化</a></span></div>
-<div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i> <time datetime="2021-08-19">2021-08-19</time> <i class="fas fa-pencil-alt fa-fw"></i> 约 1121 字 
-                <i class="far fa-clock fa-fw"></i> 预计阅读 3 分钟 </div>
-</div><div class="details toc" id="toc-static" kept="">
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-<ul>
-<li><a href="#matplotlibpyplot">Matplotlib.Pyplot</a>
-<ul>
-<li><a href="#信号相干图coherence-of-signals">信号相干图(coherence of signals)</a></li>
-<li><a href="#信号的交叉谱密度变化图the-cross-spectral-density-of--signals">信号的交叉谱密度变化图(the cross spectral density of  signals)</a></li>
-<li><a href="#条形图标记bar-chart-labelbar-label-demo--matplotlib-343-documentationhttpsmatplotliborgstablegallerylines_bars_and_markersbar_label_demohtmlsphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py-">[条形图标记(Bar chart label)](</a><a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html#sphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py">Bar Label Demo — Matplotlib 3.4.3 documentation</a> )</li>
-<li><a href="#堆积条形图stacked-bar-chart">堆积条形图(Stacked bar chart)</a></li>
-<li><a href="#误差条子采样errorbar-subsamplinghttpsmatplotliborgstablegallerylines_bars_and_markerserrorbar_subsamplehtmlsphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py"></a><a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/errorbar_subsample.html#sphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py">误差条子采样(Errorbar subsampling)</a></li>
-<li><a href="#离散分布水平条形图discrete-distribution-as-horizontal-bar-chart">离散分布水平条形图(Discrete distribution as horizontal bar chart)</a></li>
-<li><a href="#3d-surface-plot">3D surface plot</a></li>
-</ul>
-</li>
-</ul>
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">PYTHON可视化-MATPLOTLIB</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/python/"><i class="far fa-folder fa-fw"></i>Python</a>&nbsp;<a href="/zh-cn/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/"><i class="far fa-folder fa-fw"></i>可视化</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1121 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#matplotlibpyplot">Matplotlib.Pyplot</a>
+      <ul>
+        <li><a href="#信号相干图coherence-of-signals">信号相干图(coherence of signals)</a></li>
+        <li><a href="#信号的交叉谱密度变化图the-cross-spectral-density-of--signals">信号的交叉谱密度变化图(the cross spectral density of  signals)</a></li>
+        <li><a href="#条形图标记bar-chart-labelbar-label-demo--matplotlib-343-documentationhttpsmatplotliborgstablegallerylines_bars_and_markersbar_label_demohtmlsphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py-">[条形图标记(Bar chart label)](<a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html#sphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py">Bar Label Demo — Matplotlib 3.4.3 documentation</a> )</a></li>
+        <li><a href="#堆积条形图stacked-bar-chart">堆积条形图(Stacked bar chart)</a></li>
+        <li><a href="#误差条子采样errorbar-subsamplinghttpsmatplotliborgstablegallerylines_bars_and_markerserrorbar_subsamplehtmlsphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py"><a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/errorbar_subsample.html#sphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py">误差条子采样(Errorbar subsampling)</a></a></li>
+        <li><a href="#离散分布水平条形图discrete-distribution-as-horizontal-bar-chart">离散分布水平条形图(Discrete distribution as horizontal bar chart)</a></li>
+        <li><a href="#3d-surface-plot">3D surface plot</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav></div>
-</div><div class="content" id="content"><blockquote>
-<p>官方文档：<a href="https://matplotlib.org/" rel="noopener noreffer" target="_blank">Matplotlib: Python plotting — Matplotlib 3.4.3 documentation</a></p>
+            </div><div class="content" id="content"><blockquote>
+<p>官方文档：<a href="https://matplotlib.org/" target="_blank" rel="noopener noreffer">Matplotlib: Python plotting — Matplotlib 3.4.3 documentation</a></p>
 </blockquote>
 <ul>
 <li>
 <p>pip安装matplotlib：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-powershell" data-lang="powershell"> <span class="n">python</span> <span class="n">-m</span> <span class="n">install</span> <span class="n">-U</span> <span class="n">pip</span>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"> <span class="n">python</span> <span class="n">-m</span> <span class="n">install</span> <span class="n">-U</span> <span class="n">pip</span>
  <span class="n">python</span> <span class="n">-m</span> <span class="n">install</span> <span class="n">-U</span> <span class="n">matplotlib</span>
 </code></pre></td></tr></table>
 </div>
@@ -176,25 +191,25 @@
 <p>使用时导入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
-<p><a href="https://matplotlib.org/stable/gallery/index.html#gallery" rel="noopener noreffer" target="_blank">Plot Gallery</a></p>
+<p><a href="https://matplotlib.org/stable/gallery/index.html#gallery" target="_blank" rel="noopener noreffer">Plot Gallery</a></p>
 </li>
 <li>
-<p><a href="https://www.runoob.com/matplotlib/matplotlib-tutorial.html" rel="noopener noreffer" target="_blank">Matplotlib</a></p>
+<p><a href="https://www.runoob.com/matplotlib/matplotlib-tutorial.html" target="_blank" rel="noopener noreffer">Matplotlib</a></p>
 </li>
 </ul>
 <p>常用的几个图表：</p>
 <h3 id="信号相干图coherence-of-signals">信号相干图(coherence of signals)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -223,7 +238,7 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Fixing random state for reproducibility</span>
@@ -241,12 +256,12 @@
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                  <span class="c1">#创建2×1的画布，两个图</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>                      <span class="c1">#第一个图</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                          <span class="c1">#set_xlim设定x轴范围</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'time'</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'s1 and s2'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;s1 and s2&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>                              <span class="c1">#显示网格线</span>
 
 <span class="n">cxy</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cohere</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>   <span class="c1">#第二个图，cxy为返回值相干矢量，f为返回值频率</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'coherence'</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;coherence&#39;</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>                             <span class="c1">#自动调整子图位置</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -255,25 +270,25 @@
 </div><p>建立画布：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fig_kw</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">fig_kw</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>计算两列数据的相干性：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="n">cxy</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">cohere</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">Fc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pad_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sides</span><span class="o">=</span><span class="err">’</span><span class="n">default</span><span class="err">’</span><span class="p">,</span> <span class="n">scale_by_freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">cxy</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">cohere</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">Fc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pad_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sides</span><span class="o">=</span><span class="err">’</span><span class="n">default</span><span class="err">’</span><span class="p">,</span> <span class="n">scale_by_freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="信号的交叉谱密度变化图the-cross-spectral-density-of--signals">信号的交叉谱密度变化图(the cross spectral density of  signals)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -311,7 +326,7 @@
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
@@ -330,8 +345,8 @@
 <span class="n">nse2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>                 <span class="c1"># white noise 2</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span> <span class="o">/</span> <span class="mf">0.05</span><span class="p">)</span>
 
-<span class="n">cnse1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">nse1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>   <span class="c1"># colored noise 1</span>
-<span class="n">cnse2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">nse2</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>   <span class="c1"># colored noise 2</span>
+<span class="n">cnse1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">nse1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>   <span class="c1"># colored noise 1</span>
+<span class="n">cnse2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">nse2</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>   <span class="c1"># colored noise 2</span>
 <span class="c1">#np.convolve: Returns the discrete, linear convolution of two one-dimensional sequences.</span>
 
 <span class="c1"># two signals with a coherent part and a random part</span>
@@ -340,37 +355,37 @@
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'time'</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'s1 and s2'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;s1 and s2&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">cxy</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">csd</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'CSD (db)'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CSD (db)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.csd.html#matplotlib.axes.Axes.csd" rel="noopener noreffer" target="_blank">计算两列信号的交叉谱密度：</a></p>
+</div><p><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.csd.html#matplotlib.axes.Axes.csd" target="_blank" rel="noopener noreffer">计算两列信号的交叉谱密度：</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="n">Axes</span><span class="o">.</span><span class="n">csd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Fc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pad_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_by_freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_line</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="n">source</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Axes</span><span class="o">.</span><span class="n">csd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Fc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pad_to</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale_by_freq</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_line</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="n">source</span><span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="条形图标记bar-chart-labelbar-label-demo--matplotlib-343-documentationhttpsmatplotliborgstablegallerylines_bars_and_markersbar_label_demohtmlsphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py-">[条形图标记(Bar chart label)](<a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html#sphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py" rel="noopener noreffer" target="_blank">Bar Label Demo — Matplotlib 3.4.3 documentation</a> )</h3>
+</div><h3 id="条形图标记bar-chart-labelbar-label-demo--matplotlib-343-documentationhttpsmatplotliborgstablegallerylines_bars_and_markersbar_label_demohtmlsphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py-">[条形图标记(Bar chart label)](<a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_label_demo.html#sphx-glr-gallery-lines-bars-and-markers-bar-label-demo-py" target="_blank" rel="noopener noreffer">Bar Label Demo — Matplotlib 3.4.3 documentation</a> )</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="n">Axes</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Axes</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="堆积条形图stacked-bar-chart">堆积条形图(Stacked bar chart)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -392,9 +407,9 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'G1'</span><span class="p">,</span> <span class="s1">'G2'</span><span class="p">,</span> <span class="s1">'G3'</span><span class="p">,</span> <span class="s1">'G4'</span><span class="p">,</span> <span class="s1">'G5'</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G1&#39;</span><span class="p">,</span> <span class="s1">&#39;G2&#39;</span><span class="p">,</span> <span class="s1">&#39;G3&#39;</span><span class="p">,</span> <span class="s1">&#39;G4&#39;</span><span class="p">,</span> <span class="s1">&#39;G5&#39;</span><span class="p">]</span>
 <span class="n">men_means</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">27</span><span class="p">]</span>			<span class="c1">#data1</span>
 <span class="n">women_means</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>			<span class="c1">#data2</span>
 <span class="n">men_std</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
@@ -403,22 +418,22 @@
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">men_means</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">men_std</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Men'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">men_means</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">men_std</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Men&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">women_means</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">women_std</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="n">men_means</span><span class="p">,</span>
-       <span class="n">label</span><span class="o">=</span><span class="s1">'Women'</span><span class="p">)</span>
+       <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Women&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Scores'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Scores by group and gender'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Scores&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Scores by group and gender&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="误差条子采样errorbar-subsamplinghttpsmatplotliborgstablegallerylines_bars_and_markerserrorbar_subsamplehtmlsphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py"><a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/errorbar_subsample.html#sphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py" rel="noopener noreffer" target="_blank">误差条子采样(Errorbar subsampling)</a></h3>
+</div><h3 id="误差条子采样errorbar-subsamplinghttpsmatplotliborgstablegallerylines_bars_and_markerserrorbar_subsamplehtmlsphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py"><a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/errorbar_subsample.html#sphx-glr-gallery-lines-bars-and-markers-errorbar-subsample-py" target="_blank" rel="noopener noreffer">误差条子采样(Errorbar subsampling)</a></h3>
 <h3 id="离散分布水平条形图discrete-distribution-as-horizontal-bar-chart">离散分布水平条形图(Discrete distribution as horizontal bar chart)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -475,24 +490,24 @@
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
-<span class="n">category_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Strongly disagree'</span><span class="p">,</span> <span class="s1">'Disagree'</span><span class="p">,</span>
-                  <span class="s1">'Neither agree nor disagree'</span><span class="p">,</span> <span class="s1">'Agree'</span><span class="p">,</span> <span class="s1">'Strongly agree'</span><span class="p">]</span>
+<span class="n">category_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Strongly disagree&#39;</span><span class="p">,</span> <span class="s1">&#39;Disagree&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Neither agree nor disagree&#39;</span><span class="p">,</span> <span class="s1">&#39;Agree&#39;</span><span class="p">,</span> <span class="s1">&#39;Strongly agree&#39;</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'Question 1'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span>
-    <span class="s1">'Question 2'</span><span class="p">:</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
-    <span class="s1">'Question 3'</span><span class="p">:</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
-    <span class="s1">'Question 4'</span><span class="p">:</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span>
-    <span class="s1">'Question 5'</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
-    <span class="s1">'Question 6'</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">38</span><span class="p">]</span>
+    <span class="s1">&#39;Question 1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span>
+    <span class="s1">&#39;Question 2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">26</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+    <span class="s1">&#39;Question 3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+    <span class="s1">&#39;Question 4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span>
+    <span class="s1">&#39;Question 5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="s1">&#39;Question 6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">38</span><span class="p">]</span>
 <span class="p">}</span>
 
 
 <span class="k">def</span> <span class="nf">survey</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">category_names</span><span class="p">):</span>
-    <span class="s2">"""
+    <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    Parameters
 </span><span class="s2">    ----------
 </span><span class="s2">    results : dict
@@ -501,11 +516,11 @@
 </span><span class="s2">        it matches the length of *category_names*.
 </span><span class="s2">    category_names : list of str
 </span><span class="s2">        The category labels.
-</span><span class="s2">    """</span>
+</span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
     <span class="n">data_cum</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">category_colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">'RdYlGn'</span><span class="p">)(</span>
+    <span class="n">category_colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">)(</span>
         <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">9.2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -520,10 +535,10 @@
                         <span class="n">label</span><span class="o">=</span><span class="n">colname</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 
         <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">color</span>
-        <span class="n">text_color</span> <span class="o">=</span> <span class="s1">'white'</span> <span class="k">if</span> <span class="n">r</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s1">'darkgrey'</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects</span><span class="p">,</span> <span class="n">label_type</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">)</span>
+        <span class="n">text_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span> <span class="k">if</span> <span class="n">r</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mf">0.5</span> <span class="k">else</span> <span class="s1">&#39;darkgrey&#39;</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects</span><span class="p">,</span> <span class="n">label_type</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">text_color</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">category_names</span><span class="p">),</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-              <span class="n">loc</span><span class="o">=</span><span class="s1">'lower left'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">'small'</span><span class="p">)</span>
+              <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
 
@@ -535,7 +550,7 @@
 </div><h3 id="3d-surface-plot">3D surface plot</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -554,7 +569,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
@@ -576,71 +591,77 @@
 </div><p>建立一个3D图：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lightsource</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="n">source</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lightsource</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)[</span><span class="n">source</span><span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-python" data-lang="python"><span class="n">numpy</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">xi</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">'xy'</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">numpy</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">xi</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
-<div class="post-info">
-<div class="post-info-line">
-<div class="post-info-mod">
-<span>更新于 2021-08-19</span>
-</div>
-<div class="post-info-license"></div>
-</div>
-<div class="post-info-line">
-<div class="post-info-md"></div>
-<div class="post-info-share">
-<span><a data-hashtags="Python,可视化" data-sharer="twitter" data-title="PYTHON可视化-MATPLOTLIB" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" data-via="https://twitter.com/" href="javascript:void(0);" title="分享到 Twitter"><i class="fab fa-twitter fa-fw"></i></a><a data-hashtag="Python" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" href="javascript:void(0);" title="分享到 Facebook"><i class="fab fa-facebook-square fa-fw"></i></a><a data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" href="javascript:void(0);" title="分享到 Linkedin"><i class="fab fa-linkedin fa-fw"></i></a><a data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" href="javascript:void(0);" title="分享到 Reddit"><i class="fab fa-reddit fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class="post-info-more">
-<section class="post-tags"><i class="fas fa-tags fa-fw"></i> <a href="/zh-cn/tags/python/">Python</a>, <a href="/zh-cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">可视化</a></section>
-<section>
-<span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span> | <span><a href="/zh-cn/">主页</a></span>
-</section>
-</div>
-<div class="post-nav"><a class="prev" href="/zh-cn/roulette-algorithm/" rel="prev" title="轮盘赌算法"><i class="fas fa-angle-left fa-fw"></i>轮盘赌算法</a>
-<a class="next" href="/zh-cn/python-visualization-pyecharts/" rel="next" title="PYTHON可视化-PYECHARTS">PYTHON可视化-PYECHARTS<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-19</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" data-title="PYTHON可视化-MATPLOTLIB" data-via="https://twitter.com/" data-hashtags="Python,可视化"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-cn/tags/python/">Python</a>,&nbsp;<a href="/zh-cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">可视化</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/roulette-algorithm/" class="prev" rel="prev" title="轮盘赌算法"><i class="fas fa-angle-left fa-fw"></i>轮盘赌算法</a>
+            <a href="/zh-cn/python-visualization-pyecharts/" class="next" rel="next" title="PYTHON可视化-PYECHARTS">PYTHON可视化-PYECHARTS<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
-</main><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+            </main><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+
 <footer class="footer">
-<div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span> | <span class="license"><a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license external nofollow noopener noreffer" target="_blank">CC BY-NC 4.0</a></span><span> <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" style="border-width:0"/></a><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></span>
-<div><span class="icp-splitter"></span><br class="icp-br"/>
-<span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a> | </span><span>
-<img src="/images/备案图标.png"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">贵公网安备 52032102000640号</a>
-</span>
-</div>
-</div>
-<span id="busuanzi_container_site_pv">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"></a></span>
+                <div><span class="icp-splitter"></span><br class="icp-br"/>
+                        <span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a>&nbsp;|&nbsp;</span><span>
+                            </a><img src="/images/备案图标.png"/><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">贵公网安备 52032102000640号</a>
+                        </span>
+                </div>
+            </div>
+            <span id="busuanzi_container_site_pv">
                 Total Visits:<span id="busuanzi_value_site_pv"></span>
-</span>
-<span id="busuanzi_container_site_uv">
+            </span>
+
+            <span id="busuanzi_container_site_uv">
                 Total Visitors:<span id="busuanzi_value_site_uv"></span>
-</span>
-<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-</div>
-</footer></div>
-<div id="fixed-buttons"><a class="fixed-button" href="#" id="back-to-top" title="回到顶部">
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a class="fixed-button" href="#" id="view-comments" title="查看评论">
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js"></script><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" type="text/javascript"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" type="text/javascript"></script>
-</body></html>
+            </span>
+            <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" crossorigin="anonymous"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

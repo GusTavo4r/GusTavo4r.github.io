@@ -4,9 +4,16 @@
         <link>https://orangesodahub.github.io/zh-cn/</link>
         <description>关于作者</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>gzzyyxy@gmail.com (ZonLin)</managingEditor>
-            <webMaster>gzzyyxy@gmail.com (ZonLin)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 11 Dec 2021 21:06:44 &#43;0800</lastBuildDate>
+            <webMaster>gzzyyxy@gmail.com (ZonLin)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 17 Jan 2022 22:11:36 &#43;0800</lastBuildDate>
             <atom:link href="https://orangesodahub.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Gazebo导入veloydne 16线雷达模型</title>
+    <link>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</link>
+    <pubDate>Mon, 17 Jan 2022 22:11:36 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</guid>
+    <description><![CDATA[***1.编译&quot;catkin_Make&quot;时报错： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36]]></description>
+</item><item>
     <title>0.82 SEMESTER PASSED</title>
     <link>https://orangesodahub.github.io/zh-cn/0.82-semester-passed/</link>
     <pubDate>Sat, 11 Dec 2021 21:06:44 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://orangesodahub.github.io/zh-cn/python-visualization-pyecharts/</guid>
     <description><![CDATA[官方文档：pyecharts - A Python Echarts Plotting Library built with love.]]></description>
-</item><item>
-    <title>PYTHON可视化-MATPLOTLIB</title>
-    <link>https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/</link>
-    <pubDate>Thu, 19 Aug 2021 11:04:12 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://orangesodahub.github.io/zh-cn/python-visualiszation-matplotlib/</guid>
-    <description><![CDATA[官方文档：Matplotlib: Python plotting — Matplotlib 3.4.3 documentation pip安装matplotlib： 1 2 python -m install -U pip python -m install -U matplotlib Matplotlib.Pyplot 使用时导入： 1 import matplotlib.pyplot as plt Plot Gallery Matplotlib 常用的几个]]></description>
 </item></channel>
 </rss>

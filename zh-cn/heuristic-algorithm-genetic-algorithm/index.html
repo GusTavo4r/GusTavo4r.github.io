@@ -1,4 +1,4 @@
-<html><head><script>
+<script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -7,28 +7,41 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<script async="" src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
-<!DOCTYPE html>
+    
+    <script async src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
 
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" onload="renderMathInElement(document.body);" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="noodp" name="robots"/>
-<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
-<title>启发式算法-遗传算法（GA） - ZonLin</title><meta content="关于作者" name="Description"/><meta content="启发式算法-遗传算法（GA）" property="og:title"/>
-<meta content="1.简述 遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生" property="og:description"/>
-<meta content="article" property="og:type"/>
-<meta content="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" property="og:url"/><meta content="https://orangesodahub.github.io/logo.png" property="og:image"/><meta content="posts" property="article:section"/>
-<meta content="2021-08-16T11:57:39+08:00" property="article:published_time"/>
-<meta content="2021-08-16T11:57:39+08:00" property="article:modified_time"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://orangesodahub.github.io/logo.png" name="twitter:image"/>
-<meta content="启发式算法-遗传算法（GA）" name="twitter:title"/>
-<meta content="1.简述 遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生" name="twitter:description"/>
-<meta content="ZonLin" name="application-name"/>
-<meta content="ZonLin" name="apple-mobile-web-app-title"/><meta content="#ffffff" name="theme-color"/><meta content="#da532c" name="msapplication-TileColor"/><link href="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" rel="canonical"/><link href="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-artificial-bee-colony/" rel="prev"/><link href="https://orangesodahub.github.io/zh-cn/roulette-algorithm/" rel="next"/><link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet"/><link href="/css/style.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" rel="stylesheet"/><script type="application/ld+json">
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+    
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>启发式算法-遗传算法（GA） - ZonLin</title><meta name="Description" content="关于作者"><meta property="og:title" content="启发式算法-遗传算法（GA）" />
+<meta property="og:description" content="1.简述 遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" /><meta property="og:image" content="https://orangesodahub.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-16T11:57:39+08:00" />
+<meta property="article:modified_time" content="2021-08-16T11:57:39+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://orangesodahub.github.io/logo.png"/>
+
+<meta name="twitter:title" content="启发式算法-遗传算法（GA）"/>
+<meta name="twitter:description" content="1.简述 遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生"/>
+<meta name="application-name" content="ZonLin">
+<meta name="apple-mobile-web-app-title" content="ZonLin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" /><link rel="prev" href="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-artificial-bee-colony/" /><link rel="next" href="https://orangesodahub.github.io/zh-cn/roulette-algorithm/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -45,126 +58,128 @@
                 "name": "记录"
             },"description": ""
     }
-    </script>
-</head><body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-<script>
+    </script></head>
+    <body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <script>
             
             Array.from(document.getElementsByClassName('language-mermaid')).forEach(el => {
                 el.parentElement.outerHTML = `<div class="mermaid">${el.innerText}</div>`
             })
         </script>
-<style>
+        <style>
          
         .mermaid svg {
             display: block;
             margin: auto;
         }
         </style>
-<div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-<div class="header-wrapper">
-<div class="header-title">
-<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
-</div>
-<div class="menu">
-<div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><a class="menu-item language" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-<select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option selected="" value="/zh-cn/heuristic-algorithm-genetic-algorithm/">简体中文</option></select>
-</a><span class="menu-item search" id="search-desktop">
-<input id="search-input-desktop" placeholder="在此键入" type="text"/>
-<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-desktop" title="搜索">
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-desktop" title="清空">
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id="search-loading-desktop">
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>ZonLin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-cn/heuristic-algorithm-genetic-algorithm/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="在此键入" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </header><header class="mobile" id="header-mobile">
-<div class="header-container">
-<div class="header-wrapper">
-<div class="header-title">
-<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
-</div>
-<div class="menu-toggle" id="menu-toggle-mobile">
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class="menu" id="menu-mobile"><div class="search-wrapper">
-<div class="search mobile" id="search-mobile">
-<input id="search-input-mobile" placeholder="在此键入" type="text"/>
-<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-mobile" title="搜索">
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-mobile" title="清空">
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id="search-loading-mobile">
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a class="search-cancel" href="javascript:void(0);" id="search-cancel-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>ZonLin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="在此键入" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-</div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i></a><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
-<i class="fas fa-adjust fa-fw"></i>
-</a><a class="menu-item" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-<select class="language-select" onchange="location = this.value;"><option selected="" value="/zh-cn/heuristic-algorithm-genetic-algorithm/">简体中文</option></select>
-</a></div>
-</div>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-cn/heuristic-algorithm-genetic-algorithm/" selected>简体中文</option></select>
+                </a></div>
+    </div>
 </header>
 <div class="search-dropdown desktop">
-<div id="search-dropdown-desktop"></div>
+    <div id="search-dropdown-desktop"></div>
 </div>
 <div class="search-dropdown mobile">
-<div id="search-dropdown-mobile"></div>
+    <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-<div class="container"><div class="toc" id="toc-auto">
-<h2 class="toc-title">目录</h2>
-<div class="toc-content" id="toc-content-auto"></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">启发式算法-遗传算法（GA）</h1><div class="post-meta">
-<div class="post-meta-line"><span class="post-author"><a class="author" href="/zh-cn/" rel="author" title="Author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span> <span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a> <a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
-<div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i> <time datetime="2021-08-16">2021-08-16</time> <i class="fas fa-pencil-alt fa-fw"></i> 约 9551 字 
-                <i class="far fa-clock fa-fw"></i> 预计阅读 20 分钟 </div>
-</div><div class="details toc" id="toc-static" kept="">
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-<ul>
-<li><a href="#1简述">1.简述</a></li>
-<li><a href="#2优化过程">2.优化过程</a>
-<ul>
-<li><a href="#21原理简述">2.1原理简述</a></li>
-<li><a href="#22重要步骤">2.2重要步骤</a>
-<ul>
-<li><a href="#221基因及染色体">2.2.1基因及染色体</a></li>
-<li><a href="#222编码及解码">2.2.2编码及解码</a></li>
-<li><a href="#223遗传算子">2.2.3遗传算子</a></li>
-<li><a href="#224适应度函数">2.2.4适应度函数</a></li>
-<li><a href="#225终止条件">2.2.5终止条件</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#2具体应用">2.具体应用</a>
-<ul>
-<li><a href="#21负载均衡调度问题">2.1负载均衡调度问题</a></li>
-<li><a href="#22混合流水车间调度问题hybrid-flow-shop-scheduling-problem-hfsp-4">2.2混合流水车间调度问题(Hybrid Flow-shop Scheduling Problem, HFSP )</a></li>
-<li><a href="#23-tsp问题货郎担问题6">2.3 TSP问题(货郎担问题)</a></li>
-</ul>
-</li>
-</ul>
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">启发式算法-遗传算法（GA）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a>&nbsp;<a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9551 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 20 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1简述">1.简述</a></li>
+    <li><a href="#2优化过程">2.优化过程</a>
+      <ul>
+        <li><a href="#21原理简述">2.1原理简述</a></li>
+        <li><a href="#22重要步骤">2.2重要步骤</a>
+          <ul>
+            <li><a href="#221基因及染色体">2.2.1基因及染色体</a></li>
+            <li><a href="#222编码及解码">2.2.2编码及解码</a></li>
+            <li><a href="#223遗传算子">2.2.3遗传算子</a></li>
+            <li><a href="#224适应度函数">2.2.4适应度函数</a></li>
+            <li><a href="#225终止条件">2.2.5终止条件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2具体应用">2.具体应用</a>
+      <ul>
+        <li><a href="#21负载均衡调度问题">2.1负载均衡调度问题</a></li>
+        <li><a href="#22混合流水车间调度问题hybrid-flow-shop-scheduling-problem-hfsp-4">2.2混合流水车间调度问题(Hybrid Flow-shop Scheduling Problem, HFSP )</a></li>
+        <li><a href="#23-tsp问题货郎担问题6">2.3 TSP问题(货郎担问题)</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav></div>
-</div><div class="content" id="content"><h2 id="1简述">1.简述</h2>
-<p>遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。该算法通过数学的方式,利用计算机仿真运算,将问题的求解过程转换成类似生物进化中的染色体基因的交叉、变异等过程。在求解较为复杂的组合优化问题时,相对一些常规的优化算法,通常能够较快地获得较好的优化结果<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" role="doc-noteref">1</a></sup>。</p>
+            </div><div class="content" id="content"><h2 id="1简述">1.简述</h2>
+<p>遗传算法（Genetic Algorithm，GA）根据大自然中生物体进化规律而提出，是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。该算法通过数学的方式,利用计算机仿真运算,将问题的求解过程转换成类似生物进化中的染色体基因的交叉、变异等过程。在求解较为复杂的组合优化问题时,相对一些常规的优化算法,通常能够较快地获得较好的优化结果<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
 <p>所有生物的进化都具有一些共同的特点：</p>
 <ul>
 <li>进化的发生地点是信息载体，即染色体（Chromosome），而不是被编码的生物个体（Individual）上。</li>
@@ -188,8 +203,8 @@
 <h4 id="221基因及染色体">2.2.1基因及染色体</h4>
 <p>待解问题的一个可行解为一条染色体(Chromosome)，GA求解空间中表示为一条位串(Bit string)；解中包含的多个元素为其基因(Gene)，表示为单个字符或数字。</p>
 <h4 id="222编码及解码">2.2.2编码及解码</h4>
-<p>编码是指把一个问题的可行解从其解空间转换到遗传算法的搜索空间的转换方法。解码（译码）是指遗传算法解空间向问题空间的转换。 编码通常需满足几个规范：(1)完备性(completeness);(2)健全性(soundness);(3)非冗余性(nonredundancy)<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" role="doc-noteref">2</a></sup>。常见编码方法：二进制编码、格雷码编码、 浮点数编码等等。</p>
-<p>以二进制编码为例[<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" role="doc-noteref">3</a></sup>：</p>
+<p>编码是指把一个问题的可行解从其解空间转换到遗传算法的搜索空间的转换方法。解码（译码）是指遗传算法解空间向问题空间的转换。 编码通常需满足几个规范：(1)完备性(completeness);(2)健全性(soundness);(3)非冗余性(nonredundancy)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。常见编码方法：二进制编码、格雷码编码、 浮点数编码等等。</p>
+<p>以二进制编码为例[<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>：</p>
 <p>设某一参数值的取值范围为 $$[U_1,U_2]$$ ，将其映射为长度为 $$k$$ 的二进制编码串，总共产生 $$2^k$$ 个二进制串，其对应关系为：</p>
 <p>$$
 \begin{aligned}
@@ -241,7 +256,7 @@ $$</p>
 <h2 id="2具体应用">2.具体应用</h2>
 <h3 id="21负载均衡调度问题">2.1负载均衡调度问题</h3>
 <p>问题描述：假设有 $$N$$ 个任务，需要负载均衡器分配给 $$M$$ 个服务器节点去处理。每个任务的任务长度、每台服务器节点(下面简称“节点”)的处理速度已知，请给出一种任务分配方式，使得所有任务的总处理时间最短。</p>
-<h3 id="22混合流水车间调度问题hybrid-flow-shop-scheduling-problem-hfsp-4">2.2混合流水车间调度问题(Hybrid Flow-shop Scheduling Problem, HFSP )<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" role="doc-noteref">4</a></sup></h3>
+<h3 id="22混合流水车间调度问题hybrid-flow-shop-scheduling-problem-hfsp-4">2.2混合流水车间调度问题(Hybrid Flow-shop Scheduling Problem, HFSP )<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></h3>
 <p><strong>假设和约束</strong></p>
 <ol>
 <li>一个工件在一道工序上被任意一个机器加工。</li>
@@ -261,7 +276,7 @@ $$</p>
 $$</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -712,7 +727,7 @@ $$</p>
 </span><span class="lnt">449
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
@@ -762,7 +777,7 @@ $$</p>
     <span class="p">{</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34; &#34;</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
@@ -853,7 +868,7 @@ $$</p>
 </span><span class="c1"></span><span class="p">{</span>
 
     <span class="kt">int</span> <span class="n">totaltime</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">machine</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">parallel</span><span class="p">][</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="s">"0"</span><span class="p">};</span>
+    <span class="kt">char</span> <span class="n">machine</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">parallel</span><span class="p">][</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="s">&#34;0&#34;</span><span class="p">};</span>
 
     <span class="kt">int</span> <span class="n">temp1</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//jiagongshunxu
 </span><span class="c1"></span>    <span class="kt">int</span> <span class="n">temp2</span><span class="p">[</span><span class="n">workpiecesnumber</span><span class="p">]</span><span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//shangyibuzhou de wan cheng shijian
@@ -890,21 +905,21 @@ $$</p>
             <span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="n">usetime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">;</span>
             <span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
             <span class="n">temp2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
-            <span class="c1">//cout&lt;&lt;"start:"&lt;&lt;starttime[q-1][i][n]&lt;&lt;"   use:"&lt;&lt;usetime[q-1][i]&lt;&lt;"  machine:"&lt;&lt;machinetime[i][n]&lt;&lt;"   finish:"&lt;&lt;finishtime[q-1][i][n]&lt;&lt;endl;
+            <span class="c1">//cout&lt;&lt;&#34;start:&#34;&lt;&lt;starttime[q-1][i][n]&lt;&lt;&#34;   use:&#34;&lt;&lt;usetime[q-1][i]&lt;&lt;&#34;  machine:&#34;&lt;&lt;machinetime[i][n]&lt;&lt;&#34;   finish:&#34;&lt;&lt;finishtime[q-1][i][n]&lt;&lt;endl;
 </span><span class="c1"></span>            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="n">starttime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span> <span class="n">h</span><span class="o">&lt;</span><span class="n">finishtime</span><span class="p">[</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">];</span> <span class="n">h</span><span class="o">++</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
-                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'1'</span><span class="p">;</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;1&#39;</span><span class="p">;</span>
                 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>
-                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'2'</span><span class="p">;</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;2&#39;</span><span class="p">;</span>
                 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>
-                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'3'</span><span class="p">;</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;3&#39;</span><span class="p">;</span>
                 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span>
-                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'4'</span><span class="p">;</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;4&#39;</span><span class="p">;</span>
                 <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">q</span><span class="o">==</span><span class="mi">5</span><span class="p">)</span>
-                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'5'</span><span class="p">;</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;5&#39;</span><span class="p">;</span>
                 <span class="k">else</span>
-                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">'6'</span><span class="p">;</span>
+                    <span class="n">machine</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">][</span><span class="n">h</span><span class="p">]</span><span class="o">=</span><span class="sc">&#39;6&#39;</span><span class="p">;</span>
             <span class="p">}</span>
 
         <span class="p">}</span>
@@ -936,7 +951,7 @@ $$</p>
         <span class="p">{</span>
             <span class="n">temp1</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">=</span><span class="n">flg2</span><span class="p">[</span><span class="n">e</span><span class="p">];</span>
             <span class="n">temp3</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">=</span><span class="n">temp2</span><span class="p">[</span><span class="n">e</span><span class="p">];</span>
-            <span class="c1">//cout&lt;&lt;"temp3=="&lt;&lt;temp3[e]&lt;&lt;endl;
+            <span class="c1">//cout&lt;&lt;&#34;temp3==&#34;&lt;&lt;temp3[e]&lt;&lt;endl;
 </span><span class="c1"></span>        <span class="p">}</span>
     <span class="p">}</span>
 
@@ -947,7 +962,7 @@ $$</p>
             <span class="n">totaltime</span><span class="o">=</span><span class="n">machinetime</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
 
         <span class="p">}</span>
-      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"total="</span><span class="o">&lt;&lt;</span><span class="n">totaltime</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+      <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;total=&#34;</span><span class="o">&lt;&lt;</span><span class="n">totaltime</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
       <span class="n">outfile</span><span class="o">&lt;&lt;</span><span class="n">totaltime</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span><span class="c1">///////////////////////////////////////////////////////////////////////////////
 </span><span class="c1"></span>    <span class="n">flg7</span><span class="o">=</span><span class="n">totaltime</span><span class="p">;</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">u</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">parallel</span><span class="p">;</span> <span class="n">u</span><span class="o">++</span><span class="p">)</span>
@@ -1103,11 +1118,11 @@ $$</p>
 <span class="p">}</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">ifstream</span> <span class="n">ifs</span><span class="p">(</span><span class="s">"input.txt"</span><span class="p">);</span>
-    <span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"output.txt"</span><span class="p">);</span>
+    <span class="n">ifstream</span> <span class="n">ifs</span><span class="p">(</span><span class="s">&#34;input.txt&#34;</span><span class="p">);</span>
+    <span class="n">outfile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#34;output.txt&#34;</span><span class="p">);</span>
     <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ifs</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"打开文件失败！"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;打开文件失败！&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">ifs</span><span class="o">&gt;&gt;</span><span class="n">times</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
@@ -1117,7 +1132,7 @@ $$</p>
     <span class="n">ifs</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>  <span class="c1">//读入已知的加工时间；
 </span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">"  "</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34;  &#34;</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">workpiecesnumber</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -1126,12 +1141,12 @@ $$</p>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">ordernumber</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">usetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">times</span><span class="p">[</span><span class="n">ordernumber</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">];</span>
-            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">usetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">"  "</span><span class="p">;</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">usetime</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&#34;  &#34;</span><span class="p">;</span>
         <span class="p">}</span>
 
         <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"//////////////////////////////////////////////////"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&#34;//////////////////////////////////////////////////&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;;</span>
     <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
     <span class="n">initialization</span><span class="p">();</span>    <span class="c1">//初始化种群；
 </span><span class="c1"></span>                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">g</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">g</span><span class="o">&lt;</span><span class="n">G</span><span class="p">;</span> <span class="n">g</span><span class="o">++</span><span class="p">)</span>
@@ -1165,14 +1180,15 @@ $$</p>
 </div>
 </div><p>运行后的结果（output.txt）如下：</p>
 <figure><img src="/images/GAresult.png"/><figcaption>
-<h4>（运行结果）</h4>
-</figcaption>
+            <h4>（运行结果）</h4>
+        </figcaption>
 </figure>
-<p><strong>(2)MATLAB代码实现<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" role="doc-noteref">5</a></sup>：</strong></p>
+
+<p><strong>(2)MATLAB代码实现<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>：</strong></p>
 <p>主函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1269,7 +1285,7 @@ $$</p>
 </span><span class="lnt">95
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="n">piecetime</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">4</span> <span class="mi">6</span><span class="p">;</span> <span class="c">...             % 设备加工时间</span>
 
@@ -1333,7 +1349,7 @@ $$</p>
 
 <span class="n">finalper</span> <span class="p">=</span> <span class="n">bestper</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="n">finalindex</span><span class="p">};</span>
 
-<span class="n">fprintf</span><span class="p">(</span>"最优序列<span class="p">:</span><span class="o">\</span><span class="n">n</span>"<span class="p">);</span>
+<span class="n">fprintf</span><span class="p">(</span>&#34;最优序列<span class="p">:</span><span class="o">\</span><span class="n">n</span>&#34;<span class="p">);</span>
 
 <span class="nb">disp</span><span class="p">(</span><span class="n">bestpop</span><span class="p">(</span><span class="n">finalindex</span><span class="p">,</span> <span class="p">:));</span>
 
@@ -1345,23 +1361,23 @@ $$</p>
 
 <span class="n">colorbar</span><span class="p">;</span>
 
-<span class="n">title</span><span class="p">(</span>"加工流程图"<span class="p">);</span>
+<span class="n">title</span><span class="p">(</span>&#34;加工流程图&#34;<span class="p">);</span>
 
 <span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
 <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">maxgen</span><span class="p">,</span> <span class="n">bestobjvalue</span><span class="p">);</span>
 
-<span class="n">title</span><span class="p">(</span>"最优时间变化图"<span class="p">);</span>
+<span class="n">title</span><span class="p">(</span>&#34;最优时间变化图&#34;<span class="p">);</span>
 
-<span class="n">xlabel</span><span class="p">(</span>"代数"<span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span>"最优时间"<span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span>&#34;代数&#34;<span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span>&#34;最优时间&#34;<span class="p">);</span>
 
 <span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
 <span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">maxgen</span><span class="p">,</span> <span class="n">avgobjvalue</span><span class="p">);</span>
 
-<span class="n">title</span><span class="p">(</span>"平均时间变化图"<span class="p">);</span>
+<span class="n">title</span><span class="p">(</span>&#34;平均时间变化图&#34;<span class="p">);</span>
 
-<span class="n">xlabel</span><span class="p">(</span>"代数"<span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span>"平均时间"<span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span>&#34;代数&#34;<span class="p">);</span> <span class="n">ylabel</span><span class="p">(</span>&#34;平均时间&#34;<span class="p">);</span>
 
 <span class="k">end</span>
 </code></pre></td></tr></table>
@@ -1369,7 +1385,7 @@ $$</p>
 </div><p>目标值函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1522,7 +1538,7 @@ $$</p>
 </span><span class="lnt">151
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[objvalue, ptr, per] <span class="p">=</span><span class="w"> </span><span class="nf">calobjvalue</span><span class="p">(</span>pop, piecetime,equsize<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[objvalue, ptr, per] <span class="p">=</span><span class="w"> </span><span class="nf">calobjvalue</span><span class="p">(</span>pop, piecetime,equsize<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">% 计算目标函数值</span>
 
@@ -1620,7 +1636,7 @@ $$</p>
 
            <span class="n">tempendtime</span> <span class="p">=</span> <span class="n">piecetimerecord</span><span class="p">(:,</span> <span class="p">(</span><span class="n">pro</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
 
-           <span class="n">tempendtime</span> <span class="p">=</span> <span class="n">tempendtime</span><span class="o">'</span><span class="p">;</span>
+           <span class="n">tempendtime</span> <span class="p">=</span> <span class="n">tempendtime</span><span class="o">&#39;</span><span class="p">;</span>
 
             <span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="n">piecelist</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">tempendtime</span><span class="p">);</span>
 
@@ -1678,7 +1694,7 @@ $$</p>
 </div><p>选择函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1725,7 +1741,7 @@ $$</p>
 </span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>spop <span class="p">=</span><span class="w"> </span><span class="nf">selection</span><span class="p">(</span>pop, fitness<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>spop <span class="p">=</span><span class="w"> </span><span class="nf">selection</span><span class="p">(</span>pop, fitness<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">% 轮盘赌选择</span>
 
@@ -1775,7 +1791,7 @@ $$</p>
 </div><p>交叉函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1882,7 +1898,7 @@ $$</p>
 </span><span class="lnt">105
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>cpop <span class="p">=</span><span class="w"> </span><span class="nf">crossover</span><span class="p">(</span>pop, cr<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>cpop <span class="p">=</span><span class="w"> </span><span class="nf">crossover</span><span class="p">(</span>pop, cr<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">% 交叉</span>
 
@@ -1992,7 +2008,7 @@ $$</p>
 </div><p>变异函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2029,7 +2045,7 @@ $$</p>
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>mpop <span class="p">=</span><span class="w"> </span><span class="nf">mutation</span><span class="p">(</span>pop, mr<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>mpop <span class="p">=</span><span class="w"> </span><span class="nf">mutation</span><span class="p">(</span>pop, mr<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">% 变异，交换两个随即位置的基因</span>
 
@@ -2069,7 +2085,7 @@ $$</p>
 </div><p>初始化种群函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2090,7 +2106,7 @@ $$</p>
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>pop<span class="p">=</span><span class="w"> </span><span class="nf">initpop</span><span class="p">(</span>popsize, piecesize<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>pop<span class="p">=</span><span class="w"> </span><span class="nf">initpop</span><span class="p">(</span>popsize, piecesize<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">%初始化种群</span>
 
@@ -2114,7 +2130,7 @@ $$</p>
 </div><p>计算适应度函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2127,7 +2143,7 @@ $$</p>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span>fitness <span class="p">=</span><span class="w"> </span><span class="nf">calfitness</span><span class="p">(</span>objvalue<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span>fitness <span class="p">=</span><span class="w"> </span><span class="nf">calfitness</span><span class="p">(</span>objvalue<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">%计算适应度值</span>
 
@@ -2143,7 +2159,7 @@ $$</p>
 </div><p>制作加工流程矩阵函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2190,7 +2206,7 @@ $$</p>
 </span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span>gantt <span class="p">=</span><span class="w"> </span><span class="nf">makegantt</span><span class="p">(</span>ptr, per, equsize<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span>gantt <span class="p">=</span><span class="w"> </span><span class="nf">makegantt</span><span class="p">(</span>ptr, per, equsize<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">%制作加工流程矩阵</span>
 
@@ -2240,7 +2256,7 @@ $$</p>
 </div><p>生成随机数函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma" tabindex="0"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -2267,7 +2283,7 @@ $$</p>
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma" tabindex="0"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[rl,ru] <span class="p">=</span><span class="w"> </span><span class="nf">makerlru</span><span class="p">(</span>maxnum<span class="p">)</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-matlab" data-lang="matlab"><span class="k">function</span><span class="w"> </span>[rl,ru] <span class="p">=</span><span class="w"> </span><span class="nf">makerlru</span><span class="p">(</span>maxnum<span class="p">)</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="c">%制作两个随机整数， rl &lt; ru</span>
 
@@ -2294,86 +2310,92 @@ $$</p>
 <span class="k">end</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="23-tsp问题货郎担问题6">2.3 TSP问题(货郎担问题)<sup id="fnref:6"><a class="footnote-ref" href="#fn:6" role="doc-noteref">6</a></sup></h3>
+</div><h3 id="23-tsp问题货郎担问题6">2.3 TSP问题(货郎担问题)<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></h3>
 <p><strong>问题定义：巡回旅行商问题</strong></p>
 <p>给定一组n个城市和俩俩之间的直达距离，寻找一条闭合的旅程，使得每个城市刚好经过一次且总的旅行距离最短。</p>
-<p>TSP问题也称为货郎担问题，是一个古老的问题。最早可以追溯到1759年Euler提出的骑士旅行的问题。1948年，由美国兰德公司推动，TSP成为近代「组合优化」领域的典型难题，也是典型的[「$$NP$$问题」](<a href="https://blog.csdn.net/m0_37407587/article/details/87169128" rel="noopener noreffer" target="_blank">(6条消息) 组合优化中的P问题，NP问题，NP-complete问题和NP-hard问题_m0_37407587的博客-CSDN博客</a> )。</p>
+<p>TSP问题也称为货郎担问题，是一个古老的问题。最早可以追溯到1759年Euler提出的骑士旅行的问题。1948年，由美国兰德公司推动，TSP成为近代「组合优化」领域的典型难题，也是典型的[「$$NP$$问题」](<a href="https://blog.csdn.net/m0_37407587/article/details/87169128" target="_blank" rel="noopener noreffer">(6条消息) 组合优化中的P问题，NP问题，NP-complete问题和NP-hard问题_m0_37407587的博客-CSDN博客</a> )。</p>
 <p>TSP是一个具有广泛的应用背景和重要理论价值的组合优化问题。 近年来，有很多解决该问题的较为有效的算法不断被推出，例如Hopfield神经网络方法，模拟退火方法以及遗传算法方法等。</p>
 <p>TSP搜索空间随着城市数n的增加而增大,所有的旅程路线组合数为$$(n-1)!\over2$$。在如此庞大的搜索空间中寻求最优解，对于常规方法和现有的计算工具而言，存在着诸多计算困难。故需借助遗传算法的搜索能力解决TSP问题。</p>
 <section class="footnotes" role="doc-endnotes">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>引自百度百科 <a class="footnote-backref" href="#fnref:1" role="doc-backlink">↩︎</a></p>
+<p>引自百度百科&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>王铁方．计算机基因学 基于家族基因的网格信任模型[M]．北京：知识产权出版社，2016：93-94 <a class="footnote-backref" href="#fnref:2" role="doc-backlink">↩︎</a></p>
+<p>王铁方．计算机基因学 基于家族基因的网格信任模型[M]．北京：知识产权出版社，2016：93-94&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>引自zhuanlan.zhihu.com/p/100337680 <a class="footnote-backref" href="#fnref:3" role="doc-backlink">↩︎</a></p>
+<p>引自zhuanlan.zhihu.com/p/100337680&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p>引自cloud.tencent.com/developer/article/1376883?from=article.detail.1522910 <a class="footnote-backref" href="#fnref:4" role="doc-backlink">↩︎</a></p>
+<p>引自cloud.tencent.com/developer/article/1376883?from=article.detail.1522910&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:5" role="doc-endnote">
-<p>引自cloud.tencent.com/developer/article/1377357?from=article.detail.1522910 <a class="footnote-backref" href="#fnref:5" role="doc-backlink">↩︎</a></p>
+<p>引自cloud.tencent.com/developer/article/1377357?from=article.detail.1522910&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:6" role="doc-endnote">
-<p>引自cloud.tencent.com/developer/article/1827527?from=article.detail.1830041 <a class="footnote-backref" href="#fnref:6" role="doc-backlink">↩︎</a></p>
+<p>引自cloud.tencent.com/developer/article/1827527?from=article.detail.1830041&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
-<div class="post-info">
-<div class="post-info-line">
-<div class="post-info-mod">
-<span>更新于 2021-08-16</span>
-</div>
-<div class="post-info-license"></div>
-</div>
-<div class="post-info-line">
-<div class="post-info-md"></div>
-<div class="post-info-share">
-<span><a data-hashtags="数学建模,数学模型,最优化方法,启发式算法" data-sharer="twitter" data-title="启发式算法-遗传算法（GA）" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" data-via="https://twitter.com/" href="javascript:void(0);" title="分享到 Twitter"><i class="fab fa-twitter fa-fw"></i></a><a data-hashtag="数学建模" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" href="javascript:void(0);" title="分享到 Facebook"><i class="fab fa-facebook-square fa-fw"></i></a><a data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" href="javascript:void(0);" title="分享到 Linkedin"><i class="fab fa-linkedin fa-fw"></i></a><a data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" href="javascript:void(0);" title="分享到 Reddit"><i class="fab fa-reddit fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class="post-info-more">
-<section class="post-tags"><i class="fas fa-tags fa-fw"></i> <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>, <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/">数学模型</a>, <a href="/zh-cn/tags/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">最优化方法</a>, <a href="/zh-cn/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95/">启发式算法</a></section>
-<section>
-<span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span> | <span><a href="/zh-cn/">主页</a></span>
-</section>
-</div>
-<div class="post-nav"><a class="prev" href="/zh-cn/heuristic-algorithm-artificial-bee-colony/" rel="prev" title="启发式算法-人工蜂群算法（ABC）"><i class="fas fa-angle-left fa-fw"></i>启发式算法-人工蜂群算法（ABC）</a>
-<a class="next" href="/zh-cn/roulette-algorithm/" rel="next" title="轮盘赌算法">轮盘赌算法<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-16</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" data-title="启发式算法-遗传算法（GA）" data-via="https://twitter.com/" data-hashtags="数学建模,数学模型,最优化方法,启发式算法"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/" data-hashtag="数学建模"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/heuristic-algorithm-genetic-algorithm/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>,&nbsp;<a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/">数学模型</a>,&nbsp;<a href="/zh-cn/tags/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">最优化方法</a>,&nbsp;<a href="/zh-cn/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95/">启发式算法</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/heuristic-algorithm-artificial-bee-colony/" class="prev" rel="prev" title="启发式算法-人工蜂群算法（ABC）"><i class="fas fa-angle-left fa-fw"></i>启发式算法-人工蜂群算法（ABC）</a>
+            <a href="/zh-cn/roulette-algorithm/" class="next" rel="next" title="轮盘赌算法">轮盘赌算法<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
-</main><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+            </main><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+
 <footer class="footer">
-<div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span> | <span class="license"><a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license external nofollow noopener noreffer" target="_blank">CC BY-NC 4.0</a></span><span> <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" style="border-width:0"/></a><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></span>
-<div><span class="icp-splitter"></span><br class="icp-br"/>
-<span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a> | </span><span>
-<img src="/images/备案图标.png"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">贵公网安备 52032102000640号</a>
-</span>
-</div>
-</div>
-<span id="busuanzi_container_site_pv">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"></a></span>
+                <div><span class="icp-splitter"></span><br class="icp-br"/>
+                        <span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a>&nbsp;|&nbsp;</span><span>
+                            </a><img src="/images/备案图标.png"/><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">贵公网安备 52032102000640号</a>
+                        </span>
+                </div>
+            </div>
+            <span id="busuanzi_container_site_pv">
                 Total Visits:<span id="busuanzi_value_site_pv"></span>
-</span>
-<span id="busuanzi_container_site_uv">
+            </span>
+
+            <span id="busuanzi_container_site_uv">
                 Total Visitors:<span id="busuanzi_value_site_uv"></span>
-</span>
-<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-</div>
-</footer></div>
-<div id="fixed-buttons"><a class="fixed-button" href="#" id="back-to-top" title="回到顶部">
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a class="fixed-button" href="#" id="view-comments" title="查看评论">
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js"></script><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" type="text/javascript"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" type="text/javascript"></script>
-</body></html>
+            </span>
+            <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" crossorigin="anonymous"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,4 +1,4 @@
-<html><head><script>
+<script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -7,28 +7,41 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-<script async="" src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
-<!DOCTYPE html>
+    
+    <script async src="https://cdn.staticfile.org/mermaid/8.6.4/mermaid.min.js"></script>
 
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" onload="renderMathInElement(document.body);" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="noodp" name="robots"/>
-<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"/>
-<title>(续1)打分式评价(DEA,PCA) - ZonLin</title><meta content="关于作者" name="Description"/><meta content="(续1)打分式评价(DEA,PCA)" property="og:title"/>
-<meta content="这是一个提示 若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~ 任何疑问请致邮：E-mail 1.5 数" property="og:description"/>
-<meta content="article" property="og:type"/>
-<meta content="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" property="og:url"/><meta content="https://orangesodahub.github.io/logo.png" property="og:image"/><meta content="posts" property="article:section"/>
-<meta content="2021-07-07T11:52:32+08:00" property="article:published_time"/>
-<meta content="2021-07-07T11:52:32+08:00" property="article:modified_time"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://orangesodahub.github.io/logo.png" name="twitter:image"/>
-<meta content="(续1)打分式评价(DEA,PCA)" name="twitter:title"/>
-<meta content="这是一个提示 若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~ 任何疑问请致邮：E-mail 1.5 数" name="twitter:description"/>
-<meta content="ZonLin" name="application-name"/>
-<meta content="ZonLin" name="apple-mobile-web-app-title"/><meta content="#ffffff" name="theme-color"/><meta content="#da532c" name="msapplication-TileColor"/><link href="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" rel="canonical"/><link href="https://orangesodahub.github.io/zh-cn/sophomore-year/" rel="prev"/><link href="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" rel="next"/><link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet"/><link href="/css/style.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" rel="stylesheet"/><script type="application/ld+json">
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+    
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>(续1)打分式评价(DEA,PCA) - ZonLin</title><meta name="Description" content="关于作者"><meta property="og:title" content="(续1)打分式评价(DEA,PCA)" />
+<meta property="og:description" content="这是一个提示 若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~ 任何疑问请致邮：E-mail 1.5 数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" /><meta property="og:image" content="https://orangesodahub.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-07T11:52:32+08:00" />
+<meta property="article:modified_time" content="2021-07-07T11:52:32+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://orangesodahub.github.io/logo.png"/>
+
+<meta name="twitter:title" content="(续1)打分式评价(DEA,PCA)"/>
+<meta name="twitter:description" content="这是一个提示 若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~ 任何疑问请致邮：E-mail 1.5 数"/>
+<meta name="application-name" content="ZonLin">
+<meta name="apple-mobile-web-app-title" content="ZonLin"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" /><link rel="prev" href="https://orangesodahub.github.io/zh-cn/sophomore-year/" /><link rel="next" href="https://orangesodahub.github.io/zh-cn/continued_2evaluation-model/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -45,141 +58,143 @@
                 "name": "记录"
             },"description": ""
     }
-    </script>
-</head><body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-<script>
+    </script></head>
+    <body header-desktop="auto" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <script>
             
             Array.from(document.getElementsByClassName('language-mermaid')).forEach(el => {
                 el.parentElement.outerHTML = `<div class="mermaid">${el.innerText}</div>`
             })
         </script>
-<style>
+        <style>
          
         .mermaid svg {
             display: block;
             margin: auto;
         }
         </style>
-<div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-<div class="header-wrapper">
-<div class="header-title">
-<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
-</div>
-<div class="menu">
-<div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><a class="menu-item language" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-<select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/continued_1score-evalutaion-model/">English</option><option selected="" value="/zh-cn/continued_1score-evalutaion-model/">简体中文</option></select>
-</a><span class="menu-item search" id="search-desktop">
-<input id="search-input-desktop" placeholder="在此键入" type="text"/>
-<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-desktop" title="搜索">
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-desktop" title="清空">
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id="search-loading-desktop">
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>ZonLin</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><a class="menu-item" href="https://github.com/" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/continued_1score-evalutaion-model/">English</option><option value="/zh-cn/continued_1score-evalutaion-model/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="在此键入" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </header><header class="mobile" id="header-mobile">
-<div class="header-container">
-<div class="header-wrapper">
-<div class="header-title">
-<a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class="far fa-kiss-wink-heart fa-fw"></i></span>ZonLin</a>
-</div>
-<div class="menu-toggle" id="menu-toggle-mobile">
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class="menu" id="menu-mobile"><div class="search-wrapper">
-<div class="search mobile" id="search-mobile">
-<input id="search-input-mobile" placeholder="在此键入" type="text"/>
-<a class="search-button search-toggle" href="javascript:void(0);" id="search-toggle-mobile" title="搜索">
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a class="search-button search-clear" href="javascript:void(0);" id="search-clear-mobile" title="清空">
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id="search-loading-mobile">
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a class="search-cancel" href="javascript:void(0);" id="search-cancel-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="ZonLin"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>ZonLin</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="在此键入" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-</div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" rel="noopener noreffer" target="_blank" title="GitHub"><i class="fab fa-github fa-fw"></i></a><a class="menu-item theme-switch" href="javascript:void(0);" title="切换主题">
-<i class="fas fa-adjust fa-fw"></i>
-</a><a class="menu-item" href="javascript:void(0);" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-<select class="language-select" onchange="location = this.value;"><option value="/continued_1score-evalutaion-model/">English</option><option selected="" value="/zh-cn/continued_1score-evalutaion-model/">简体中文</option></select>
-</a></div>
-</div>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a class="menu-item" href="https://github.com/" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/continued_1score-evalutaion-model/">English</option><option value="/zh-cn/continued_1score-evalutaion-model/" selected>简体中文</option></select>
+                </a></div>
+    </div>
 </header>
 <div class="search-dropdown desktop">
-<div id="search-dropdown-desktop"></div>
+    <div id="search-dropdown-desktop"></div>
 </div>
 <div class="search-dropdown mobile">
-<div id="search-dropdown-mobile"></div>
+    <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-<div class="container"><div class="toc" id="toc-auto">
-<h2 class="toc-title">目录</h2>
-<div class="toc-content" id="toc-content-auto"></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">(续1)打分式评价(DEA,PCA)</h1><div class="post-meta">
-<div class="post-meta-line"><span class="post-author"><a class="author" href="/zh-cn/" rel="author" title="Author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span> <span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a> <a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
-<div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i> <time datetime="2021-07-07">2021-07-07</time> <i class="fas fa-pencil-alt fa-fw"></i> 约 10280 字 
-                <i class="far fa-clock fa-fw"></i> 预计阅读 21 分钟 </div>
-</div><div class="details toc" id="toc-static" kept="">
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#15-数据包络分析法dea">1.5 数据包络分析法（DEA）</a>
-<ul>
-<li><a href="#151简述">1.5.1简述</a></li>
-<li><a href="#152数学模型csup2supr规模报酬不变">1.5.2数学模型（C<sup>2</sup>R：规模报酬不变）</a></li>
-<li><a href="#153数学模型bcsup2sup规模报酬可变">1.5.3数学模型（BC<sup>2</sup>：规模报酬可变）</a></li>
-<li><a href="#154实际意义">1.5.4实际意义</a></li>
-<li><a href="#155实例3">1.5.5实例</a></li>
-<li><a href="#156运用deap分析">1.5.6运用DEAP分析</a></li>
-</ul>
-</li>
-<li><a href="#16-主成分分析pca">1.6 主成分分析（PCA）</a>
-<ul>
-<li><a href="#161简述">1.6.1简述</a></li>
-<li><a href="#162基于evd的主成分分析">1.6.2基于EVD的主成分分析</a>
-<ul>
-<li><a href="#1621由最大可分性推导pca">1.6.2.1由最大可分性推导PCA</a></li>
-<li><a href="#1622由最近重构性推导pca">1.6.2.2由最近重构性推导PCA</a></li>
-</ul>
-</li>
-<li><a href="#163-基于svd的主成分分析">1.6.3 基于SVD的主成分分析</a></li>
-<li><a href="#164维数k的确定">1.6.4维数k的确定</a></li>
-<li><a href="#165核主成分分析kpca">1.6.5核主成分分析（KPCA）</a></li>
-<li><a href="#166实例">1.6.6实例</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">(续1)打分式评价(DEA,PCA)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>记录</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/"><i class="far fa-folder fa-fw"></i>数理统计</a>&nbsp;<a href="/zh-cn/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"><i class="far fa-folder fa-fw"></i>数学建模</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-07">2021-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10280 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#15-数据包络分析法dea">1.5 数据包络分析法（DEA）</a>
+          <ul>
+            <li><a href="#151简述">1.5.1简述</a></li>
+            <li><a href="#152数学模型csup2supr规模报酬不变">1.5.2数学模型（C<sup>2</sup>R：规模报酬不变）</a></li>
+            <li><a href="#153数学模型bcsup2sup规模报酬可变">1.5.3数学模型（BC<sup>2</sup>：规模报酬可变）</a></li>
+            <li><a href="#154实际意义">1.5.4实际意义</a></li>
+            <li><a href="#155实例3">1.5.5实例</a></li>
+            <li><a href="#156运用deap分析">1.5.6运用DEAP分析</a></li>
+          </ul>
+        </li>
+        <li><a href="#16-主成分分析pca">1.6 主成分分析（PCA）</a>
+          <ul>
+            <li><a href="#161简述">1.6.1简述</a></li>
+            <li><a href="#162基于evd的主成分分析">1.6.2基于EVD的主成分分析</a>
+              <ul>
+                <li><a href="#1621由最大可分性推导pca">1.6.2.1由最大可分性推导PCA</a></li>
+                <li><a href="#1622由最近重构性推导pca">1.6.2.2由最近重构性推导PCA</a></li>
+              </ul>
+            </li>
+            <li><a href="#163-基于svd的主成分分析">1.6.3 基于SVD的主成分分析</a></li>
+            <li><a href="#164维数k的确定">1.6.4维数k的确定</a></li>
+            <li><a href="#165核主成分分析kpca">1.6.5核主成分分析（KPCA）</a></li>
+            <li><a href="#166实例">1.6.6实例</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </nav></div>
-</div><div class="content" id="content"><div class="details admonition tip">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-lightbulb fa-fw"></i>这是一个提示<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class="details-content">
-<div class="admonition-content"><p>若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~</p>
+            </div><div class="content" id="content"><div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>这是一个提示<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>若(部分)数学公式、表达式或图表显示不完整、不正常，请保持网络流畅并刷新等待，加载时间可能较长~</p>
 <p><a href="mailto:gzzyyxy@gmail.com">任何疑问请致邮：E-mail</a></p>
 </div>
-</div>
-</div>
+        </div>
+    </div>
 <h3 id="15-数据包络分析法dea">1.5 数据包络分析法（DEA）</h3>
 <h4 id="151简述">1.5.1简述</h4>
 <p>数据包络分析方法(Data Envelopment Analysis,DEA)是运筹学、管理科学与数理经济学交叉研究的一个新领域。它是根据多项投入指标和多项产出指标，利用线性规划的方法，对具有可比性的同类型单位进行相对有效性评价的一种数量分析方法。</p>
@@ -196,7 +211,7 @@
 <li>决策单元（DMU-&gt;Decision Making Unit）就是效率评价的对象，可以理解为一个将一定“投入”转化为一定“产出”的实体；</li>
 <li><span id="Strongly effective">DEA强有效</span>：任何一项投入的数量都无法减少，除非减少产出的数量或者增加其他至少一种投入的数量；任何一项产出的数量都无法增加，除非增加投入的数量或减少其他至少一种产出的数量；此时同时达到技术有效和规模有效；</li>
 <li><span id="Weakly effective">DEA弱有效</span>：无法等比例减少各项投入的数量，除非减少产出的数量；无法等比例增加各项产出的数量，除非增加投入的数量。这种情况下，虽然不能等比例减少投入或增加产出，但某一项或几项（但不是全部）投入可能减少，所以称为弱有效。此时技术有效和规模有效只满足一个；</li>
-<li><span id="Production Front">生产前沿面</span>：对于给定的生产要素和产出价格，选择要素投入的最优组合和产出的最优组合，即投入成本最小、产出收益最大的组合。它所对应的生产函数所描述的生产可能性边界就是生产前沿面<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" role="doc-noteref">1</a></sup>：设$$\omega\gt0,\mu\gt0,L={(X,Y)|\omega^TX-\mu^TY=0},T\subset{(X,Y)|\omega^TX-\mu^TY\geqslant0 }$$满足$$L\bigcap T\not=∅$$，则称$$L$$为生产可能集$$T$$的有效面，称$$L\bigcap T$$为生产前沿面。</li>
+<li><span id="Production Front">生产前沿面</span>：对于给定的生产要素和产出价格，选择要素投入的最优组合和产出的最优组合，即投入成本最小、产出收益最大的组合。它所对应的生产函数所描述的生产可能性边界就是生产前沿面<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>：设$$\omega\gt0,\mu\gt0,L={(X,Y)|\omega^TX-\mu^TY=0},T\subset{(X,Y)|\omega^TX-\mu^TY\geqslant0 }$$满足$$L\bigcap T\not=∅$$，则称$$L$$为生产可能集$$T$$的有效面，称$$L\bigcap T$$为生产前沿面。</li>
 <li>投入冗余率：$$\eta_{ij}$$为决策单元$$i$$的第$$j$$个指标的投入冗余率，则$$\eta={s_j^-\over x_{ij} }$$</li>
 <li>产出不足率：$$\rho_{ij}$$为决策单元$$i$$的第$$j$$个指标的投入冗余率，则$$\rho={s_j^+\over y_{ij} }$$</li>
 </ol>
@@ -254,7 +269,7 @@ $$</p>
 <p>线性规划(P)的解$$\omega^<em>,\mu^</em>$$即为$$DMU_i$$的最优权向量，其使得$$DMU_i$$的效率值达到最大。另外，作为线性规划的解，$$\omega^<em>,\mu^</em>$$不唯一。最终有效益分析：</p>
 <ol>
 <li>若最优指标值$$E_{i_0}=1$$，则称$$DMU_i$$为DEA弱有效；</li>
-<li>若存在最优解$$\omega^<em>,\mu^</em>$$满足$$\omega^<em>\gt0,\mu^</em>\gt0$$，使得$$E_i=E_{i_0}=1$$，则称$$DMU_i$$为DEA有效。此时该生产单元$$DMU_i$$处在[生产前沿面](#Production Front “点击跳转”)上；</li>
+<li>若存在最优解$$\omega^<em>,\mu^</em>$$满足$$\omega^<em>\gt0,\mu^</em>\gt0$$，使得$$E_i=E_{i_0}=1$$，则称$$DMU_i$$为DEA有效。此时该生产单元$$DMU_i$$处在[生产前沿面](#Production Front &ldquo;点击跳转&rdquo;)上；</li>
 <li>若最优解$$E_{i_0}\lt1$$，则称该决策单元非DEA有效。</li>
 </ol>
 <p>将上述线性模型（P）取其对偶模型得到（推导见下）：</p>
@@ -270,32 +285,32 @@ $$</p>
 \end{aligned}\tag{D}
 $$</p>
 <div class="details admonition tip">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-lightbulb fa-fw"></i>约束条件的矩阵形式<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class="details-content">
-<div class="admonition-content">$$
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>约束条件的矩阵形式<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">$$
 \lambda_1\left[\begin{matrix}x_{11}\x_{12}\\vdots\x_{1s} \end{matrix}\right]+\lambda_2\left[\begin{matrix}x_{21}\x_{22}\\vdots\x_{2s} \end{matrix}\right]+\cdots+\lambda_n\left[\begin{matrix}x_{n1}\x_{n2}\\vdots\x_{ns} \end{matrix}\right]=\left[\begin{matrix}\lambda_1x_{11}+\lambda_2x_{21}+\cdots+\lambda_nx_{n1}\\lambda_1x_{12}+\lambda_2x_{22}+\cdots+\lambda_nx_{n2}\\vdots\\lambda_1x_{n1}+\lambda_2x_{n2}+\cdots+\lambda_nx_{ns}\\end{matrix}\right]\leqslant \theta \left[\begin{matrix}x_{i_01}\x_{i_02}\\vdots\x_{i_0s} \end{matrix}\right]\
 $$
 （y同上）</div>
-</div>
-</div>
-<p>其中$$\theta=O!E_{i_0}$$，即第$${i_0}$$个决策单元的[综合技术效率指标](#Overall Efficiency “什么是综合技术效率指标”)。$$\lambda=(\lambda_1,\lambda_2,\cdots,\lambda_n)$$是n个$$DMU$$的组合系数。对$$\lambda$$有：</p>
+        </div>
+    </div>
+<p>其中$$\theta=O!E_{i_0}$$，即第$${i_0}$$个决策单元的[综合技术效率指标](#Overall Efficiency &ldquo;什么是综合技术效率指标&rdquo;)。$$\lambda=(\lambda_1,\lambda_2,\cdots,\lambda_n)$$是n个$$DMU$$的组合系数。对$$\lambda$$有：</p>
 <p>$$\sum_{i=1}^n\lambda_i=1$$时，该决策单元为“规模报酬固定”；</p>
 <p>$$\sum_{i=1}^n\lambda_i\lt1$$时，该决策单元为“规模报酬递增”；</p>
 <p>$$\sum_{i=1}^n\lambda_i\gt1$$时，该决策单元为“规模报酬递减”；</p>
-<p>另外值得说明的是，[第一个和第二个约束条件](#constrait condition “见“转化推导”中展开式”)中的$$x_i=(x_{i1},x_{i2},\cdots x_{is} )$$和$$y_i=(y_{i1},y_{i2},\cdots y_{it} )$$，共有n个。</p>
+<p>另外值得说明的是，[第一个和第二个约束条件](#constrait condition &ldquo;见“转化推导”中展开式&rdquo;)中的$$x_i=(x_{i1},x_{i2},\cdots x_{is} )$$和$$y_i=(y_{i1},y_{i2},\cdots y_{it} )$$，共有n个。</p>
 <blockquote>
 <p>这个模型可以直观地理解为将决策单元$$DMU_i$$的投入、产出表示为其他决策单元的线性组合。</p>
 <p>如果有某个 (或某些) 决策单元的产出量达到决策单元$$DMU_{i_0}$$的水平 (达到，不一定要超过，第二个约束的含义)，而投入量尽可能小 (第一个约束的含义)，那么会出现$$O!E_{i_0}\lt1$$的情况, 此时说明该决策单元存在资源浪费。</p>
-<p>反之，如果该决策单元的效率已经是最高的了，那么任何的决策单元都不能使用比它还要少的投入获得同样 (甚至更多) 的产出，这时候$$O!E_{i_0}=1$$ <sup id="fnref:2"><a class="footnote-ref" href="#fn:2" role="doc-noteref">2</a></sup>。</p>
+<p>反之，如果该决策单元的效率已经是最高的了，那么任何的决策单元都不能使用比它还要少的投入获得同样 (甚至更多) 的产出，这时候$$O!E_{i_0}=1$$ <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
 </blockquote>
 <div class="details admonition tip">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-lightbulb fa-fw"></i>转化推导<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class="details-content">
-<div class="admonition-content"><p>线性规划模型及其对偶模型的一般式：</p>
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>转化推导<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>线性规划模型及其对偶模型的一般式：</p>
 <p>$$
 \begin{cases}max;c^Tx'\
 \begin{aligned}
@@ -346,8 +361,8 @@ x_{1s}&amp;\cdots&amp;x_{ns}&amp;-x_{ {i_0}s}\
 \end{aligned}
 $$</p>
 </div>
-</div>
-</div>
+        </div>
+    </div>
 <p>在上述模型（D）中引入松弛变量及非阿基米德无穷小$$\epsilon$$后，得到：</p>
 <p>$$
 \begin{cases}
@@ -374,8 +389,8 @@ $$</p>
 <p>其中，$$s^-=(s_1^-,s_2^-,\cdots,s_s^-)$$是$$s$$项输入指标的松弛变量；$$s^+=(s_1^+,s_2^+,\cdots,s_t^+)$$是$$t$$项输出指标的松弛变量；$$s^-$$成为差额变数，表示该决策单元为达到DEA有效应减少的投入量，$$s^+$$称为超额变数，为达到DEA有效应增加的产出量。</p>
 <p>效益分析：线性规划$$(D')$$的最优解为$$\lambda^<em>,s^{</em>-},s^{<em>+},\theta^</em>$$，则</p>
 <ol>
-<li>若$$\theta^*=1$$，此时某一$$s_i^-$$或$$s_j^+$$为0，则$$DMU_i$$为,[DEA弱有效](#Weakly effective “什么是强有效”)；</li>
-<li>若$$\theta^<em>=1$$且有$$s^{</em>-}=0,s^{*+}=0$$，则$$DMU_i$$为[DEA强有效](#Strongly effective “什么是强有效”)；</li>
+<li>若$$\theta^*=1$$，此时某一$$s_i^-$$或$$s_j^+$$为0，则$$DMU_i$$为,[DEA弱有效](#Weakly effective &ldquo;什么是强有效&rdquo;)；</li>
+<li>若$$\theta^<em>=1$$且有$$s^{</em>-}=0,s^{*+}=0$$，则$$DMU_i$$为[DEA强有效](#Strongly effective &ldquo;什么是强有效&rdquo;)；</li>
 <li>若$$\theta^*\lt1$$，则$$DMU_i$$为非DEA有效，存在资源浪费现象。技术有效和规模有效均不满足。</li>
 </ol>
 <h4 id="153数学模型bcsup2sup规模报酬可变">1.5.3数学模型（BC<sup>2</sup>：规模报酬可变）</h4>
@@ -396,8 +411,8 @@ s.t.&amp;\sum_{i=1}^n\lambda_ix_{ij}+s_j^-=O!E_{i0}x_{i_0j}&amp;j=1,2,\cdots,s\
 $$</p>
 <p>效益分析：若线性规划（M）的最优解为$$\lambda^<em>,s^{</em>-},s^{<em>+},\theta^</em>$$，则</p>
 <ol>
-<li>若$$\theta^*=1$$，此时某一$$s_i^-$$或$$s_j^+$$为0，则$$DMU_i$$为,[DEA弱有效](#Weakly effective “什么是强有效”)；</li>
-<li>若$$\theta^<em>=1$$且有$$s^{</em>-}=0,s^{*+}=0$$，则$$DMU_i$$为[DEA强有效](#Strongly effective “什么是强有效”)；</li>
+<li>若$$\theta^*=1$$，此时某一$$s_i^-$$或$$s_j^+$$为0，则$$DMU_i$$为,[DEA弱有效](#Weakly effective &ldquo;什么是强有效&rdquo;)；</li>
+<li>若$$\theta^<em>=1$$且有$$s^{</em>-}=0,s^{*+}=0$$，则$$DMU_i$$为[DEA强有效](#Strongly effective &ldquo;什么是强有效&rdquo;)；</li>
 <li>若$$\theta^*\lt1$$，则$$DMU_i$$为非DEA有效，存在资源浪费现象。技术有效和规模有效均不满足。</li>
 </ol>
 <p>利用BCC模型得到排除由于规模变动影响的技术效率为纯技术效率，而CCR模型得到的是综合技术效率值，利用$$OE=TE\times SE$$可计算出规模效率值。对规模效率：</p>
@@ -406,11 +421,11 @@ $$</p>
 <li>若规模效率值为1，则表示该决策单元未达到规模效率最优，应当着重解决规模效率问题。</li>
 </ol>
 <h4 id="154实际意义">1.5.4实际意义</h4>
-<p><a href="https://blog.csdn.net/qq_42374697/article/details/109173778" rel="noopener noreffer" target="_blank">数据包络分析法（DEA）_2_始于足下_行千里致广大。-CSDN博客</a></p>
-<h4 id="155实例3">1.5.5实例<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" role="doc-noteref">3</a></sup></h4>
-<p><a href="https://zhuanlan.zhihu.com/p/60853027" rel="noopener noreffer" target="_blank">DEA (数据包络分析)介绍及 python3 实现 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://blog.csdn.net/qq_42374697/article/details/109173778" target="_blank" rel="noopener noreffer">数据包络分析法（DEA）_2_始于足下_行千里致广大。-CSDN博客</a></p>
+<h4 id="155实例3">1.5.5实例<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></h4>
+<p><a href="https://zhuanlan.zhihu.com/p/60853027" target="_blank" rel="noopener noreffer">DEA (数据包络分析)介绍及 python3 实现 - 知乎 (zhihu.com)</a></p>
 <h4 id="156运用deap分析">1.5.6运用DEAP分析</h4>
-<p><a href="https://deap.readthedocs.io/en/master/index.html" rel="noopener noreffer" target="_blank">DEAP documentation — DEAP 1.3.1 documentation</a></p>
+<p><a href="https://deap.readthedocs.io/en/master/index.html" target="_blank" rel="noopener noreffer">DEAP documentation — DEAP 1.3.1 documentation</a></p>
 <h3 id="16-主成分分析pca">1.6 主成分分析（PCA）</h3>
 <h4 id="161简述">1.6.1简述</h4>
 <p>PCA是最简单的以特征量分析多元统计分布的方法。通常情况下，这种运算可以被看作是揭露数据的内部结构，从而更好的解释数据的变量的方法。如果一个多元数据集能够在一个高维数据空间坐标系中被显现出来，那么PCA就能够提供一幅比较低维度的图像，这幅图像即为在讯息最多的点上原对象的一个‘投影’。这样可以利用少量的主成分使得数据的维度降低, 并且在方差的角度来说， 这种降维方法损失的信息最少。</p>
@@ -422,9 +437,10 @@ $$</p>
 </ol>
 <p>下图展示了二维到一维的转化</p>
 <figure><img src="/images/08.png"/><figcaption>
-<h4>（图示：由二维到一维）</h4>
-</figcaption>
+            <h4>（图示：由二维到一维）</h4>
+        </figcaption>
 </figure>
+
 <p>本节最后我们可以推导得出降维的流程，即：通过计算数据矩阵的协方差矩阵，然后得到协方差矩阵的特征值特征向量，选择特征值最大(即方差最大)的k个特征所对应的特征向量组成的矩阵。这样就可以将数据矩阵转换到新的空间当中，实现数据特征的降维。由于得到协方差矩阵的特征值特征向量有两种方法：<u>特征值分解协方差矩阵(EVD)</u>、<u>奇异值分解协方差矩阵(SVD)</u>，所以PCA算法有两种实现方法。另外，对样本矩阵单独进行SVD也能够实现PCA算法。</p>
 <h4 id="162基于evd的主成分分析">1.6.2基于EVD的主成分分析</h4>
 <h5 id="1621由最大可分性推导pca">1.6.2.1由最大可分性推导PCA</h5>
@@ -485,9 +501,9 @@ $$</p>
 $$</p>
 <p>不难看出，上式为二次型，将其写为矩阵形式</p>
 <p>$$
-\sum_{l=1}^mA_{jl}^2=e_j^T\left[\begin{matrix}\sum_{l=1}^mP_{l1}^2&amp;\sum_{l=1}^mP_{l1}P_{l2}&amp;\cdots&amp;\sum_{l=1}^mP_{l1}P_{ln}\\sum_{l=1}^mP_{l2}P_{l1}&amp;\sum_{l=1}^2P_{l2}^2&amp;\cdots&amp;\sum_{l=1}^mP_{l2}P_{ln}\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\sum_{l=1}^mP_{ln}P_{l1}&amp;\sum_{l=1}^mP_{ln}P_{l2}&amp;\cdots&amp;\sum_{l=1}^mP_{ln}^2 \end{matrix}\right]e_j=e_j^TP’e_j\tag{7}
+\sum_{l=1}^mA_{jl}^2=e_j^T\left[\begin{matrix}\sum_{l=1}^mP_{l1}^2&amp;\sum_{l=1}^mP_{l1}P_{l2}&amp;\cdots&amp;\sum_{l=1}^mP_{l1}P_{ln}\\sum_{l=1}^mP_{l2}P_{l1}&amp;\sum_{l=1}^2P_{l2}^2&amp;\cdots&amp;\sum_{l=1}^mP_{l2}P_{ln}\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\sum_{l=1}^mP_{ln}P_{l1}&amp;\sum_{l=1}^mP_{ln}P_{l2}&amp;\cdots&amp;\sum_{l=1}^mP_{ln}^2 \end{matrix}\right]e_j=e_j^TP&rsquo;e_j\tag{7}
 $$</p>
-<p>这里的矩阵$$P'$$与矩阵<a href="#P" rel="" title="矩阵P">$$P$$</a>的协方差矩阵有关。回到中心化之前的样本可知，这里的$$A_j=(A_{j1},A_{j2},\cdots,A_{jm})$$是经过中心化处理的，则</p>
+<p>这里的矩阵$$P'$$与矩阵<a href="#P" title="矩阵P" rel="">$$P$$</a>的协方差矩阵有关。回到中心化之前的样本可知，这里的$$A_j=(A_{j1},A_{j2},\cdots,A_{jm})$$是经过中心化处理的，则</p>
 <p>$$
 \begin{aligned}
 &amp;Cov(A_{1},A_{2})={1\over m-1}\sum_{i=1}^nA_{1i}A_{2i}={1\over m-1}\sum_{i=1}^nP_{i1}P_{i2}\
@@ -530,7 +546,7 @@ $$</p>
 <p>或者：</p>
 <p>接(7)式，可以写出各维度$$A_j(j=1,2,\cdots,k;k\lt n)$$的方差表示形式</p>
 <p>$$
-D_1=e_1^TP’e_1,D_2=e_2^TP’e_2,\cdots,D_n=e_n^TP’e_n
+D_1=e_1^TP&rsquo;e_1,D_2=e_2^TP&rsquo;e_2,\cdots,D_n=e_n^TP&rsquo;e_n
 $$</p>
 <p>对每一维度的$$D_i$$，矩阵$$P'$$可进行<a href="%22%e5%a6%82%e4%bd%95%e8%bf%9b%e8%a1%8c%e5%a5%87%e5%bc%82%e5%80%bc%e5%88%86%e8%a7%a3%ef%bc%9f%22" rel="">奇异值分解</a>(对协方差矩阵进行奇异值分解与此相同，二者之间相差系数n)</p>
 <p>$$
@@ -542,7 +558,7 @@ $$</p>
 $$</p>
 <p>其中，奇异值满足$$\sigma_1\gt \sigma_2\gt \cdots \gt \sigma_n$$，将分解后的矩阵代回$$D_i$$</p>
 <p>$$
-D_i=e_i^TP’e_i=e_i^TU\Sigma Ue_i=(U^Te_i)^T\Sigma(U^Te_i)=W_i^T\Sigma W_i,i=1,2,\cdots,n\tag{12}
+D_i=e_i^TP&rsquo;e_i=e_i^TU\Sigma Ue_i=(U^Te_i)^T\Sigma(U^Te_i)=W_i^T\Sigma W_i,i=1,2,\cdots,n\tag{12}
 $$</p>
 <p>即</p>
 <p>$$
@@ -619,20 +635,20 @@ $$</p>
 </blockquote>
 <p>从另一个角度，可以理解为直接从左奇异矩阵中选取了最大的$$k$$个<u>列</u>向量按<u>行</u>构成了变换矩阵$$W_{k\times n}(k\lt n)$$，经过$$W_{k\times n}P_{n\times m}=M_{k\times m}$$计算后，矩阵的维数从$$n$$降到了$$k$$。</p>
 <div class="details admonition tip">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-lightbulb fa-fw"></i>右奇异矩阵的作用<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class="details-content">
-<div class="admonition-content"><p>对矩阵$$P$$进行奇异值分解后，可将其用下式表示</p>
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>右奇异矩阵的作用<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>对矩阵$$P$$进行奇异值分解后，可将其用下式表示</p>
 <p>$$
 P_{n\times m}\approx U_{n\times k}\Sigma_{k\times k}V_{k\times m}^T
 $$</p>
 <p>两边左乘$$U^T_{n\times k}$$则得到$$\Sigma_{k\times k}V_{k\times m}^T$$，即对矩阵$$P$$的行进行了压缩，和PCA一致；</p>
 <p>两边右乘$$V_{k\times m}$$则得到$$U_{n\times k}\Sigma_{k\times k}$$，即对矩阵$$P$$的列进行了压缩，而PCA只能进行一个方向（维度）方向的压缩。</p>
-<p><a href="https://www.cnblogs.com/liangflying/archive/2012/09/25/2701148.html" rel="noopener noreffer" target="_blank">强大的矩阵奇异值分解(SVD)及其应用 - liangflying - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://www.cnblogs.com/liangflying/archive/2012/09/25/2701148.html" target="_blank" rel="noopener noreffer">强大的矩阵奇异值分解(SVD)及其应用 - liangflying - 博客园 (cnblogs.com)</a></p>
 </div>
-</div>
-</div>
+        </div>
+    </div>
 <h4 id="164维数k的确定">1.6.4维数k的确定</h4>
 <p>根据实际情况使用模型选择的交叉验证法或者采用设立能量阈值的方法。</p>
 <p>能量阈值法中，设置能量阈值的$$t%$$，则</p>
@@ -643,70 +659,76 @@ $$</p>
 <h4 id="165核主成分分析kpca">1.6.5核主成分分析（KPCA）</h4>
 <h4 id="166实例">1.6.6实例</h4>
 <section class="footnotes" role="doc-endnotes">
-<hr/>
+<hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>引自<a href="https://zhuanlan.zhihu.com/p/73096903" rel="noopener noreffer" target="_blank">数据包络分析法（DEA）——CCR - 知乎 (zhihu.com)</a> <a class="footnote-backref" href="#fnref:1" role="doc-backlink">↩︎</a></p>
+<p>引自<a href="https://zhuanlan.zhihu.com/p/73096903" target="_blank" rel="noopener noreffer">数据包络分析法（DEA）——CCR - 知乎 (zhihu.com)</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>引自<a href="https://zhuanlan.zhihu.com/p/60853027" rel="noopener noreffer" target="_blank">DEA (数据包络分析)介绍及 python3 实现 - 知乎 (zhihu.com)</a> <a class="footnote-backref" href="#fnref:2" role="doc-backlink">↩︎</a></p>
+<p>引自<a href="https://zhuanlan.zhihu.com/p/60853027" target="_blank" rel="noopener noreffer">DEA (数据包络分析)介绍及 python3 实现 - 知乎 (zhihu.com)</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
-<p>引自其他网站. <a class="footnote-backref" href="#fnref:3" role="doc-backlink">↩︎</a></p>
+<p>引自其他网站.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
-<div class="post-info">
-<div class="post-info-line">
-<div class="post-info-mod">
-<span>更新于 2021-07-07</span>
-</div>
-<div class="post-info-license"></div>
-</div>
-<div class="post-info-line">
-<div class="post-info-md"></div>
-<div class="post-info-share">
-<span><a data-hashtags='数学建模,评价模型,“打分式评价"' data-sharer="twitter" data-title="(续1)打分式评价(DEA,PCA)" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" data-via="https://twitter.com/" href="javascript:void(0);" title="分享到 Twitter"><i class="fab fa-twitter fa-fw"></i></a><a data-hashtag="数学建模" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" href="javascript:void(0);" title="分享到 Facebook"><i class="fab fa-facebook-square fa-fw"></i></a><a data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" href="javascript:void(0);" title="分享到 Linkedin"><i class="fab fa-linkedin fa-fw"></i></a><a data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" href="javascript:void(0);" title="分享到 Reddit"><i class="fab fa-reddit fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class="post-info-more">
-<section class="post-tags"><i class="fas fa-tags fa-fw"></i> <a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>, <a href="/zh-cn/tags/%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B/">评价模型</a>, <a href="/zh-cn/tags/%E6%89%93%E5%88%86%E5%BC%8F%E8%AF%84%E4%BB%B7/">“打分式评价"</a></section>
-<section>
-<span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span> | <span><a href="/zh-cn/">主页</a></span>
-</section>
-</div>
-<div class="post-nav"><a class="prev" href="/zh-cn/sophomore-year/" rel="prev" title="大二学年（2021-2022）"><i class="fas fa-angle-left fa-fw"></i>大二学年（2021-2022）</a>
-<a class="next" href="/zh-cn/continued_2evaluation-model/" rel="next" title="(续2)打分式评价(TOPSIS,ENTROPY)">(续2)打分式评价(TOPSIS,ENTROPY)<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-07-07</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" data-title="(续1)打分式评价(DEA,PCA)" data-via="https://twitter.com/" data-hashtags="数学建模,评价模型,“打分式评价&#34;"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/" data-hashtag="数学建模"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://orangesodahub.github.io/zh-cn/continued_1score-evalutaion-model/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>,&nbsp;<a href="/zh-cn/tags/%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B/">评价模型</a>,&nbsp;<a href="/zh-cn/tags/%E6%89%93%E5%88%86%E5%BC%8F%E8%AF%84%E4%BB%B7/">“打分式评价&#34;</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zh-cn/sophomore-year/" class="prev" rel="prev" title="大二学年（2021-2022）"><i class="fas fa-angle-left fa-fw"></i>大二学年（2021-2022）</a>
+            <a href="/zh-cn/continued_2evaluation-model/" class="next" rel="next" title="(续2)打分式评价(TOPSIS,ENTROPY)">(续2)打分式评价(TOPSIS,ENTROPY)<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
-</main><script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+            </main><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+
 <footer class="footer">
-<div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span> | <span class="license"><a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license external nofollow noopener noreffer" target="_blank">CC BY-NC 4.0</a></span><span> <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"><img alt="知识共享许可协议" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" style="border-width:0"/></a><a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license"></a></span>
-<div><span class="icp-splitter"></span><br class="icp-br"/>
-<span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a> | </span><span>
-<img src="/images/备案图标.png"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" target="_blank">贵公网安备 52032102000640号</a>
-</span>
-</div>
-</div>
-<span id="busuanzi_container_site_pv">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"></a></span>
+                <div><span class="icp-splitter"></span><br class="icp-br"/>
+                        <span class="icp"><a href="https://beian.miit.gov.cn/#/Integrated/index">黔ICP备2021002279号-1</a>&nbsp;|&nbsp;</span><span>
+                            </a><img src="/images/备案图标.png"/><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000640" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">贵公网安备 52032102000640号</a>
+                        </span>
+                </div>
+            </div>
+            <span id="busuanzi_container_site_pv">
                 Total Visits:<span id="busuanzi_value_site_pv"></span>
-</span>
-<span id="busuanzi_container_site_uv">
+            </span>
+
+            <span id="busuanzi_container_site_uv">
                 Total Visitors:<span id="busuanzi_value_site_uv"></span>
-</span>
-<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-</div>
-</footer></div>
-<div id="fixed-buttons"><a class="fixed-button" href="#" id="back-to-top" title="回到顶部">
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a class="fixed-button" href="#" id="view-comments" title="查看评论">
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js"></script><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" type="text/javascript"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js" type="text/javascript"></script>
-</body></html>
+            </span>
+            <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1279743727'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1279743727%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css" integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.js" integrity="sha384-GCPlQtWhtsjcfJYVuUlFZnpQgvoZ26GD/vvA4kG1PBaGBbtpq2cdvZjgj/mAMEY4" crossorigin="anonymous"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":2000},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"$$","right":"$$"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"},{"display":false,"left":"$","right":"$"}],"strict":false},"search":{"algoliaAppID":"9R0KX2MB5U","algoliaIndex":"ZonLin","algoliaSearchKey":"b85ab1acb7762b4206cbfda901146c4f","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
