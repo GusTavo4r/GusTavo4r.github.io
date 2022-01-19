@@ -4,13 +4,20 @@
         <link>https://orangesodahub.github.io/zh-cn/posts/</link>
         <description>所有文章 | ZonLin</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>gzzyyxy@gmail.com (ZonLin)</managingEditor>
-            <webMaster>gzzyyxy@gmail.com (ZonLin)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 17 Jan 2022 22:11:36 &#43;0800</lastBuildDate><atom:link href="https://orangesodahub.github.io/zh-cn/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>gzzyyxy@gmail.com (ZonLin)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 19 Jan 2022 18:39:56 &#43;0800</lastBuildDate><atom:link href="https://orangesodahub.github.io/zh-cn/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>ROS</title>
+    <link>https://orangesodahub.github.io/zh-cn/ros-notes/</link>
+    <pubDate>Wed, 19 Jan 2022 18:39:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://orangesodahub.github.io/zh-cn/ros-notes/</guid>
+    <description><![CDATA[工作空间 工作空间（workspace）是一个存放工程开发相关文件的文件夹。由4部分组成： src：代码空间（Source Space） devel]]></description>
+</item><item>
     <title>Gazebo导入veloydne 16线雷达模型</title>
     <link>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</link>
     <pubDate>Mon, 17 Jan 2022 22:11:36 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</guid>
-    <description><![CDATA[***1.编译&quot;catkin_Make&quot;时报错： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36]]></description>
+    <description><![CDATA[1 2 3 4 5 6 7 8 mkdir -p ~/catkin_ws/src cd ~/catkin_ws/src catkin_init_workspace sudo apt-get install ros-noetic-velodyne-simulator git clone https://bitbucket.org/DataspeedInc/veloydne_simulator.git catkin_make ##catkin_ws目录下 1.编译&quot;catkin_Make&quot;时报错[pro]]></description>
 </item><item>
     <title>0.82 SEMESTER PASSED</title>
     <link>https://orangesodahub.github.io/zh-cn/0.82-semester-passed/</link>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://orangesodahub.github.io/zh-cn/python-visualization-seaborn/</guid>
     <description><![CDATA[官方文档：seaborn: statistical data visualization]]></description>
-</item><item>
-    <title>PYTHON可视化-PYECHARTS</title>
-    <link>https://orangesodahub.github.io/zh-cn/python-visualization-pyecharts/</link>
-    <pubDate>Thu, 19 Aug 2021 16:14:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://orangesodahub.github.io/zh-cn/python-visualization-pyecharts/</guid>
-    <description><![CDATA[官方文档：pyecharts - A Python Echarts Plotting Library built with love.]]></description>
 </item></channel>
 </rss>

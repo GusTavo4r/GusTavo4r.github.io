@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://orangesodahub.github.io/zh-cn/categories/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://orangesodahub.github.io/zh-cn/categories/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://orangesodahub.github.io/categories/"
@@ -15,8 +15,7 @@
                     hreflang="zh-cn"
                     href="https://orangesodahub.github.io/zh-cn/categories/"
                     /></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/posts/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://orangesodahub.github.io/zh-cn/posts/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://orangesodahub.github.io/posts/"
@@ -29,9 +28,10 @@
                     hreflang="zh-cn"
                     href="https://orangesodahub.github.io/zh-cn/posts/"
                     /></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/tags/ros/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/categories/ros/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/tags/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://orangesodahub.github.io/zh-cn/tags/ros/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://orangesodahub.github.io/zh-cn/categories/ros/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://orangesodahub.github.io/zh-cn/ros-notes/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://orangesodahub.github.io/zh-cn/tags/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://orangesodahub.github.io/tags/"
@@ -44,8 +44,8 @@
                     hreflang="zh-cn"
                     href="https://orangesodahub.github.io/zh-cn/tags/"
                     /></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/tags/velodyne/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://orangesodahub.github.io/zh-cn/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://orangesodahub.github.io/zh-cn/tags/velodyne/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://orangesodahub.github.io/zh-cn/</loc><lastmod>2022-01-19T18:39:56&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://orangesodahub.github.io/"
@@ -58,6 +58,7 @@
                     hreflang="zh-cn"
                     href="https://orangesodahub.github.io/zh-cn/"
                     /></url><url>
+            <loc>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</loc><lastmod>2022-01-17T22:11:36&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://orangesodahub.github.io/zh-cn/0.82-semester-passed/</loc><lastmod>2021-12-11T21:06:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://orangesodahub.github.io/zh-cn/tags/catographer/</loc><lastmod>2021-12-01T12:44:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://orangesodahub.github.io/zh-cn/categories/catographer/</loc><lastmod>2021-12-01T12:44:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
