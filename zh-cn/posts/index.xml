@@ -10,7 +10,7 @@
     <pubDate>Wed, 19 Jan 2022 18:39:56 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://orangesodahub.github.io/zh-cn/ros-notes/</guid>
-    <description><![CDATA[工作空间 工作空间（workspace）是一个存放工程开发相关文件的文件夹。由4部分组成： src：代码空间（Source Space） devel]]></description>
+    <description><![CDATA[工作空间(Catkin文件系统) 工作空间（workspace）是一个存放工程开发相关文件的文件夹。由4部分组成： src：代码空间（Sourc]]></description>
 </item><item>
     <title>Gazebo导入veloydne 16线雷达模型</title>
     <link>https://orangesodahub.github.io/zh-cn/gazebo-import-velodyne-model/</link>
