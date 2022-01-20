@@ -50,7 +50,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/orangesodahub.github.io\/zh-cn\/ros-notes\/"
-        },"image": ["https:\/\/orangesodahub.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ROS, velodyne","wordcount":  1171 ,
+        },"image": ["https:\/\/orangesodahub.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "ROS, velodyne","wordcount":  1246 ,
         "url": "https:\/\/orangesodahub.github.io\/zh-cn\/ros-notes\/","datePublished": "2022-01-19T18:39:56+08:00","dateModified": "2022-01-19T18:39:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "ZonLin","logo": "https:\/\/orangesodahub.github.io\/images\/%E4%B8%8B%E8%BD%BD.jpg"},"author": {
@@ -145,7 +145,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">ROS</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>zonlin</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/ros/"><i class="far fa-folder fa-fw"></i>ROS</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-19">2022-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1171 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-19">2022-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1246 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -184,6 +184,7 @@
                 </li>
               </ul>
             </li>
+            <li><a href="#urdf-文件">.urdf 文件</a></li>
           </ul>
         </li>
       </ul>
@@ -492,6 +493,60 @@ $ catkin_make
 <li>file：包含的其他launch文件的路径</li>
 </ul>
 <p>.launch文件由roslaunch命令唤起，roslaunch命令详见<a href="http://wiki.ros.org/roslaunch" target="_blank" rel="noopener noreffer">此处</a>。</p>
+<h4 id="urdf-文件">.urdf 文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;robot</span> <span class="na">name=</span><span class="s">&#34;test_robot&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&#34;link1&#34;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&#34;link2&#34;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&#34;link3&#34;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&#34;link4&#34;</span> <span class="nt">/&gt;</span>
+ 
+  <span class="nt">&lt;joint</span> <span class="na">name=</span><span class="s">&#34;joint1&#34;</span> <span class="na">type=</span><span class="s">&#34;continuous&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;parent</span> <span class="na">link=</span><span class="s">&#34;link1&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;child</span> <span class="na">link=</span><span class="s">&#34;link2&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/joint&gt;</span>
+ 
+  <span class="nt">&lt;joint</span> <span class="na">name=</span><span class="s">&#34;joint2&#34;</span> <span class="na">type=</span><span class="s">&#34;continuous&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;parent</span> <span class="na">link=</span><span class="s">&#34;link1&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;child</span> <span class="na">link=</span><span class="s">&#34;link3&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/joint&gt;</span>
+ 
+  <span class="nt">&lt;joint</span> <span class="na">name=</span><span class="s">&#34;joint3&#34;</span> <span class="na">type=</span><span class="s">&#34;continuous&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;parent</span> <span class="na">link=</span><span class="s">&#34;link3&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;child</span> <span class="na">link=</span><span class="s">&#34;link4&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/joint&gt;</span>
+<span class="nt">&lt;/robot&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><figure><img src="/images/21.png"/><figcaption>
+            <h4>joints和links</h4>
+        </figcaption>
+</figure>
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><div class="post-footer" id="post-footer">
     <div class="post-info">

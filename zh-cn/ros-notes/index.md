@@ -201,3 +201,31 @@ launch文件内部的局部变量，仅限于launch文件使用。
 - file：包含的其他launch文件的路径
 
 .launch文件由roslaunch命令唤起，roslaunch命令详见[此处](http://wiki.ros.org/roslaunch)。
+
+#### .urdf 文件
+
+```xml
+<robot name="test_robot">
+  <link name="link1" />
+  <link name="link2" />
+  <link name="link3" />
+  <link name="link4" />
+ 
+  <joint name="joint1" type="continuous">
+    <parent link="link1"/>
+    <child link="link2"/>
+  </joint>
+ 
+  <joint name="joint2" type="continuous">
+    <parent link="link1"/>
+    <child link="link3"/>
+  </joint>
+ 
+  <joint name="joint3" type="continuous">
+    <parent link="link3"/>
+    <child link="link4"/>
+  </joint>
+</robot>
+```
+
+{{<figure src="/images/21.png" title="joints和links">}}
