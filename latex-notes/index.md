@@ -1,4 +1,0 @@
-# LATEX NOTES
-
-
-
