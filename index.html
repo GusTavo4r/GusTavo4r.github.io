@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="seal_icon.png">
+  <script src="resources/js/scramble.js"></script>
   <title>Xiuyu Yang Homepage</title>
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -33,6 +34,17 @@
               <!-- <a href="resources/QiangZhang_Resume.pdf">CV</a> &nbsp/&nbsp -->
               <a href="https://github.com/OrangeSodahub">Github</a> <!-- &nbsp/&nbsp
               <a href="https://scholar.google.com/citations?user=ZvMAGSQAAAAJ&hl=en">Google Scholar</a> -->
+            </p>
+            <p>
+              <b>Email</b>:&nbsp
+              <font id="email" style="display:inline;">
+                <noscript><i>Please enable Javascript to view</i></noscript>
+              </font>
+              <script>
+                emailScramble = new scrambledString(document.getElementById('email'),
+                    'emailScramble', 'uynzme2dillinois.eu@',
+                    [2, 1, 3, 4, 6, 5, 7, 19, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 8]);
+              </script>
             </p>
           </td>
 
