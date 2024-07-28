@@ -12,6 +12,8 @@ function scrambledString(tag, objName, initScrambledString, initScrambledStringI
 	this.initAnimatedBubbleSort = initAnimatedBubbleSort;
 	this.bubbleSortStep = bubbleSortStep;
 	this.bubbleSortBookmark = 0;
+	this.sorted = false;
+	this.revealIndex = 0;
 
 	this.rescramble();
 	this.tag.innerHTML = this.string + ' <a href="#" onClick="' + this.objName + '.initAnimatedBubbleSort();return false;">what is it?</a>';
@@ -27,6 +29,7 @@ function rescramble() {
 			this.string.substring(indexToMove, indexToMove + 1);
 		this.string = scrambledStringTemp;
 	}
+	this.sorted = false;
 }
 
 function initAnimatedBubbleSort() {
@@ -59,5 +62,22 @@ function bubbleSortStep() {
 	this.bubbleSortBookmark = i;
 	if (!this.changed) {
 		clearInterval(this.interval);
+		if (!this.sorted) {
+			this.sorted = true;
+            this.revealIndex = 0;
+            this.revealReachOut();
+			// this.string += ' <span style="color: blue;"> reach out!</span>';
+			// this.tag.innerHTML = this.string;
+		}
 	}
+}
+
+scrambledString.prototype.revealReachOut = function() {
+    const fullMessage = ' reach out!';
+    if (this.revealIndex < fullMessage.length) {
+        this.string += `<span style="color: blue;">${fullMessage[this.revealIndex]}</span>`;
+        this.tag.innerHTML = this.string;
+        this.revealIndex ++;
+        setTimeout(() => this.revealReachOut(), 20);
+    }
 }
