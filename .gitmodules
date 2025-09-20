@@ -1,0 +1,3 @@
+[submodule "thirdparty/site-graph"]
+    path = thirdparty/site-graph
+    url = https://github.com/tomlinsonk/site-graph
