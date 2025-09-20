@@ -1,0 +1,58 @@
+
+.widget {
+    display: inline-block;
+    overflow: hidden;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; */
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+}
+.btn,
+.social-count {
+    position: relative;
+    display: inline-block;
+    display: inline-flex;
+    height: 14px;
+    padding: 2px 5px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    vertical-align: bottom;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-repeat: repeat-x;
+    background-position: -1px -1px;
+    background-size: 110% 110%;
+    border: 1px solid;
+}
+.btn {
+    border-radius: .25em;
+}
+.btn:not(:last-child) {
+    border-radius: .25em 0 0 .25em;
+}
+.social-count {
+    border-left: 0;
+    border-radius: 0 .25em .25em 0;
+}
+.widget-lg .btn,
+.widget-lg .social-count {
+    height: 16px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 16px;
+}
+.octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: currentColor;
+    overflow: visible;
+}
+.btn:focus-visible,
+.social-count:focus-visible {
+    outline: 2px solid #0969da;
+    outline-offset: -2px;
+}

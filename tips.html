@@ -1,0 +1,303 @@
+<meta charset="UTF-8">
+<html>
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BTVJYQEBT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BTVJYQEBT');
+</script>
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <title>Xiuyu Yang's Tips</title>
+    <style type="text/css">
+        body {
+          background-color: #ffffff;
+          font-family: Palatino;
+        }
+        .container {
+            background-color: #ffffff;
+            zoom: 1;
+            margin-left: auto;
+            margin-right: auto;
+            vertical-align: middle;
+            text-align: left;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            margin: 20px auto;
+        }
+        a {
+          color: #03c;
+          text-decoration: none;
+          transition: 0.3s all cubic-bezier(0.42, 0, 0.57, 1.96);
+        }
+        a:focus,
+        a:hover{
+          color: #FF4500;
+          border-color: #FF4500;
+        }
+        .code-container {
+        width: 100%;
+        box-sizing: border-box;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 10pt;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="styles/github.css" rel="stylesheet"
+</head>
+
+<script>
+    async function fetchStarCount(repo, id) {
+        try {
+            const response = await fetch(`https://api.github.com/repos/${repo}`);
+            if (!response.ok) {
+                throw new Error(`GitHub API error: ${response.statusText}`);
+            }
+            const data = await response.json();
+
+            document.getElementById(id).textContent = data.stargazers_count;
+        } catch (error) {
+            console.error('Failed to fetch star count:', error);
+            document.getElementById(id).textContent = 'Error';
+        }
+    }
+</script>
+
+<body>
+    <table border="0" width="800px" align="center" style="max-width: 800px; word-wrap: break-word;">
+        <tbody>
+            <tr>
+                <td valign="top" width="100%">
+                    <br>
+                    <table style="font-size: 12pt; max-width: 800px; word-wrap: break-word;" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <font size="6"><b>Tips</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<font size="4">[<a href="index.html">Back</a>]</font>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr size="2" align="left" noshade="">
+
+                    <p style="font-size: 13pt; text-align: left;"></p>
+                    <table cellspacing="15" border="0" width="100%" style="max-width: 800px; word-wrap: break-word;">
+                        <tbody>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+1.Consciously organize and manage various helper functions (like coordinate transformations, time functions) from early projects, also their codebases. This way, they will become increasingly convenient to use.
+                                </span>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+2.The walrus operator is a nice feature to simplify the codes.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>// Example1
+for data in (pbar := tqdm(dataloader)):
+    ...
+    pbar.set_posfix(...)
+// Example2
+if self.training and (is_mask := torch.rand(B) < 0.1).sum() > 0:
+    x[is_mask] = mask_embed[None, ...].repeat(is_mask.sum(), 1)
+</code></pre>
+                                </div>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+3.Break down complex pipelines into subparts, implement and verify them step by step (in ipynb), then assemble them in the end. This way, it is easier to debug issues and iterate version conveniently.
+                                </span>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+4.With trainable parameters A and non-trainable parameters B, using gradient checkpointing significantly reduces memory usage when A is much larger than B. However, if A is much smaller than B, it is best to disable it, as this will greatly speed up training.
+                                </span>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+5.Bitwise operations can be much faster than numerical opeartions.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>// Use
+x = 1 << 10
+// Instead of
+x = 2 ** 10
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+6.When modifying a Tensor through double slicing, the index in the second slice is different from the first. Carefully check the values after modification, as setting an invalid index will not raise an error.
+                                </span>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+7.DO NOT modify a Tensor through double masking, as it can change nothing. The 1st masking will create a new view targeting to the original Tensor, 2nd masking will create a new Tensor, which is different from slicing.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>// DO NOT
+A[mask_1][mask_2] = other_tensor
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+8.Use references in yaml configurations for simplification. Futhermore, use omegaconf to merge multiple yaml files.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>time_info: &time_info  // build references
+    key1: val1
+    key2: val2
+model:
+    <<: *time_info  // will inject all keys in time_info
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+9.During the loss decrease process, if unreasonable large and recoverable spikes appear regularly, consider numerical overflow issues, such as used bf16 mixed precision.
+                                </span>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+10.Be careful when feeding tensors into normalization layers.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>// the inputs
+A = torch.randn(B, N1, D)
+B = torch.randn(B, N2, D)
+layer = nn.LayerNorm(D)
+// operation1
+A1 = layer(A); B1 = layer(B)
+// operation2
+C = layer(torch.cat([A, B], dim=1))
+A2, B2 = C.split([N1, N2], dim=1)  // absolutely not equal to A1, B1
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+11.Use an asynchronous thread to serialize any (time-consuming) artifacts in large inference to greatly save time.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>// initialize task queue
+output_queue = queue.Queue()
+save_thread = ThreadPoolExecutor(max_workers=8)
+save_future = save_thread.submit(save_results, output_queue)
+// define task strategy
+def save_results(output_queue: queue.Queue) -> None:
+    while True:
+        try:
+            item = output_queue.get(timeout=30)
+            if item is None: break  // ending signal
+            ...  // serialize any artifacts to disk
+        except queue.Empty:
+            continue
+        except Exception as e:
+            break
+// continuously put artifacts into the queue
+for ... in loop:
+    outputs = ...  // get outputs from inference phase
+    output_queue.put(outputs)
+// end everything
+output_queue.put(None)
+save_thread.shutdown(wait=True)
+save_future.result()
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+12.DO NOT put a tensor after 'expand' operation on the left side of the '=' operator, or be careful using that function to tensors need to be modified (importantly, those with gradients!!!), as this operation actually construct a new view of the original (contiguous) tensor.
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>A = torch.ones((5,))  // original tensor
+A_expanded = A[None, :].expand(3, -1)
+A_expanded[:1, :1] += 2  // wrong operation
+print(A_expanded)
+>>> tensor([[3., 1., 1., 1., 1.],
+[3., 1., 1., 1., 1.],
+[3., 1., 1., 1., 1.]])
+A_expanded = A[None, :].expand(3, -1).contiguous()  // will return a new tensor, instead
+A_expanded[:1, :1] += 2
+print(A_expanded)
+>>> tensor([[3., 1., 1., 1., 1.],
+[1., 1., 1., 1., 1.],
+[1., 1., 1., 1., 1.]])
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+13.Like PyTorch but not popular used, 'numpy.ascontiguousarray' makes a numpy array to be C-contiguous, which is the only accepetable choice for some cases (e.g., C/C++, Cython):
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>// OpenCV requires that image data must be C-contiguous
+image = np.zeros((100, 100, 3), order='F')
+cv2.cvtColor(image_c, cv2.COLOR_BGR2GRAY)  // Error: Layout of the output array dst is
+                                                     incompatible with cv::Mat
+image_c = np.ascontiguousarray(image)
+cv2.cvtColor(image_c, cv2.COLOR_BGR2GRAY)
+// torch.from_numpy()
+torch.from_numpy(image)  // expected contiguous array
+torch.from_numpy(image_c) // Correct
+// Call 'reshape' or 'view' for numpy array
+a = np.arange(9)[::2]
+# a.reshape((3, 1))  // ValueError: cannot reshape
+a_c = np.ascontiguousarray(a)
+a_c.reshape((3, 1))  // Correct
+// Check if a numpy array is C-contiguous
+a.flags['C_CONTIGUOUS']
+</code></pre>
+                            </td></tr>
+
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+14....
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>ps aux | grep -iE 'python|cuda|tensorflow|torch'
+</code></pre>
+                            </td></tr>
+
+                        </tbody>
+                    </table>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -16,7 +16,7 @@ function scrambledString(tag, objName, initScrambledString, initScrambledStringI
 	this.revealIndex = 0;
 
 	this.rescramble();
-	this.tag.innerHTML = this.string + ' <a href="#" onClick="' + this.objName + '.initAnimatedBubbleSort();return false;">what is it?</a>';
+	this.tag.innerHTML = this.string + ' <a href="#" onClick="' + this.objName + '.initAnimatedBubbleSort();return false;">???</a>';
 }
 
 function rescramble() {
