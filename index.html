@@ -63,6 +63,10 @@ document.getElementById('selectedContent').style.display = 'block';
         .publication .links { position : relative; top : 15px }
         .publication .links a { margin-right : 20px; }
 
+        button.active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
         /* button {
             all: unset;
             display: inline-block;
@@ -396,18 +400,16 @@ document.getElementById('selectedContent').style.display = 'block';
 
             function showSelected() {
                 papers.forEach(paper => {
-                    if (paper.classList.contains('selected')) {
-                        paper.style.display = '';
-                    } else {
-                        paper.style.display = 'none';
-                    }
+                    paper.style.display = paper.classList.contains('selected') ? '' : 'none';
                 });
+                showSelectedBtn.classList.add('active');
+                showAllBtn.classList.remove('active');
             }
 
             function showAll() {
-                papers.forEach(paper => {
-                    paper.style.display = '';
-                });
+                papers.forEach(paper => paper.style.display = '');
+                showAllBtn.classList.add('active');
+                showSelectedBtn.classList.remove('active');
             }
 
             showSelectedBtn.addEventListener('click', showSelected);
