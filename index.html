@@ -67,27 +67,11 @@ document.getElementById('selectedContent').style.display = 'block';
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* button {
-            all: unset;
-            display: inline-block;
-            font-family: inherit;
-            font-size: 12pt;
-            padding: 3px 10px;
-            border: 1px solid #a3a2a2;
-            border-radius: 1px;
-            background-color: #e5e4e4;
-            cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
+        .plain-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: default;
         }
-
-        button:hover {
-            background-color: #eaeaea;
-            border-color: #aaa;
-        }
-
-        button:active {
-            background-color: #ddd;
-        } */
 
     </style>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -170,7 +154,7 @@ document.getElementById('selectedContent').style.display = 'block';
                 which.style.display="block"
             }
         </script>
-        
+
 
         <!-- Publications and Preprints -->
         <h2>
@@ -195,31 +179,11 @@ document.getElementById('selectedContent').style.display = 'block';
                                 <span style="font-size: 11pt;">
                                     BAAI RoboBrain-X0 Team 2025. <br>
                                     <!-- [<a href="https://arxiv.org/abs/2506.03079/">arXiv</a>] -->
-                                    <!-- [<a href="https://orangesodahub.github.io/ORV/assets/orv_preprint.pdf">pdf</a>] -->
                                     [<a href="https://github.com/FlagOpen/RoboBrain-X0">Preview</a>]
                                     <!-- [<a href="https://orangesodahub.github.io/ORV/">Page</a>] -->
                                 <br>
                         </td>
                     </tr>
-
-                    <!-- <tr>
-                        <td width="30%" align=left>
-                            <left>
-                            <img width=220 align="center" src="resources/imgs/UnisceneV2.png" border=1>
-                            </left>
-                        </td>
-                        <td>
-                            <span style="font-size: 13pt;">
-                            <b>Scaling Up Dataset and Method for Occupancy-centric Driving Scene Generation</b> <br>
-                            <span style="font-size: 11pt;">
-                                Bohan Li, Hongsi Liu, Hu Zhu, Ruikai Li, <b>Xiuyu Yang</b>, Wenjun Zeng, Xinjin, Hao Zhao<br>
-                                Preprint 2025. <br>
-                                [<a href="">arXiv</a>]
-                                [<a href="">Code</a>]
-                                [<a href="">Page</a>]
-                            <br>
-                        </td>
-                    </tr> -->
 
                     <tr class="paper selected">
                         <td width="30%" align=left>
@@ -252,7 +216,7 @@ document.getElementById('selectedContent').style.display = 'block';
                                 <b>Long-term Traffic Simulation with Interleaved Autoregressive Motion and Scenario Generation</b> <br>
                                 <span style="font-size: 11pt;">
                                     <b>Xiuyu Yang*</b>, Shuhan Tan*, Philipp Kr&auml;henb&uuml;hl<br>
-                                    ICCV 2025. <br>
+                                    <a class="plain-link" href="https://openaccess.thecvf.com/content/ICCV2025/html/Yang_Long-term_Traffic_Simulation_with_Interleaved_Autoregressive_Motion_and_Scenario_Generation_ICCV_2025_paper.html">ICCV 2025.</a> <br>
                                     [<a href="https://arxiv.org/abs/2506.17213">arXiv</a>]
                                     [<a href="https://orangesodahub.github.io/InfGen/assets/infgen_preprint.pdf">pdf</a>]
                                     [<a href="https://github.com/OrangeSodahub/infgen">Code</a>]
@@ -326,7 +290,7 @@ document.getElementById('selectedContent').style.display = 'block';
                                 <b>SceneCraft: Layout-Guided 3D Scene Generation</b> <br>
                                 <span style="font-size: 11pt;">
                                     <b>Xiuyu Yang*</b>, Yunze Man*, Jun-Kun Chen, Yu-Xiong Wang<br>
-                                    <a href="https://nips.cc/virtual/2024/poster/96143" style="color: inherit; text-decoration: none;">NeurIPS 2024</a>. <br>
+                                    <a class="plain-link" href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/953d276d037e701fcd97dbb34ebb2394-Abstract-Conference.html">NeurIPS 2024</a>. <br>
                                     [<a href="https://arxiv.org/abs/2410.09049">arXiv</a>]
                                     [<a href="https://orangesodahub.github.io/SceneCraft/assets/scenecraft_preprint.pdf">pdf</a>]
                                     [<a href="https://github.com/OrangeSodahub/SceneCraft">Code</a>]
@@ -348,6 +312,7 @@ document.getElementById('selectedContent').style.display = 'block';
                                     <b>Xiuyu Yang*</b>, Zhuangyan Zhang*, Haikuo Du, Sui Yang, Fengping Sun, Yanbo Liu, Ling Pei, Wenchao Xu, Weiqi Sun, Zhengyu Li<br>
                                     Preprint 2023. <br>
                                     [<a href="https://arxiv.org/abs/2303.05203">arXiv</a>]
+                                    [<a href="https://arxiv.org/pdf/2303.05203">pdf</a>]
                                     [<a href="https://github.com/OrangeSodahub/CRLFnet">Code</a>]
                                 <br>
                         </td>
@@ -547,7 +512,7 @@ document.getElementById('selectedContent').style.display = 'block';
         My primary research works would not have been possible without the PhD student mentors Bohan Li at SJTU, Shuhan Tan at UT, Yunze Man and Jun-Kun Chen at UIUC, who gave me tremendous guidance and support along the way. Thanks them! -->
 
         <h2> Service </h2>
-        <b>Conference Reviewer:</b> NeurIPS, ICCV, IROS.
+        <b>Conference Reviewer:</b> NeurIPS, CVPR, IROS.
         <b>Journal Reviewer:</b> IEEE-TPAMI.
 
         <!-- Projects -->
