@@ -291,6 +291,21 @@ a.flags['C_CONTIGUOUS']
 </code></pre>
                             </td></tr>
 
+                            <tr><td width="100%">
+                                <span style="font-size: 13pt; display: flex; align-items: center; margin-left: 5px; max-width: 800px; word-wrap: break-word;">
+15. Better to block the configurations right before the training process, thus ensure that we will be aware of the potential typo bugs at the first moment.
+
+                                </span>
+                                <div class="code-container">
+                                    <pre class="code-block">
+<code>OmegaConf.set_struct(self.config, True)
+
+# If must modify the configurations:
+with OmegaConf.open_dict(self.config):
+    self.config.new_key = 0
+</code></pre>
+                            </td></tr>
+
                         </tbody>
                     </table>
                     
