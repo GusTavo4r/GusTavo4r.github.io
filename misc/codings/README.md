@@ -138,7 +138,7 @@ GitHub Actions 工作流会自动运行 `fetch_recent_data.py` 来每日更新�
    - 进入仓库 → Settings → Secrets and variables → Actions
    - 点击 "New repository secret"
    - Name: `WAKATIME_API_KEY`
-   - Value: 你的 WakaTime API Key（例如：`waka_bbfc4972-29b1-47e2-bab0-a822624e7123`）
+   - Value: 你的 WakaTime API Key（格式：`waka_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`）
    - 点击 "Add secret"
 
 2. 工作流会自动使用该 Secret 作为环境变量传递给脚本
