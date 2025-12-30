@@ -33,11 +33,12 @@ jobs:
         
     - name: Fetch recent WakaTime data
       env:
-        WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY || 'waka_bbfc4972-29b1-47e2-bab0-a822624e7123' }}
+        WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
       run: |
-        # Update API key in script if provided via secret
-        if [ -n "$WAKATIME_API_KEY" ] && [ "$WAKATIME_API_KEY" != "waka_bbfc4972-29b1-47e2-bab0-a822624e7123" ]; then
-          sed -i "s/waka_bbfc4972-29b1-47e2-bab0-a822624e7123/$WAKATIME_API_KEY/g" misc/codings/fetch_recent_data.py
+        if [ -z "$WAKATIME_API_KEY" ]; then
+          echo "Error: WAKATIME_API_KEY secret is not set in GitHub repository secrets"
+          echo "Please add your WakaTime API key as a secret named WAKATIME_API_KEY"
+          exit 1
         fi
         python3 misc/codings/fetch_recent_data.py
         

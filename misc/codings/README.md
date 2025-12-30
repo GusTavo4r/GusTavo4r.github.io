@@ -21,10 +21,24 @@
 
 ## 使用方法
 
-### 1. 首次获取或重新获取所有历史数据
+### 0. 设置 API Key（必需）
+
+在运行脚本之前，需要设置 WakaTime API Key 作为环境变量：
 
 ```bash
 # 从项目根目录运行
+export WAKATIME_API_KEY='your-wakatime-api-key-here'
+```
+
+或者在一行中运行：
+```bash
+WAKATIME_API_KEY='your-wakatime-api-key-here' python3 misc/codings/fetch_all_data.py
+```
+
+### 1. 首次获取或重新获取所有历史数据
+
+```bash
+# 从项目根目录运行（确保已设置 WAKATIME_API_KEY 环境变量）
 python3 misc/codings/fetch_all_data.py
 ```
 
@@ -38,7 +52,7 @@ python3 misc/codings/fetch_all_data.py
 ### 2. 增量更新（获取最近几天数据）
 
 ```bash
-# 从项目根目录运行（默认获取最近 3 天）
+# 从项目根目录运行（默认获取最近 3 天，确保已设置 WAKATIME_API_KEY 环境变量）
 python3 misc/codings/fetch_recent_data.py
 
 # 或者指定天数（例如获取最近 7 天）
@@ -116,14 +130,24 @@ GitHub Actions 工作流会自动运行 `fetch_recent_data.py` 来每日更新�
 2. **更新范围：** 最近 3 天的数据
 3. **工作流文件：** `.github/workflows/update-wakatime.yml`
 
-### 设置 GitHub Secrets（可选）
+### 设置 GitHub Secrets（必需）
 
-如果你想使用 GitHub Secrets 来存储 API Key（更安全），可以：
+**重要：** 由于安全原因，API Key 不再硬编码在代码中。你必须设置 GitHub Secret：
 
-1. 在 GitHub 仓库设置中添加 Secret：`WAKATIME_API_KEY`
-2. 工作流会自动使用该 Secret 替换脚本中的 API Key
+1. 在 GitHub 仓库设置中添加 Secret：
+   - 进入仓库 → Settings → Secrets and variables → Actions
+   - 点击 "New repository secret"
+   - Name: `WAKATIME_API_KEY`
+   - Value: 你的 WakaTime API Key（例如：`waka_bbfc4972-29b1-47e2-bab0-a822624e7123`）
+   - 点击 "Add secret"
 
-如果不设置 Secret，脚本会使用硬编码的 API Key（已包含在脚本中）。
+2. 工作流会自动使用该 Secret 作为环境变量传递给脚本
+
+**本地运行：** 在本地运行脚本时，需要设置环境变量：
+```bash
+export WAKATIME_API_KEY='your-api-key-here'
+python3 misc/codings/fetch_recent_data.py
+```
 
 ### 手动触发
 
