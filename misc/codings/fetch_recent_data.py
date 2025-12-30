@@ -21,9 +21,13 @@ from collections import OrderedDict
 # Configuration
 # API Key should be set via environment variable WAKATIME_API_KEY
 # For local use, you can set it in your shell: export WAKATIME_API_KEY='your-key-here'
-WAKATIME_API_KEY = os.environ.get('WAKATIME_API_KEY', '')
+WAKATIME_API_KEY = os.environ.get('WAKATIME_API_KEY', '').strip()
 if not WAKATIME_API_KEY:
     raise ValueError("WAKATIME_API_KEY environment variable is required. Please set it before running this script.")
+# Validate API key format (should start with 'waka_')
+if not WAKATIME_API_KEY.startswith('waka_'):
+    logger.warning(f"⚠️  API Key format may be incorrect. Expected format: waka_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+    logger.warning(f"   Got: {WAKATIME_API_KEY[:10]}... (first 10 chars)")
 API_BASE = 'https://api.wakatime.com/api/v1'
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATS_PATH = os.path.join(SCRIPT_DIR, 'wakatime_stats.json')

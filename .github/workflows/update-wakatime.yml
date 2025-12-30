@@ -36,10 +36,25 @@ jobs:
         WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
       run: |
         if [ -z "$WAKATIME_API_KEY" ]; then
-          echo "Error: WAKATIME_API_KEY secret is not set in GitHub repository secrets"
-          echo "Please add your WakaTime API key as a secret named WAKATIME_API_KEY"
+          echo "❌ Error: WAKATIME_API_KEY secret is not set in GitHub repository secrets"
+          echo ""
+          echo "To fix this:"
+          echo "1. Go to: https://github.com/${{ github.repository }}/settings/secrets/actions"
+          echo "2. Click 'New repository secret'"
+          echo "3. Name: WAKATIME_API_KEY"
+          echo "4. Value: your-wakatime-api-key (format: waka_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)"
+          echo "5. Click 'Add secret'"
           exit 1
         fi
+        
+        # Validate API key format (basic check)
+        if [[ ! "$WAKATIME_API_KEY" =~ ^waka_ ]]; then
+          echo "⚠️  Warning: API Key format may be incorrect"
+          echo "   Expected format: waka_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          echo "   Got: ${WAKATIME_API_KEY:0:20}... (first 20 chars)"
+        fi
+        
+        echo "✅ API Key found (length: ${#WAKATIME_API_KEY} chars)"
         python3 misc/codings/fetch_recent_data.py
         
     - name: Commit and push changes
