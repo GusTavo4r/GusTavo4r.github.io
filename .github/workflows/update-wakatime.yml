@@ -1,0 +1,51 @@
+name: Update WakaTime Data
+
+on:
+  schedule:
+    # Run daily at 00:00 Beijing Time (UTC+8)
+    # Example: Beijing 2025-01-01 00:00 = UTC 2024-12-31 16:00
+    # Cron uses UTC time, so we set it to 16:00 UTC to match Beijing 00:00
+    - cron: '0 16 * * *'  # UTC 16:00 = Beijing 00:00 (next day)
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write # Required to commit changes
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install tqdm
+        
+    - name: Fetch recent WakaTime data
+      env:
+        WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY || 'waka_bbfc4972-29b1-47e2-bab0-a822624e7123' }}
+      run: |
+        # Update API key in script if provided via secret
+        if [ -n "$WAKATIME_API_KEY" ] && [ "$WAKATIME_API_KEY" != "waka_bbfc4972-29b1-47e2-bab0-a822624e7123" ]; then
+          sed -i "s/waka_bbfc4972-29b1-47e2-bab0-a822624e7123/$WAKATIME_API_KEY/g" misc/codings/fetch_recent_data.py
+        fi
+        python3 misc/codings/fetch_recent_data.py
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add misc/codings/wakatime_*.json
+        git diff --staged --quiet || git commit -m "Auto-update WakaTime data [skip ci]"
+        git push
+

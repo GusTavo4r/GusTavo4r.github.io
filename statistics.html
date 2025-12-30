@@ -1,0 +1,928 @@
+<meta charset="UTF-8">
+<html>
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BTVJYQEBT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2BTVJYQEBT');
+</script>
+
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <title>Xiuyu Yang's Statistics</title>
+    <style type="text/css">
+        body {
+          background-color: #ffffff;
+          font-family: Palatino;
+        }
+        .container {
+            background-color: #ffffff;
+            zoom: 1;
+            margin-left: auto;
+            margin-right: auto;
+            vertical-align: middle;
+            text-align: left;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            margin: 20px auto;
+        }
+        a {
+          color: #03c;
+          text-decoration: none;
+          transition: 0.3s all cubic-bezier(0.42, 0, 0.57, 1.96);
+        }
+        a:focus,
+        a:hover{
+          color: #FF4500;
+          border-color: #FF4500;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 750px;
+            height: 400px;
+            margin: 20px 0;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 13pt;
+            color: #666;
+        }
+        .error {
+            text-align: center;
+            padding: 20px;
+            font-size: 13pt;
+            color: #d32f2f;
+        }
+        .stats-info {
+            font-size: 12pt;
+            color: #666;
+            margin: 10px 0;
+        }
+    </style>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="styles/github.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+
+<body>
+    <table border="0" width="800px" align="center">
+        <tbody>
+            <tr>
+                <td valign="top">
+                    <br>
+                    <table style="font-size: 12pt;" border="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <font size="6"><b>Statistics</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<font size="4">[<a href="index.html">Back</a>]</font>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr size="2" align="left" noshade="">
+
+                    <p style="font-size: 13pt; text-align: left;">Coding time statistics from WakaTime (since 2022-04-22):</p>
+                    
+                    <div style="margin: 10px 0;">
+                        <label style="font-size: 12pt; cursor: pointer; margin-right: 20px;">
+                            <input type="checkbox" id="showInactiveDays" checked style="margin-right: 5px; cursor: pointer;">
+                            Highlight inactive days
+                        </label>
+                        <label style="font-size: 12pt; cursor: pointer;">
+                            <input type="checkbox" id="showYearDividers" checked style="margin-right: 5px; cursor: pointer;">
+                            Show year dividers
+                        </label>
+                    </div>
+                    
+                    <div id="loadingMessage" class="loading">
+                        Loading coding time data...
+                    </div>
+
+                    <div id="errorMessage" class="error" style="display: none;"></div>
+
+                    <div class="chart-container" id="chartContainer" style="display: none;">
+                        <canvas id="codingTimeChart"></canvas>
+                    </div>
+
+                    <div id="statsInfo" class="stats-info" style="display: none;"></div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<script>
+    let codingChart = null;
+    
+    // Configure date ranges for missing data (displayed with light red background)
+    // Format: [{ start: 'YYYY-MM-DD', end: 'YYYY-MM-DD' }, ...]
+    const MISSING_DATA_RANGES = [
+        // Example: July 1 to October 1, 2025
+        { start: '2025-06-22', end: '2025-8-16' },
+        // You can add more date ranges here, for example:
+        // { start: '2024-01-15', end: '2024-02-20' },
+    ];
+    
+    // Store chart data for checkbox toggling
+    let chartDataCache = null;
+    
+    // Load data automatically when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+        loadWakaTimeData();
+        
+        // Add checkbox event listeners
+        document.getElementById('showInactiveDays').addEventListener('change', () => {
+            if (chartDataCache) {
+                displayChart(chartDataCache.labels, chartDataCache.hours, chartDataCache.inactiveDays, chartDataCache.yearlyHours, chartDataCache.dailyHours, chartDataCache.dailyProjects);
+            }
+        });
+        
+        document.getElementById('showYearDividers').addEventListener('change', () => {
+            if (chartDataCache) {
+                displayChart(chartDataCache.labels, chartDataCache.hours, chartDataCache.inactiveDays, chartDataCache.yearlyHours, chartDataCache.dailyHours, chartDataCache.dailyProjects);
+            }
+        });
+    });
+
+    async function loadWakaTimeData() {
+        // Show loading
+        document.getElementById('loadingMessage').style.display = 'block';
+        document.getElementById('errorMessage').style.display = 'none';
+        document.getElementById('chartContainer').style.display = 'none';
+        document.getElementById('statsInfo').style.display = 'none';
+
+        try {
+            // Load from static JSON files (generated by GitHub Actions)
+            // These files are updated every 6 hours by the GitHub Actions workflow
+            const [statsResponse, summariesResponse] = await Promise.all([
+                fetch('misc/codings/wakatime_stats.json'),
+                fetch('misc/codings/wakatime_summaries.json')
+            ]);
+            
+            if (!statsResponse.ok || !summariesResponse.ok) {
+                throw new Error(`Failed to load data files. Status: ${statsResponse.status}, ${summariesResponse.status}`);
+            }
+            
+            const data = await statsResponse.json();
+            const summariesData = await summariesResponse.json();
+            
+            // Validate data structure
+            if (!data || !data.data) {
+                throw new Error('Invalid stats data format');
+            }
+            // Summaries data can be new format (daily_data) or old format (data array)
+            if (!summariesData || (!summariesData.daily_data && !summariesData.data)) {
+                throw new Error('Invalid summaries data format');
+            }
+
+            // Process data for chart
+            const chartData = processSummariesData(summariesData);
+            
+            // Cache chart data for checkbox toggling
+            chartDataCache = chartData;
+            
+            // Display chart (only if we have daily data)
+            if (chartData.labels.length > 0) {
+                displayChart(chartData.labels, chartData.hours, chartData.inactiveDays, chartData.yearlyHours, chartData.dailyHours, chartData.dailyProjects);
+                document.getElementById('chartContainer').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+            } else {
+                // Show message if no daily data available
+                document.getElementById('chartContainer').style.display = 'none';
+                const errorDiv = document.getElementById('errorMessage');
+                errorDiv.style.display = 'block';
+                errorDiv.style.color = '#666';
+                errorDiv.innerHTML = 'Daily breakdown data requires WakaTime premium account. Showing overall statistics below.';
+            }
+            
+            // Display stats info
+            displayStatsInfo(data, summariesData, chartData.projectHours, chartData.yearlyProjectHours);
+
+            document.getElementById('loadingMessage').style.display = 'none';
+            document.getElementById('statsInfo').style.display = 'block';
+
+        } catch (error) {
+            console.error('Error loading WakaTime data:', error);
+            document.getElementById('loadingMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('errorMessage').innerHTML = 
+                'Error loading data: ' + error.message + '.<br>' +
+                'Please ensure GitHub Actions workflow has run and generated the JSON files.';
+        }
+    }
+
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    function processSummariesData(summariesData) {
+        const labels = [];
+        const cumulativeHours = [];
+        const dailyHours = []; // Track daily hours for each day
+        const dailyProjects = []; // Track daily projects for each day
+        const inactiveDays = []; // Track inactive days
+        const yearlyHours = {}; // Track total hours per year { year: totalHours }
+        const projectHours = {}; // Track total hours per project { projectName: totalHours }
+        const yearlyProjectHours = {}; // Track hours per project per year { year: { projectName: hours } }
+        let runningTotal = 0; // Cumulative total in hours
+        
+        // Start date: 2022-04-22
+        const startDate = new Date('2022-04-22');
+        startDate.setHours(0, 0, 0, 0);
+
+        // Handle new format: {metadata: {...}, daily_data: {"2022-01-01": {...}}}
+        let dailyData = null;
+        
+        if (summariesData.daily_data) {
+            // New format: daily_data is a dict with dates as keys
+            dailyData = summariesData.daily_data;
+        } else if (summariesData.data && Array.isArray(summariesData.data)) {
+            // Old format: data is an array
+            // Convert to new format for processing
+            dailyData = {};
+            summariesData.data.forEach(day => {
+                const date = day.range?.date;
+                if (date) {
+                    dailyData[date] = {
+                        date: date,
+                        total_seconds: day.grand_total?.total_seconds || 0,
+                        total_hours: (day.grand_total?.total_seconds || 0) / 3600
+                    };
+                }
+            });
+        }
+        
+        if (dailyData && Object.keys(dailyData).length > 0) {
+            // Sort dates chronologically
+            const sortedDates = Object.keys(dailyData).sort();
+            
+            // Process each day and calculate cumulative total
+            sortedDates.forEach(date => {
+                const dateObj = new Date(date);
+                dateObj.setHours(0, 0, 0, 0);
+                
+                // Only process data from 2022-04-22 onwards
+                if (dateObj >= startDate) {
+                    const day = dailyData[date];
+                    labels.push(date);
+                    
+                    // Get hours for this day
+                    const dayHours = day.total_hours || (day.total_seconds || 0) / 3600;
+                    dailyHours.push(dayHours);
+                    
+                    // Track inactive day (coding time <= 0.01 hours)
+                    if (dayHours <= 0.01) {
+                        inactiveDays.push(date);
+                    }
+                    
+                    // Track total hours per year
+                    const year = dateObj.getFullYear();
+                    if (!yearlyHours[year]) {
+                        yearlyHours[year] = 0;
+                    }
+                    yearlyHours[year] += dayHours;
+                    
+                    // Store daily projects for tooltip
+                    const dayProjects = [];
+                    if (day.projects && Array.isArray(day.projects)) {
+                        day.projects.forEach(project => {
+                            const projectName = project.name || 'Unknown';
+                            const projectSeconds = project.seconds || 0;
+                            const projectHoursValue = projectSeconds / 3600;
+                            
+                            dayProjects.push({ name: projectName, hours: projectHoursValue });
+                            
+                            // Track total project hours
+                            if (!projectHours[projectName]) {
+                                projectHours[projectName] = 0;
+                            }
+                            projectHours[projectName] += projectHoursValue;
+                            
+                            // Track yearly project hours
+                            if (!yearlyProjectHours[year]) {
+                                yearlyProjectHours[year] = {};
+                            }
+                            if (!yearlyProjectHours[year][projectName]) {
+                                yearlyProjectHours[year][projectName] = 0;
+                            }
+                            yearlyProjectHours[year][projectName] += projectHoursValue;
+                        });
+                    }
+                    dailyProjects.push(dayProjects);
+                    
+                    // Add to cumulative total
+                    runningTotal += dayHours;
+                    cumulativeHours.push(parseFloat(runningTotal.toFixed(2)));
+                }
+            });
+        }
+
+        return { labels, hours: cumulativeHours, dailyHours, dailyProjects, inactiveDays, yearlyHours, projectHours, yearlyProjectHours };
+    }
+
+    function displayChart(labels, hours, inactiveDays, yearlyHours, dailyHours, dailyProjects) {
+        const ctx = document.getElementById('codingTimeChart').getContext('2d');
+        
+        // Destroy existing chart if it exists
+        if (codingChart) {
+            codingChart.destroy();
+        }
+
+        // Generate annotations for missing data regions
+        let annotations = generateMissingDataAnnotations(labels);
+        
+        // If checkbox is checked, add light gray background for inactive days
+        const showInactiveDays = document.getElementById('showInactiveDays').checked;
+        if (showInactiveDays && inactiveDays && inactiveDays.length > 0) {
+            const inactiveAnnotations = generateInactiveDaysAnnotations(labels, inactiveDays);
+            annotations = { ...annotations, ...inactiveAnnotations };
+        }
+        
+        // If checkbox is checked, add year dividers
+        const showYearDividers = document.getElementById('showYearDividers').checked;
+        if (showYearDividers && yearlyHours) {
+            const yearDividerAnnotations = generateYearDividerAnnotations(labels, yearlyHours, hours);
+            annotations = { ...annotations, ...yearDividerAnnotations };
+        }
+
+        // Store daily data for tooltip access
+        const tooltipDailyHours = dailyHours || [];
+        const tooltipDailyProjects = dailyProjects || [];
+        const tooltipHours = hours || [];
+        
+        codingChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Cumulative Coding Time (hours)',
+                    data: hours,
+                    borderColor: '#03c',
+                    backgroundColor: 'rgba(0, 51, 204, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.1, // Lower tension for cumulative data
+                    pointRadius: 0, // Point radius: 0 = hidden, 1 = small, 2 = medium
+                    pointHoverRadius: 3, // Point radius on hover
+                    pointBackgroundColor: '#03c',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 1,
+                    stepped: false // Smooth curve
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function(context) {
+                                const dataIndex = context.dataIndex;
+                                const cumulativeHours = context.parsed.y;
+                                const totalHours = Math.floor(cumulativeHours);
+                                const totalMinutes = Math.round((cumulativeHours - totalHours) * 60);
+                                
+                                // Get daily hours for this day
+                                const dayHours = tooltipDailyHours[dataIndex] || 0;
+                                const dayHoursInt = Math.floor(dayHours);
+                                const dayMinutes = Math.round((dayHours - dayHoursInt) * 60);
+                                
+                                // Calculate growth rate (slope) over 3 days
+                                let growthRate = 'N/A';
+                                if (dataIndex >= 2 && tooltipHours.length > dataIndex) {
+                                    const currentHours = tooltipHours[dataIndex];
+                                    const threeDaysAgoHours = tooltipHours[dataIndex - 2];
+                                    const hoursDiff = currentHours - threeDaysAgoHours;
+                                    growthRate = (hoursDiff / 2).toFixed(2) + 'h/day';
+                                }
+                                
+                                // Get top 3 projects for this day
+                                let topProjects = 'N/A';
+                                if (tooltipDailyProjects[dataIndex] && tooltipDailyProjects[dataIndex].length > 0) {
+                                    const sortedProjects = [...tooltipDailyProjects[dataIndex]]
+                                        .sort((a, b) => b.hours - a.hours)
+                                        .slice(0, 3);
+                                    topProjects = sortedProjects.map(p => p.name).join(', ');
+                                }
+                                
+                                // Build tooltip content
+                                const lines = [];
+                                lines.push(`Total: ${totalHours}h ${totalMinutes}m`);
+                                lines.push(`Today: ${dayHoursInt}h ${dayMinutes}m`);
+                                lines.push(`Growth (3d): ${growthRate}`);
+                                if (topProjects !== 'N/A') {
+                                    lines.push(`Top 3: ${topProjects}`);
+                                }
+                                
+                                return lines;
+                            }
+                        }
+                    },
+                    annotation: {
+                        annotations: annotations
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        },
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Cumulative Hours'
+                        },
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                if (value >= 1000) {
+                                    return (value / 1000).toFixed(1) + 'k h';
+                                }
+                                return value + 'h';
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    axis: 'x',
+                    intersect: false
+                }
+            }
+        });
+    }
+
+    /**
+     * Generate annotations for missing data regions
+     * @param {Array<string>} labels - All date labels in the chart
+     * @returns {Object} Annotations configuration object
+     */
+    function generateMissingDataAnnotations(labels) {
+        if (!MISSING_DATA_RANGES || MISSING_DATA_RANGES.length === 0) {
+            return {};
+        }
+
+        const annotations = {};
+
+        MISSING_DATA_RANGES.forEach((range, index) => {
+            const startDate = new Date(range.start);
+            const endDate = new Date(range.end);
+            
+            // Find start and end indices within chart labels
+            let startIndex = -1;
+            let endIndex = -1;
+            
+            for (let i = 0; i < labels.length; i++) {
+                const labelDate = new Date(labels[i]);
+                if (startIndex === -1 && labelDate >= startDate) {
+                    startIndex = i;
+                }
+                if (labelDate <= endDate) {
+                    endIndex = i;
+                }
+            }
+            
+            // If valid range found, create background region
+            if (startIndex !== -1 && endIndex !== -1 && startIndex <= endIndex) {
+                // Create light red background region, no border
+                annotations[`missing-data-${index}`] = {
+                    type: 'box',
+                    xMin: labels[startIndex],
+                    xMax: labels[endIndex],
+                    backgroundColor: 'rgba(255, 182, 193, 0.3)',
+                    borderWidth: 0,
+                    drawTime: 'beforeDatasetsDraw'
+                };
+            }
+        });
+
+        return annotations;
+    }
+
+    /**
+     * Generate light gray background annotations for inactive days
+     * @param {Array<string>} labels - All date labels in the chart
+     * @param {Array<string>} inactiveDays - Array of inactive day dates
+     * @returns {Object} Annotations configuration object
+     */
+    function generateInactiveDaysAnnotations(labels, inactiveDays) {
+        if (!inactiveDays || inactiveDays.length === 0) {
+            return {};
+        }
+
+        const annotations = {};
+        const inactiveSet = new Set(inactiveDays);
+        
+        // Merge consecutive inactive days into ranges
+        let currentStart = null;
+        let currentEnd = null;
+        let rangeIndex = 0;
+        
+        labels.forEach((date, index) => {
+            if (inactiveSet.has(date)) {
+                if (currentStart === null) {
+                    currentStart = date;
+                    currentEnd = date;
+                } else {
+                    // Check if consecutive (adjacent dates)
+                    const prevDate = new Date(labels[index - 1]);
+                    const currDate = new Date(date);
+                    const daysDiff = (currDate - prevDate) / (1000 * 60 * 60 * 24);
+                    
+                    if (daysDiff === 1) {
+                        // Consecutive dates, extend range
+                        currentEnd = date;
+                    } else {
+                        // Not consecutive, save current range and start new one
+                        if (currentStart && currentEnd) {
+                            annotations[`inactive-${rangeIndex}`] = {
+                                type: 'box',
+                                xMin: currentStart,
+                                xMax: currentEnd,
+                                backgroundColor: 'rgba(200, 200, 200, 0.2)',
+                                borderWidth: 0,
+                                drawTime: 'beforeDatasetsDraw'
+                            };
+                            rangeIndex++;
+                        }
+                        currentStart = date;
+                        currentEnd = date;
+                    }
+                }
+            } else {
+                // Current date is not inactive, if there's an unsaved range, save it
+                if (currentStart && currentEnd) {
+                    annotations[`inactive-${rangeIndex}`] = {
+                        type: 'box',
+                        xMin: currentStart,
+                        xMax: currentEnd,
+                        backgroundColor: 'rgba(200, 200, 200, 0.2)',
+                        borderWidth: 0,
+                        drawTime: 'beforeDatasetsDraw'
+                    };
+                    rangeIndex++;
+                    currentStart = null;
+                    currentEnd = null;
+                }
+            }
+        });
+        
+        // Handle last range if exists
+        if (currentStart && currentEnd) {
+            annotations[`inactive-${rangeIndex}`] = {
+                type: 'box',
+                xMin: currentStart,
+                xMax: currentEnd,
+                backgroundColor: 'rgba(200, 200, 200, 0.2)',
+                borderWidth: 0,
+                drawTime: 'beforeDatasetsDraw'
+            };
+        }
+
+        return annotations;
+    }
+
+    /**
+     * Generate year divider line annotations
+     * @param {Array<string>} labels - All date labels in the chart
+     * @param {Object} yearlyHours - Total hours per year { year: totalHours }
+     * @param {Array<number>} hours - Cumulative hours array
+     * @returns {Object} Annotations configuration object
+     */
+    function generateYearDividerAnnotations(labels, yearlyHours, hours) {
+        if (!labels || labels.length === 0 || !yearlyHours) {
+            return {};
+        }
+
+        const annotations = {};
+        const years = Object.keys(yearlyHours).map(y => parseInt(y)).sort();
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const lastLabel = labels[labels.length - 1];
+        const lastLabelDate = new Date(lastLabel);
+        
+        years.forEach((year, index) => {
+            const yearHours = yearlyHours[year] || 0;
+            let yearStartLabel = null;
+            let yearEndLabel = null;
+            let isCompleteYear = false;
+            
+            // Find the start of this year
+            const yearStartDate = `${year}-01-01`;
+            for (let i = 0; i < labels.length; i++) {
+                const labelDate = new Date(labels[i]);
+                const yearStart = new Date(yearStartDate);
+                yearStart.setHours(0, 0, 0, 0);
+                if (labelDate >= yearStart) {
+                    yearStartLabel = labels[i];
+                    break;
+                }
+            }
+            
+            // Determine the end position for this year's label
+            if (index < years.length - 1) {
+                // Not the last year - find the start of next year (the divider line)
+                const nextYear = years[index + 1];
+                const nextYearStartDate = `${nextYear}-01-01`;
+                
+                for (let i = 0; i < labels.length; i++) {
+                    const labelDate = new Date(labels[i]);
+                    const nextYearStart = new Date(nextYearStartDate);
+                    nextYearStart.setHours(0, 0, 0, 0);
+                    if (labelDate >= nextYearStart) {
+                        yearEndLabel = labels[i];
+                        isCompleteYear = true;
+                        break;
+                    }
+                }
+            } else {
+                // Last year - use the last label in the chart
+                yearEndLabel = lastLabel;
+                // Check if it's a complete year (has data until Dec 31)
+                const yearEndDate = new Date(`${year}-12-31`);
+                isCompleteYear = lastLabelDate >= yearEndDate && year < currentYear;
+            }
+            
+            // Create divider line at the start of this year (for all years except first)
+            if (index > 0 && yearStartLabel) {
+                annotations[`year-divider-${year}`] = {
+                    type: 'line',
+                    xMin: yearStartLabel,
+                    xMax: yearStartLabel,
+                    borderColor: '#808080',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    drawTime: 'beforeDatasetsDraw'
+                };
+            }
+            
+            // Create year label at the end position
+            if (yearEndLabel) {
+                // For complete years: label right edge touches the divider line
+                // For incomplete years: label right edge touches chart right boundary
+                const xAdjustValue = isCompleteYear ? -5 : 0;
+                
+                // Create a minimal line at x-axis to attach the label
+                annotations[`year-label-${year}`] = {
+                    type: 'line',
+                    xMin: yearEndLabel,
+                    xMax: yearEndLabel,
+                    yMin: 0,
+                    yMax: 0,
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    drawTime: 'afterDraw', // Draw after all other elements to ensure labels are on top
+                    label: {
+                        display: true,
+                        content: `${year}: ${yearHours.toFixed(1)}h`,
+                        position: 'end',
+                        backgroundColor: 'rgba(128, 128, 128, 0.8)',
+                        color: '#ffffff',
+                        font: {
+                            size: 11,
+                            weight: 'bold'
+                        },
+                        padding: {
+                            top: 4,
+                            bottom: 4,
+                            left: 6,
+                            right: 6
+                        },
+                        xAdjust: xAdjustValue, // Horizontal adjustment: negative moves left, positive moves right
+                        yAdjust: -2 // Vertical adjustment: negative moves up, positive moves down
+                    }
+                };
+            }
+        });
+
+        return annotations;
+    }
+
+    function displayStatsInfo(data, summariesData, projectHours, yearlyProjectHours) {
+        if (!data || !data.data) return;
+
+        const stats = data.data;
+        let infoHtml = '<p style="font-size: 12pt; margin-top: 20px;">';
+        
+        // Calculate total from all historical data
+        let totalHistoricalHours = 0;
+        let daysWithActivity = 0;
+        let maxDayHours = 0;
+        let maxDayDate = null;
+        
+        if (summariesData && summariesData.daily_data) {
+            // New format
+            Object.values(summariesData.daily_data).forEach(day => {
+                const hours = day.total_hours || 0;
+                totalHistoricalHours += hours;
+                if (hours > 0) daysWithActivity++;
+                if (hours > maxDayHours) {
+                    maxDayHours = hours;
+                    maxDayDate = day.date;
+                }
+            });
+        } else if (summariesData && summariesData.data && Array.isArray(summariesData.data)) {
+            // Old format
+            summariesData.data.forEach(day => {
+                const seconds = day.grand_total?.total_seconds || 0;
+                const hours = seconds / 3600;
+                totalHistoricalHours += hours;
+                if (hours > 0) daysWithActivity++;
+                if (hours > maxDayHours) {
+                    maxDayHours = hours;
+                    maxDayDate = day.range?.date;
+                }
+            });
+        }
+        
+        // Display statistics
+        if (totalHistoricalHours > 0) {
+            infoHtml += `<b>Total Coding Time (Since 2022):</b> ${totalHistoricalHours.toFixed(2)} hours (${(totalHistoricalHours/24).toFixed(1)} days)<br>`;
+        }
+        
+        if (summariesData && summariesData.metadata) {
+            const meta = summariesData.metadata;
+            if (meta.date_range) {
+                infoHtml += `<b>Date Range:</b> ${meta.date_range.start} to ${meta.date_range.end}<br>`;
+            }
+            if (meta.total_days) {
+                infoHtml += `<b>Total Days:</b> ${meta.total_days} days<br>`;
+            }
+        }
+        
+        if (daysWithActivity > 0) {
+            infoHtml += `<b>Days with Activity:</b> ${daysWithActivity} days<br>`;
+            const avgHours = totalHistoricalHours / daysWithActivity;
+            infoHtml += `<b>Average (Active Days):</b> ${avgHours.toFixed(2)} hours<br>`;
+        }
+        
+        if (maxDayDate && maxDayHours > 0) {
+            infoHtml += `<b>Best Day:</b> ${maxDayDate} (${maxDayHours.toFixed(2)} hours)<br>`;
+        } else if (stats.best_day && stats.best_day.date) {
+            const bestDayDate = new Date(stats.best_day.date);
+            const bestDayHours = (stats.best_day.total_seconds / 3600).toFixed(2);
+            infoHtml += `<b>Best Day (Last 30 Days):</b> ${formatDate(bestDayDate)} (${bestDayHours} hours)<br>`;
+        }
+
+        infoHtml += '</p>';
+        
+        // Display top projects in table format
+        if ((projectHours && Object.keys(projectHours).length > 0) || 
+            (yearlyProjectHours && Object.keys(yearlyProjectHours).length > 0)) {
+            
+            infoHtml += '<div style="margin-top: 20px;"><table border="0" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; font-size: 11pt; border: none;">';
+            
+            // Get top 10 projects (all time)
+            let top10Projects = [];
+            if (projectHours && Object.keys(projectHours).length > 0) {
+                top10Projects = Object.entries(projectHours)
+                    .map(([name, hours]) => ({ name, hours }))
+                    .sort((a, b) => b.hours - a.hours)
+                    .slice(0, 10);
+            }
+            
+            // Get years and their top 3 projects
+            const years = yearlyProjectHours ? Object.keys(yearlyProjectHours).map(y => parseInt(y)).sort() : [];
+            const yearData = {};
+            years.forEach(year => {
+                const yearProjects = yearlyProjectHours[year];
+                if (yearProjects && Object.keys(yearProjects).length > 0) {
+                    yearData[year] = Object.entries(yearProjects)
+                        .map(([name, hours]) => ({ name, hours }))
+                        .sort((a, b) => b.hours - a.hours)
+                        .slice(0, 4);
+                }
+            });
+            
+            // Calculate table layout
+            // First two rows: rowspan=2 for Top 10, then years in columns
+            // Row 1: Top 10 (rowspan=2) | Year[0] | Year[1]
+            // Row 2: (merged)            | Year[2] | Year[3]
+            // Row 3: Year[4] | Year[5] | Year[6]
+            // etc.
+            
+            const yearKeys = Object.keys(yearData).map(y => parseInt(y)).sort();
+            const totalRows = Math.max(
+                Math.ceil((yearKeys.length - 2) / 3) + 2, // Years after first 4, plus first 2 rows
+                top10Projects.length > 0 ? Math.ceil(top10Projects.length / 1) + 1 : 0 // Top 10 needs space
+            );
+            
+            // First row
+            infoHtml += '<tr>';
+            if (top10Projects.length > 0) {
+                infoHtml += `<td rowspan="2" style="vertical-align: top; width: 33%;"><b>Top 10 Projects (All Time):</b><br>`;
+                top10Projects.forEach((project, index) => {
+                    infoHtml += `${index + 1}. ${project.name}: ${project.hours.toFixed(1)}h<br>`;
+                });
+                infoHtml += '</td>';
+            } else {
+                infoHtml += '<td rowspan="2" style="vertical-align: top; width: 33%;"></td>';
+            }
+            
+            // Year columns for first row
+            if (yearKeys.length > 0) {
+                infoHtml += `<td style="vertical-align: top; width: 33%;"><b>Top 4 Projects (${yearKeys[0]}):</b><br>`;
+                if (yearData[yearKeys[0]]) {
+                    yearData[yearKeys[0]].forEach((project, index) => {
+                        infoHtml += `${index + 1}. ${project.name}: ${project.hours.toFixed(1)}h<br>`;
+                    });
+                }
+                infoHtml += '</td>';
+            } else {
+                infoHtml += '<td style="vertical-align: top; width: 33%;"></td>';
+            }
+            
+            if (yearKeys.length > 1) {
+                infoHtml += `<td style="vertical-align: top; width: 33%;"><b>Top 4 Projects (${yearKeys[1]}):</b><br>`;
+                if (yearData[yearKeys[1]]) {
+                    yearData[yearKeys[1]].forEach((project, index) => {
+                        infoHtml += `${index + 1}. ${project.name}: ${project.hours.toFixed(1)}h<br>`;
+                    });
+                }
+                infoHtml += '</td>';
+            } else {
+                infoHtml += '<td style="vertical-align: top; width: 33%;"></td>';
+            }
+            infoHtml += '</tr>';
+            
+            // Second row
+            infoHtml += '<tr>';
+            if (yearKeys.length > 2) {
+                infoHtml += `<td style="vertical-align: top; width: 33%;"><b>Top 4 Projects (${yearKeys[2]}):</b><br>`;
+                if (yearData[yearKeys[2]]) {
+                    yearData[yearKeys[2]].forEach((project, index) => {
+                        infoHtml += `${index + 1}. ${project.name}: ${project.hours.toFixed(1)}h<br>`;
+                    });
+                }
+                infoHtml += '</td>';
+            } else {
+                infoHtml += '<td style="vertical-align: top; width: 33%;"></td>';
+            }
+            
+            if (yearKeys.length > 3) {
+                infoHtml += `<td style="vertical-align: top; width: 33%;"><b>Top 4 Projects (${yearKeys[3]}):</b><br>`;
+                if (yearData[yearKeys[3]]) {
+                    yearData[yearKeys[3]].forEach((project, index) => {
+                        infoHtml += `${index + 1}. ${project.name}: ${project.hours.toFixed(1)}h<br>`;
+                    });
+                }
+                infoHtml += '</td>';
+            } else {
+                infoHtml += '<td style="vertical-align: top; width: 33%;"></td>';
+            }
+            infoHtml += '</tr>';
+            
+            // Remaining rows (starting from year index 4)
+            for (let i = 4; i < yearKeys.length; i += 3) {
+                infoHtml += '<tr>';
+                for (let j = 0; j < 3 && (i + j) < yearKeys.length; j++) {
+                    const year = yearKeys[i + j];
+                    infoHtml += `<td style="vertical-align: top; width: 33%;"><b>Top 4 Projects (${year}):</b><br>`;
+                    if (yearData[year]) {
+                        yearData[year].forEach((project, index) => {
+                            infoHtml += `${index + 1}. ${project.name}: ${project.hours.toFixed(1)}h<br>`;
+                        });
+                    }
+                    infoHtml += '</td>';
+                }
+                // Fill empty cells if needed
+                const remainingCells = 3 - Math.min(3, yearKeys.length - i);
+                for (let k = 0; k < remainingCells; k++) {
+                    infoHtml += '<td style="vertical-align: top; width: 33%;"></td>';
+                }
+                infoHtml += '</tr>';
+            }
+            
+            infoHtml += '</table></div>';
+        }
+        
+        document.getElementById('statsInfo').innerHTML = infoHtml;
+    }
+</script>
+
+</body>
+</html>
+
