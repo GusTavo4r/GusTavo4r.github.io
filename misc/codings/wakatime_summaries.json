@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2025-12-30T16:20:48.682437",
-    "total_days": 1460,
+    "last_updated": "2025-12-31T16:19:59.266070",
+    "total_days": 1461,
     "date_range": {
       "start": "2022-01-01",
-      "end": "2025-12-30"
+      "end": "2025-12-31"
     }
   },
   "daily_data": {
@@ -64530,6 +64530,63 @@
           "name": "WMPO",
           "seconds": 241.304,
           "percent": 2.99
+        }
+      ]
+    },
+    "2025-12-31": {
+      "date": "2025-12-31",
+      "total_seconds": 13558.063,
+      "total_hours": 3.77,
+      "text": "3 hrs 45 mins",
+      "languages": [
+        {
+          "name": "Python",
+          "seconds": 13373.597,
+          "percent": 98.64
+        },
+        {
+          "name": "Bash",
+          "seconds": 120.521,
+          "percent": 0.89
+        },
+        {
+          "name": "YAML",
+          "seconds": 63.945,
+          "percent": 0.47
+        }
+      ],
+      "editors": [
+        {
+          "name": "Cursor",
+          "seconds": 13558.063,
+          "percent": 100.0
+        }
+      ],
+      "projects": [
+        {
+          "name": "dev7_3",
+          "seconds": 11040.297,
+          "percent": 81.43
+        },
+        {
+          "name": "GeometryCrafter",
+          "seconds": 1614.181,
+          "percent": 11.91
+        },
+        {
+          "name": "MoGe",
+          "seconds": 448.183,
+          "percent": 3.31
+        },
+        {
+          "name": "MIND-V",
+          "seconds": 293.307,
+          "percent": 2.16
+        },
+        {
+          "name": "Motus",
+          "seconds": 98.15,
+          "percent": 0.72
         }
       ]
     }
