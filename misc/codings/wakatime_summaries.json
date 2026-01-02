@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-01-01T16:20:22.221952",
-    "total_days": 1462,
+    "last_updated": "2026-01-02T16:19:17.666713",
+    "total_days": 1463,
     "date_range": {
       "start": "2022-01-01",
-      "end": "2026-01-01"
+      "end": "2026-01-02"
     }
   },
   "daily_data": {
@@ -64592,33 +64592,110 @@
     },
     "2026-01-01": {
       "date": "2026-01-01",
-      "total_seconds": 4516.465,
-      "total_hours": 1.25,
-      "text": "1 hr 15 mins",
+      "total_seconds": 4686.75,
+      "total_hours": 1.3,
+      "text": "1 hr 18 mins",
       "languages": [
         {
           "name": "Python",
-          "seconds": 4506.166,
-          "percent": 99.77
+          "seconds": 4666.637,
+          "percent": 99.57
         },
         {
           "name": "JSON",
           "seconds": 10.299,
-          "percent": 0.23
+          "percent": 0.22
+        },
+        {
+          "name": "Other",
+          "seconds": 9.814,
+          "percent": 0.21
         }
       ],
       "editors": [
         {
           "name": "Cursor",
-          "seconds": 4516.465,
+          "seconds": 4686.75,
           "percent": 100.0
         }
       ],
       "projects": [
         {
           "name": "dev7_3",
-          "seconds": 4516.465,
+          "seconds": 4686.75,
           "percent": 100.0
+        }
+      ]
+    },
+    "2026-01-02": {
+      "date": "2026-01-02",
+      "total_seconds": 11040.772,
+      "total_hours": 3.07,
+      "text": "3 hrs 4 mins",
+      "languages": [
+        {
+          "name": "Python",
+          "seconds": 10485.922,
+          "percent": 94.97
+        },
+        {
+          "name": "TOML",
+          "seconds": 444.831,
+          "percent": 4.03
+        },
+        {
+          "name": "JSON",
+          "seconds": 44.109,
+          "percent": 0.4
+        },
+        {
+          "name": "Text",
+          "seconds": 40.748,
+          "percent": 0.37
+        },
+        {
+          "name": "Bash",
+          "seconds": 16.302,
+          "percent": 0.15
+        },
+        {
+          "name": "Other",
+          "seconds": 8.86,
+          "percent": 0.08
+        }
+      ],
+      "editors": [
+        {
+          "name": "Cursor",
+          "seconds": 11040.772,
+          "percent": 100.0
+        }
+      ],
+      "projects": [
+        {
+          "name": "dev7_3",
+          "seconds": 9670.669,
+          "percent": 87.59
+        },
+        {
+          "name": "Any4D",
+          "seconds": 999.067,
+          "percent": 9.05
+        },
+        {
+          "name": "Video-Depth-Anything",
+          "seconds": 234.573,
+          "percent": 2.12
+        },
+        {
+          "name": "Depth-Anything-3",
+          "seconds": 131.735,
+          "percent": 1.19
+        },
+        {
+          "name": "GeometryCrafter",
+          "seconds": 4.728,
+          "percent": 0.04
         }
       ]
     }
